@@ -1,0 +1,18 @@
+# # PFLitePaymentLinkRequestSettings
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**selectedCustomerFields** | **string** |  |
+**additionalDetailsPreference** | **string** |  |
+**displaySummary** | **bool** |  | [optional]
+**acceptCustomerInfo** | **bool** |  | [optional]
+**removeHeader** | **bool** |  | [optional]
+**acceptCard** | **bool** |  | [optional]
+**acceptBankAccount** | **bool** |  | [optional]
+**saveCustomer** | **bool** |  | [optional]
+**saveCustomerAccount** | **bool** |  | [optional]
+**intent** | [**\OpenAPI\Client\Model\PaymentLinkRequestSettingsIntent**](PaymentLinkRequestSettingsIntent.md) |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
