@@ -61,7 +61,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
         'traceNumber' => 'string',
         'transactionCode' => 'string',
         'transactionOrigin' => 'string',
-        'refundOrigin' => '\OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin',
+        'refundOrigin' => 'int',
         'billingContact' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact',
         'shippingContact' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact',
         'referenceTransactionId' => 'string',
@@ -1028,7 +1028,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets refundOrigin
      *
-     * @return \OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin|null
+     * @return int|null
      */
     public function getRefundOrigin()
     {
@@ -1038,7 +1038,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets refundOrigin
      *
-     * @param \OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin|null $refundOrigin refundOrigin
+     * @param int|null $refundOrigin refundOrigin
      *
      * @return self
      */

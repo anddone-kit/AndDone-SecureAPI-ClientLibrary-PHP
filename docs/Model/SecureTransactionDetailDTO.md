@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **traceNumber** | **string** |  | [optional]
 **transactionCode** | **string** |  | [optional]
 **transactionOrigin** | **string** |  | [optional]
-**refundOrigin** | [**\OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin**](TransactionPaymentResponseRefundOrigin.md) |  | [optional]
+**refundOrigin** | **int** |  | [optional]
 **billingContact** | [**\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact**](TransactionPaymentResponseBillingContact.md) |  | [optional]
 **shippingContact** | [**\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact**](TransactionPaymentResponseBillingContact.md) |  | [optional]
 **referenceTransactionId** | **string** |  | [optional]

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **accountToken** | **string** |  | [optional]
 **accountTokenMessage** | **string** |  | [optional]
 **createAccountToken** | **bool** |  | [optional]
-**commissionType** | [**\OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfoCommissionType**](TransactionPaymentResponseAchTenderInfoCommissionType.md) |  | [optional]
+**commissionType** | **string** |  | [optional]
 **commissionValue** | **float** |  | [optional]
 **commissionFixedValue** | **float** |  | [optional]
 **currency** | **string** |  | [optional]

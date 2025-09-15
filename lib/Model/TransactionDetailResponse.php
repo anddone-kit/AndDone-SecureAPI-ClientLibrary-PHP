@@ -61,7 +61,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
         'batchId' => 'string',
         'transactionCode' => 'string',
         'transactionOrigin' => 'string',
-        'refundOrigin' => '\OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin',
+        'refundOrigin' => 'int',
         'billingContact' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact',
         'referenceTransactionId' => 'string',
         'transactionDate' => 'string',
@@ -1089,7 +1089,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets refundOrigin
      *
-     * @return \OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin|null
+     * @return int|null
      */
     public function getRefundOrigin()
     {
@@ -1099,7 +1099,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets refundOrigin
      *
-     * @param \OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin|null $refundOrigin refundOrigin
+     * @param int|null $refundOrigin refundOrigin
      *
      * @return self
      */

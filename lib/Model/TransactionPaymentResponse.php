@@ -67,7 +67,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
         'processMethod' => 'string',
         'processorName' => 'string',
         'transactionOrigin' => 'string',
-        'refundOrigin' => '\OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin',
+        'refundOrigin' => 'int',
         'achTenderInfo' => '\OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfo',
         'ccTenderInfo' => '\OpenAPI\Client\Model\TransactionPaymentResponseCcTenderInfo',
         'debitCardTenderInfo' => '\OpenAPI\Client\Model\TransactionPaymentResponseCcTenderInfo',
@@ -1043,7 +1043,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets refundOrigin
      *
-     * @return \OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin|null
+     * @return int|null
      */
     public function getRefundOrigin()
     {
@@ -1053,7 +1053,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets refundOrigin
      *
-     * @param \OpenAPI\Client\Model\TransactionPaymentResponseRefundOrigin|null $refundOrigin refundOrigin
+     * @param int|null $refundOrigin refundOrigin
      *
      * @return self
      */

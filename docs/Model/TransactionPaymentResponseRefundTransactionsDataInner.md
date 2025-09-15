@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **adjustmentDisplayName** | **string** |  | [optional]
 **adjustmentDescriptorMessage** | **string** |  | [optional]
 **paymentAdjustmentType** | **string** |  | [optional]
-**commissionType** | [**\OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfoCommissionType**](TransactionPaymentResponseAchTenderInfoCommissionType.md) |  | [optional]
+**commissionType** | **string** |  | [optional]
 **commissionValue** | **float** |  | [optional]
 **commissionFixedValue** | **float** |  | [optional]
 **accountToken** | **string** |  | [optional]

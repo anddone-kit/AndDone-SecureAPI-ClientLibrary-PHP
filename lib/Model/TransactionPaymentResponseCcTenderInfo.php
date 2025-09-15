@@ -76,7 +76,7 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
         'accountToken' => 'string',
         'accountTokenMessage' => 'string',
         'createAccountToken' => 'bool',
-        'commissionType' => '\OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfoCommissionType',
+        'commissionType' => 'string',
         'commissionValue' => 'float',
         'commissionFixedValue' => 'float'
     ];
@@ -359,6 +359,8 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
     public const PAYMENT_ADJUSTMENT_TYPE_SURCHARGE = 'Surcharge';
     public const PAYMENT_ADJUSTMENT_TYPE_CONVENIENCE_FEE = 'ConvenienceFee';
     public const PAYMENT_ADJUSTMENT_TYPE_CASH_DISCOUNT = 'CashDiscount';
+    public const COMMISSION_TYPE_FIXED = 'Fixed';
+    public const COMMISSION_TYPE_PERCENTAGE = 'Percentage';
 
     /**
      * Gets allowable values of the enum
@@ -373,6 +375,19 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
             self::PAYMENT_ADJUSTMENT_TYPE_SURCHARGE,
             self::PAYMENT_ADJUSTMENT_TYPE_CONVENIENCE_FEE,
             self::PAYMENT_ADJUSTMENT_TYPE_CASH_DISCOUNT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommissionTypeAllowableValues()
+    {
+        return [
+            self::COMMISSION_TYPE_FIXED,
+            self::COMMISSION_TYPE_PERCENTAGE,
         ];
     }
 
@@ -447,6 +462,15 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'paymentAdjustmentType', must be one of '%s'",
                 $this->container['paymentAdjustmentType'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getCommissionTypeAllowableValues();
+        if (!is_null($this->container['commissionType']) && !in_array($this->container['commissionType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'commissionType', must be one of '%s'",
+                $this->container['commissionType'],
                 implode("', '", $allowedValues)
             );
         }
@@ -992,7 +1016,7 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
     /**
      * Gets commissionType
      *
-     * @return \OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfoCommissionType|null
+     * @return string|null
      */
     public function getCommissionType()
     {
@@ -1002,7 +1026,7 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
     /**
      * Sets commissionType
      *
-     * @param \OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfoCommissionType|null $commissionType commissionType
+     * @param string|null $commissionType commissionType
      *
      * @return self
      */
@@ -1010,6 +1034,16 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
     {
         if (is_null($commissionType)) {
             throw new \InvalidArgumentException('non-nullable commissionType cannot be null');
+        }
+        $allowedValues = $this->getCommissionTypeAllowableValues();
+        if (!in_array($commissionType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'commissionType', must be one of '%s'",
+                    $commissionType,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['commissionType'] = $commissionType;
 

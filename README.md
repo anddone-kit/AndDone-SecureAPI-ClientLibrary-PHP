@@ -1,172 +1,91 @@
-# AndDone Client Library - PHP
+# OpenAPIClient-php
 
-This client library integrates with AndDone's secure APIs.
+Secure API
 
-Please see our developer documentation & API Explorer, linked below, for detailed instructions on how to integrate this into your systems.
 
-**Secure API PHP Client**
+## Installation & Usage
 
-This PHP SDK is an auto-generated client for the AndDone Secure API, built using the [OpenAPI Generator](https://openapi-generator.tech).
+### Requirements
 
-* **API version**: 2.3
-* **Generator version**: 7.9.0
-* **Build package**: `org.openapitools.codegen.languages.PhpClientCodegen`
-* **Developer Documentation**: [DevDocs](https://docs.anddone.com/)
-* **API Explorer**: [AndDone API Explorer](https://docs.anddone.com/explorer/)
+PHP 7.4 and later.
+Should also work with PHP 8.0.
 
----
+### Composer
 
-## Table of Contents
-
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Configuration](#configuration)
-* [Quickstart](#quickstart)
-* [API Endpoints](#api-endpoints)
-* [Models](#models)
-* [Authorization](#authorization)
-* [Testing](#testing)
-* [Support & Versioning](#support--versioning)
-
----
-
-## Requirements
-
-* **PHP 7.4+** (works with PHP 8.0+)
-* Composer package manager
-* Access to **AndDone Merchant Portal** for API keys
-
----
-
-## Installation
-
-Install via [Composer](https://getcomposer.org/). In your `composer.json`:
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
 ```json
 {
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/anddone-kit/AndDone-SecureAPI-ClientLibrary-PHP.git"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "anddone-kit/AndDone-SecureAPI-ClientLibrary-PHP": "*@dev"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
 
-Then run:
+Then run `composer install`
 
-```bash
-composer install
-```
+### Manual Installation
 
-Or, if manually installing, include the autoloader:
+Download the files and include `autoload.php`:
 
 ```php
 <?php
 require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
----
-
-## Configuration
-
-1. **Retrieve Developer Credentials:**
-
-   1. Log in to AndDone Merchant Portal:
-
-      * **UAT**: [https://portal.uat.anddone.com](https://portal.uat.anddone.com)
-      * **Production**: [https://portal.anddone.com](https://portal.anddone.com)
-   2. Go to **Developer → API Keys** in the left menu.
-   3. Copy:
-
-      * `xApiKey` (API Key)
-      * `xAppKey` (App Key)
-
-2. **Determine Your Origin:**
-   The `origin` is your public IP address.
-   Find it by searching **"what's my IP"** in Google or visiting [https://www.whatsmyip.org](https://www.whatsmyip.org).
-
-   * Contact AndDone support to ensure your origin IP is registered.
-   * Email: [support@anddone.com](mailto:support@anddone.com)
-
-3. **Optional: Create a Configuration File**
-   Store your values in a JSON file (`config.json`) for reuse:
-
-   ```json
-   {
-     "xApiKey": "YOUR_API_KEY",
-     "xAppKey": "YOUR_APP_KEY",
-     "xVersion": "2.3",
-     "origin": "YOUR_IP_ADDRESS"
-   }
-   ```
-
----
-
-## Quickstart
-
-Here’s a minimal working example to call the **Secure Create Payment Intent API**:
+## Getting Started
+1. Find and note your company AndDone Developer settings.
+   1. Login to (UAT) https://portal.uat.anddone.com/   (Production) https://portal.anddone.com/
+   2. In the left menu, click "Developer" then "API Keys"
+   3. Your xApiKey will be the API Key
+   4. Your xAppKey will be the App Key
+2. You will need to register your Origin with us to execute API calls against our Secure endpoints.
+   1. Typically, we use your domain for production or other hosted environments and IP address for local development environments.
+   2. Contact AndDone support (integrations@anddone.com) or your onboarding agent to ensure all your domains or IP addresses you may use are registered for use with our secure APIs.
+3. Please follow the [installation procedure](#installation--usage) and then modify and run the following:
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use \OpenAPI\Client\Api\SecurePaymentIntentApi;
+use \OpenAPI\Client\Model\PaymentIntentRequest;
+use \OpenAPI\Client\Model\PaymentIntentResponse;
+use \OpenAPI\Client\Model\PaymentIntentExpiresResponse;
+use Exception;
 
-use OpenAPI\Client\Api\SecurePaymentIntentApi;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\Model\PaymentIntentRequest;
+$xApiKey = 'YOUR_API_KEY';
+$xAppKey = 'YOUR_APP_KEY';
+$xVersion = 2.3;
+$origin = 'YOUR_ORIGIN';
 
-// Configure API keys
-$config = Configuration::getDefaultConfiguration()
-    ->setApiKey('x-api-key', 'YOUR_API_KEY')
-    ->setApiKey('x-app-key', 'YOUR_APP_KEY')
-    ->setApiKey('x-version', '2.3')
-    ->setApiKey('origin', 'YOUR_ORIGIN');
+$config = new Configuration();
+$apiInstance = new SecurePaymentIntentApi(null, $config);
 
-// Initialize API client
-$apiInstance = new SecurePaymentIntentApi(
-    new GuzzleHttp\Client(),
-    $config
-);
+$json = '{
+  Your_Payment_Intent_Request_Data
+}';
 
-// Build request
-$request = new PaymentIntentRequest([
-    'saveForFuture' => true,
-    'amount' => 10000,
-    'title' => 'YOUR UNIQUE TITLE',
-    'shortDescription' => 'shortDescription',
-    'paymentDescription' => 'paymentDescription',
-    'invoiceNumber' => 'php-sdk',
-    'expiresIn' => '300000',
-    'intent' => [
-        'paymentTypes' => ['CreditCard', 'ACH']
-    ],
-    'enablePremiumFinance' => true,
-    'additionalDetailsPreference' => 'NoAdditionalDetails'
-]);
+$httpBody = json_decode($json, true);
 
-// Execute API call
+$requestBody = new PaymentIntentRequest ($httpBody); // \OpenAPI\Client\Model\PaymentIntentRequest | Payment Intent Request details
+
 try {
-    $result = $apiInstance->securePaymentintentsPost($request);
+    $result = $apiInstance->securePaymentintentsPost($xApiKey, $xAppKey, $xVersion, $origin, $requestBody);
     print_r($result);
 } catch (Exception $e) {
-    echo "Exception when calling SecurePaymentIntentApi: ", $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SecurePaymentIntentApi->securePaymentintentsPost: ', $e->getMessage(), PHP_EOL;
 }
-```
 
----
+```
 
 ## API Endpoints
 
-All URIs are relative to:
-
-* **UAT**: `https://api.uat.anddone.com`
-* **Production**: `https://api.anddone.com`
-
-<details>
-  <summary>Click to view all endpoints</summary>
+All URIs are relative to *https://api.uat.anddone.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -225,15 +144,7 @@ Class | Method | HTTP request | Description
 *SecureVendorManagementApi* | [**vendorapiSecureMerchantsVendorsUnsuspendPost**](docs/Api/SecureVendorManagementApi.md#vendorapisecuremerchantsvendorsunsuspendpost) | **POST** /vendorapi/secure/merchants/vendors/unsuspend | This API unsuspends vendor into system
 *SecureVoidsApi* | [**secureCancellationsPost**](docs/Api/SecureVoidsApi.md#securecancellationspost) | **POST** /secure/cancellations | This API cancel a transaction.
 
-
-</details>
-
----
-
 ## Models
-
-<details>
-  <summary>Click to view all models</summary>
 
 - [BankDetailDto](docs/Model/BankDetailDto.md)
 - [CancelPaymentRequestDTO](docs/Model/CancelPaymentRequestDTO.md)
@@ -396,12 +307,10 @@ Class | Method | HTTP request | Description
 - [TransactionDetailResponseTenderInfo](docs/Model/TransactionDetailResponseTenderInfo.md)
 - [TransactionPaymentResponse](docs/Model/TransactionPaymentResponse.md)
 - [TransactionPaymentResponseAchTenderInfo](docs/Model/TransactionPaymentResponseAchTenderInfo.md)
-- [TransactionPaymentResponseAchTenderInfoCommissionType](docs/Model/TransactionPaymentResponseAchTenderInfoCommissionType.md)
 - [TransactionPaymentResponseBillingContact](docs/Model/TransactionPaymentResponseBillingContact.md)
 - [TransactionPaymentResponseBillingContactAddress](docs/Model/TransactionPaymentResponseBillingContactAddress.md)
 - [TransactionPaymentResponseBillingContactName](docs/Model/TransactionPaymentResponseBillingContactName.md)
 - [TransactionPaymentResponseCcTenderInfo](docs/Model/TransactionPaymentResponseCcTenderInfo.md)
-- [TransactionPaymentResponseRefundOrigin](docs/Model/TransactionPaymentResponseRefundOrigin.md)
 - [TransactionPaymentResponseRefundTransactions](docs/Model/TransactionPaymentResponseRefundTransactions.md)
 - [TransactionPaymentResponseRefundTransactionsDataInner](docs/Model/TransactionPaymentResponseRefundTransactionsDataInner.md)
 - [TransactionPaymentResponseTransactionEntitySplitResponsesInner](docs/Model/TransactionPaymentResponseTransactionEntitySplitResponsesInner.md)
@@ -422,36 +331,54 @@ Class | Method | HTTP request | Description
 - [VerifyBankAccountResponse](docs/Model/VerifyBankAccountResponse.md)
 - [VerifyBankAccountResponseHttpResponse](docs/Model/VerifyBankAccountResponseHttpResponse.md)
 
-
-</details>
-
----
-
 ## Authorization
 
-Authentication is handled via API keys in HTTP headers:
+Authentication schemes defined for the API:
+### x-api-key
 
-| Key           | Location | Description             |
-| ------------- | -------- | ----------------------- |
-| **x-api-key** | Header   | Your API key            |
-| **x-app-key** | Header   | Your App key            |
-| **x-version** | Header   | API version (e.g., 2.3) |
-| **origin**    | Header   | Your public IP address  |
+- **Type**: API key
+- **API key parameter name**: x-api-key
+- **Location**: HTTP header
 
----
 
-## Testing
+### x-app-key
 
-To run the tests:
+- **Type**: API key
+- **API key parameter name**: x-app-key
+- **Location**: HTTP header
+
+
+### x-version
+
+- **Type**: API key
+- **API key parameter name**: x-version
+- **Location**: HTTP header
+
+
+### origin
+
+- **Type**: API key
+- **API key parameter name**: origin
+- **Location**: HTTP header
+
+
+## Tests
+
+To run the tests, use:
 
 ```bash
 composer install
 vendor/bin/phpunit
 ```
 
----
+## Author
 
-## Support & Versioning
 
-* **API Environments:** Use UAT for testing; switch to Production only after validation.
-* **Issues:** Report bugs or request features via the [GitHub Issues](https://github.com/anddone-kit/AndDone-SecureAPI-ClientLibrary-PHP/issues) page.
+
+## About this package
+
+This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
+
+- API version: `2.3`
+    - Generator version: `7.9.0`
+- Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
