@@ -250,7 +250,7 @@ class TransactionPaymentResponseCcTenderInfo implements ModelInterface, ArrayAcc
         'createAccountToken' => 'createAccountToken',
         'commissionType' => 'commissionType',
         'commissionValue' => 'commissionValue',
-        'commissionFixedValue' => 'CommissionFixedValue'
+        'commissionFixedValue' => 'commissionFixedValue'
     ];
 
     /**

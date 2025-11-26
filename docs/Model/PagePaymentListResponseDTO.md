@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**totalRowCount** | **float** |  | [optional]
+**totalRowCount** | **int** |  | [optional]
 **totalAmount** | **float** |  | [optional]
 **data** | [**\OpenAPI\Client\Model\PagePaymentListResponseDTODataInner[]**](PagePaymentListResponseDTODataInner.md) |  | [optional]
 

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * VendorRequestDTORemittanceAddressTest Class Doc Comment
  *
  * @category    Class
- * @description VendorRequestDTORemittanceAddress
+ * @description Required if &#x60;useSameAsPhysicalAddress&#x60; is false or missing.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

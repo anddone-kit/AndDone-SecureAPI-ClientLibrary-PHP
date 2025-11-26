@@ -123,4 +123,76 @@ class TransactionPaymentResponseTransactionResultTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "additionResultData"
+     */
+    public function testPropertyAdditionResultData()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additionResultData2"
+     */
+    public function testPropertyAdditionResultData2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "verificationStatus"
+     */
+    public function testPropertyVerificationStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "verification1Code"
+     */
+    public function testPropertyVerification1Code()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "verification2Code"
+     */
+    public function testPropertyVerification2Code()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "errorCode"
+     */
+    public function testPropertyErrorCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "errorMessage"
+     */
+    public function testPropertyErrorMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "merchantReference"
+     */
+    public function testPropertyMerchantReference()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

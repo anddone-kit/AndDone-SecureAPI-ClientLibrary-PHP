@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **email** | **string** |  |
 **careOf** | **string** |  | [optional]
 **uniqueId** | **string** |  | [optional]
-**address** | [**\OpenAPI\Client\Model\QuoteRequestInsuredAddress**](QuoteRequestInsuredAddress.md) |  |
+**address** | [**\OpenAPI\Client\Model\QuoteRequestInsuredAddress**](QuoteRequestInsuredAddress.md) |  | [optional]
 **hasDataChangeAgentCustomerNumber** | **bool** |  | [optional]
 **hasDataChangeName** | **bool** |  | [optional]
 **hasDataChangeAddress1** | **bool** |  | [optional]

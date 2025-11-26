@@ -62,7 +62,7 @@ class PFGenerateQuoteResponseItemESignResult implements ModelInterface, ArrayAcc
         'batchId' => 'string',
         'agentUrl' => 'string',
         'insuredUrl' => 'string',
-        'eSignOption' => 'float'
+        'eSignOption' => 'int'
     ];
 
     /**
@@ -462,7 +462,7 @@ class PFGenerateQuoteResponseItemESignResult implements ModelInterface, ArrayAcc
     /**
      * Gets eSignOption
      *
-     * @return float|null
+     * @return int|null
      */
     public function getESignOption()
     {
@@ -472,7 +472,7 @@ class PFGenerateQuoteResponseItemESignResult implements ModelInterface, ArrayAcc
     /**
      * Sets eSignOption
      *
-     * @param float|null $eSignOption The option chosen for eSign.
+     * @param int|null $eSignOption The option chosen for eSign.
      *
      * @return self
      */

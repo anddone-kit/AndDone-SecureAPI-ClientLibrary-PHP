@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **expireIn** | **int** |  |
 **responseType** | **string** |  | [optional]
 **expireInUnit** | **string** |  |
-**intent** | [**\OpenAPI\Client\Model\PaymentIntentRequestIntent**](PaymentIntentRequestIntent.md) |  |
+**intent** | [**\OpenAPI\Client\Model\PaymentIntentResponseIntent**](PaymentIntentResponseIntent.md) |  |
 **callBackParameters** | [**\OpenAPI\Client\Model\PaymentLinkResponseCallbackParameters**](PaymentLinkResponseCallbackParameters.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

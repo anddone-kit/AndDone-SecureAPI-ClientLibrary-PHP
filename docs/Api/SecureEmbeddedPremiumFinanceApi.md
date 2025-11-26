@@ -28,22 +28,11 @@ This API is will update the policy number
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -75,7 +64,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,22 +90,11 @@ This API will update PFA to book a quote.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -148,7 +126,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,22 +152,11 @@ This API will eSign the pfa with insured name.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -220,7 +187,7 @@ void (empty response body)
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -246,22 +213,11 @@ This API is used to Generate Quotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -293,7 +249,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -381,22 +337,11 @@ This API will return quote by QuoteKey.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -428,7 +373,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -454,22 +399,11 @@ This API will return PFA for given quoteKey.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -501,7 +435,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 

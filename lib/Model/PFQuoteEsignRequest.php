@@ -63,7 +63,8 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'ipAddress' => 'string',
         'macAddress' => 'string',
         'captchaToken' => 'string',
-        'actionName' => 'string'
+        'actionName' => 'string',
+        'isSignAPA' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'ipAddress' => null,
         'macAddress' => null,
         'captchaToken' => null,
-        'actionName' => null
+        'actionName' => null,
+        'isSignAPA' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'ipAddress' => false,
         'macAddress' => false,
         'captchaToken' => false,
-        'actionName' => false
+        'actionName' => false,
+        'isSignAPA' => false
     ];
 
     /**
@@ -190,7 +193,8 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'ipAddress' => 'ipAddress',
         'macAddress' => 'macAddress',
         'captchaToken' => 'captchaToken',
-        'actionName' => 'actionName'
+        'actionName' => 'actionName',
+        'isSignAPA' => 'isSignAPA'
     ];
 
     /**
@@ -205,7 +209,8 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'ipAddress' => 'setIpAddress',
         'macAddress' => 'setMacAddress',
         'captchaToken' => 'setCaptchaToken',
-        'actionName' => 'setActionName'
+        'actionName' => 'setActionName',
+        'isSignAPA' => 'setIsSignAPA'
     ];
 
     /**
@@ -220,7 +225,8 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'ipAddress' => 'getIpAddress',
         'macAddress' => 'getMacAddress',
         'captchaToken' => 'getCaptchaToken',
-        'actionName' => 'getActionName'
+        'actionName' => 'getActionName',
+        'isSignAPA' => 'getIsSignAPA'
     ];
 
     /**
@@ -287,6 +293,7 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('macAddress', $data ?? [], null);
         $this->setIfExists('captchaToken', $data ?? [], null);
         $this->setIfExists('actionName', $data ?? [], null);
+        $this->setIfExists('isSignAPA', $data ?? [], null);
     }
 
     /**
@@ -522,6 +529,33 @@ class PFQuoteEsignRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable actionName cannot be null');
         }
         $this->container['actionName'] = $actionName;
+
+        return $this;
+    }
+
+    /**
+     * Gets isSignAPA
+     *
+     * @return bool|null
+     */
+    public function getIsSignAPA()
+    {
+        return $this->container['isSignAPA'];
+    }
+
+    /**
+     * Sets isSignAPA
+     *
+     * @param bool|null $isSignAPA This denotes isSignAPA status.
+     *
+     * @return self
+     */
+    public function setIsSignAPA($isSignAPA)
+    {
+        if (is_null($isSignAPA)) {
+            throw new \InvalidArgumentException('non-nullable isSignAPA cannot be null');
+        }
+        $this->container['isSignAPA'] = $isSignAPA;
 
         return $this;
     }

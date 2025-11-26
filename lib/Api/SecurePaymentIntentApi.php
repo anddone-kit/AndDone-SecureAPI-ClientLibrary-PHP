@@ -476,16 +476,6 @@ class SecurePaymentIntentApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -574,7 +564,7 @@ class SecurePaymentIntentApi
 
 
             switch($statusCode) {
-                case 201:
+                case 200:
                     if ('\OpenAPI\Client\Model\PaymentIntentResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -646,7 +636,7 @@ class SecurePaymentIntentApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\PaymentIntentResponse',
@@ -851,16 +841,6 @@ class SecurePaymentIntentApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

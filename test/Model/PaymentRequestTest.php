@@ -134,6 +134,15 @@ class PaymentRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "processMethod"
+     */
+    public function testPropertyProcessMethod()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "tenderInfo"
      */
     public function testPropertyTenderInfo()
@@ -146,15 +155,6 @@ class PaymentRequestTest extends TestCase
      * Test attribute "invoiceNo"
      */
     public function testPropertyInvoiceNo()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "poNo"
-     */
-    public function testPropertyPoNo()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -224,15 +224,6 @@ class PaymentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "waitForApproval"
-     */
-    public function testPropertyWaitForApproval()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "issuer"
      */
     public function testPropertyIssuer()
@@ -287,9 +278,9 @@ class PaymentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "pFR"
+     * Test attribute "pfr"
      */
-    public function testPropertyPFR()
+    public function testPropertyPfr()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

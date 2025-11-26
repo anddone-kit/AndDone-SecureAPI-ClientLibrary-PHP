@@ -116,6 +116,15 @@ class SecureTransactionDetailDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "refundOrigin"
+     */
+    public function testPropertyRefundOrigin()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "billingContact"
      */
     public function testPropertyBillingContact()
@@ -233,45 +242,9 @@ class SecureTransactionDetailDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "maskedReferenceCustomerId"
-     */
-    public function testPropertyMaskedReferenceCustomerId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customerAccountId"
-     */
-    public function testPropertyCustomerAccountId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maskedCustomerAccountId"
-     */
-    public function testPropertyMaskedCustomerAccountId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "invoiceNo"
      */
     public function testPropertyInvoiceNo()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "poNo"
-     */
-    public function testPropertyPoNo()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -308,15 +281,6 @@ class SecureTransactionDetailDTOTest extends TestCase
      * Test attribute "recurringId"
      */
     public function testPropertyRecurringId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maskedRecurringId"
-     */
-    public function testPropertyMaskedRecurringId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -449,27 +413,9 @@ class SecureTransactionDetailDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "maskedPartnerId"
-     */
-    public function testPropertyMaskedPartnerId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "orderId"
      */
     public function testPropertyOrderId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maskedOrderId"
-     */
-    public function testPropertyMaskedOrderId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -485,27 +431,9 @@ class SecureTransactionDetailDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "maskedInvoiceId"
-     */
-    public function testPropertyMaskedInvoiceId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "paymentLinkId"
      */
     public function testPropertyPaymentLinkId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maskedPaymentLinkId"
-     */
-    public function testPropertyMaskedPaymentLinkId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

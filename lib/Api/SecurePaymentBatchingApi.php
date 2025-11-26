@@ -483,16 +483,6 @@ class SecurePaymentBatchingApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -773,16 +763,6 @@ class SecurePaymentBatchingApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -814,8 +794,8 @@ class SecurePaymentBatchingApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  float $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $startRow Set StartRow (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $sortField Set SortField (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureBatchesPost'] to see the possible values for this operation
@@ -839,8 +819,8 @@ class SecurePaymentBatchingApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  float $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $startRow Set StartRow (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $sortField Set SortField (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureBatchesPost'] to see the possible values for this operation
@@ -971,8 +951,8 @@ class SecurePaymentBatchingApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  float $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $startRow Set StartRow (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $sortField Set SortField (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureBatchesPost'] to see the possible values for this operation
@@ -999,8 +979,8 @@ class SecurePaymentBatchingApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  float $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $startRow Set StartRow (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $sortField Set SortField (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureBatchesPost'] to see the possible values for this operation
@@ -1056,8 +1036,8 @@ class SecurePaymentBatchingApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  float $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $startRow Set StartRow (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $sortField Set SortField (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureBatchesPost'] to see the possible values for this operation
@@ -1112,7 +1092,7 @@ class SecurePaymentBatchingApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $startRow,
             'startRow', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1121,7 +1101,7 @@ class SecurePaymentBatchingApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $pageSize,
             'pageSize', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1195,16 +1175,6 @@ class SecurePaymentBatchingApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1576,16 +1546,6 @@ class SecurePaymentBatchingApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1866,16 +1826,6 @@ class SecurePaymentBatchingApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

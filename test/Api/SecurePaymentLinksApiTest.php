@@ -29,8 +29,15 @@ namespace OpenAPI\Client\Test\Api;
 
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
+use OpenAPI\Client\Model\PaymentIntentExpiresResponse;
+use OpenAPI\Client\Model\PaymentLinkResponse;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use OpenAPI\Client\Api\SecurePaymentLinksApi;
+use OpenAPI\Client\Model\PaymentLinkRequest;
+use OpenAPI\Client\Model\SecurePaymentLinkRequest;
+use OpenAPI\Client\Model\SecureUpdatePaymentLinkRequest;
+use Exception;
 
 /**
  * SecurePaymentLinksApiTest Class Doc Comment
@@ -42,7 +49,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecurePaymentLinksApiTest extends TestCase
 {
-
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
     /**
      * Setup before running any test cases
      */
@@ -71,42 +84,13 @@ class SecurePaymentLinksApiTest extends TestCase
     {
     }
 
-    /**
-     * Test case for securePaymentlinksDetailsPost
-     *
-     * This API is used for getting Payment Links by PaymentLink ID.
-     *
-     */
-    public function testSecurePaymentlinksDetailsPost()
+    protected function &getId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+        static $id = null;
 
-    /**
-     * Test case for securePaymentlinksExpirationsPost
-     *
-     * This API is used for to set expired payment link.
-     *
-     */
-    public function testSecurePaymentlinksExpirationsPost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        return $id;
     }
-
-    /**
-     * Test case for securePaymentlinksIdPut
-     *
-     * This API is used to update Payment Links.
-     *
-     */
-    public function testSecurePaymentlinksIdPut()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
+    
     /**
      * Test case for securePaymentlinksPost
      *
@@ -115,7 +99,178 @@ class SecurePaymentLinksApiTest extends TestCase
      */
     public function testSecurePaymentlinksPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentLinksApi();
+        $payload = [
+            "title" => "PHP PL - ". date("Y m d H-i-s"),
+            "merchant_id" => $this->appKey,
+            "payment_description" => "Test Premium down payment.",
+            "amount" => 200,
+            "expire_in" => "7",
+            "expire_in_unit" => 4,
+            "reference_type" => "2",
+            "reference_number" => "TEST00000002",
+            "reference_key" => "",
+            "response_type" => 1,
+            "callback_parameters" => [
+                "callbackApiUrl" => "https://www.anddone.com",
+                "callbackMessage" => "Thank you for your payment!",
+                "redirectionTime" => ""
+            ],
+            "customers" => [[
+                "firstName" => "Testing",
+                "lastName" => "Tester",
+                "email" => "tt@test.com",
+                "phone" => "9876543210",
+                "address" => [
+                    "addressLine1" => "123 Lois Ln.",
+                    "addressLine2" => "#123",
+                    "city" => "Tampa",
+                    "state" => "FL",
+                    "country"=> 1,
+                    "postalCode" => "33613"
+                ]
+            ]],
+            "settings" => [
+                "additionalDetailsPreference" => 2,
+                "intent" => [
+                    "PaymentTypes" => [
+                        "ACH",
+                        "CreditCard",
+                        "DebitCard"
+                    ]
+                ]
+            ]
+        ];
+
+        $request = new PaymentLinkRequest($payload);
+
+        try {
+            $result = $apiInstance->securePaymentlinksPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentLinkResponse::class, $result);
+            print "Success: PL - Create Payment Link\n";
+            $id = &$this->getId();
+            $id = $result["id"];
+            return $id;
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for securePaymentlinksIdPut
+     *
+     * This API is used to update Payment Links.
+     *
+     */
+    #[Depends('testSecurePaymentlinksPost')]
+    public function testSecurePaymentlinksIdPut()
+    {
+        $apiInstance = new SecurePaymentLinksApi();
+        $payload = [
+            "title" => "PHP PL - ". date("Y m d H-i-s"). " UPDATED",
+            "amount" => 200,
+            "expire_in" => "7",
+            "expire_in_unit" => 4,
+        ];
+
+        $request = new SecureUpdatePaymentLinkRequest($payload);
+        $id = &$this->getId();
+
+        try {
+            $result = $apiInstance->securePaymentlinksIdPut(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $id,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentLinkResponse::class, $result);
+            print "Success: PL - Update Payment Link\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for securePaymentlinksDetailsPost
+     *
+     * This API is used for getting Payment Links by PaymentLink ID.
+     *
+     */
+    #[Depends('testSecurePaymentlinksIdPut')]
+    public function testSecurePaymentlinksDetailsPost()
+    {
+        $apiInstance = new SecurePaymentLinksApi();
+        $id = &$this->getId();
+        $payload = [
+            "payment_link_id" => $id,
+        ];
+
+        $request = new SecurePaymentLinkRequest($payload);
+
+        try {
+            $result = $apiInstance->securePaymentlinksDetailsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentLinkResponse::class, $result);
+            print "Success: PL - Get Payment Link Details\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for securePaymentlinksExpirationsPost
+     *
+     * This API is used for to set expired payment link.
+     *
+     */
+    #[Depends('testSecurePaymentlinksDetailsPost')]
+    public function testSecurePaymentlinksExpirationsPost()
+    {
+        $apiInstance = new SecurePaymentLinksApi();
+        $id = &$this->getId();
+        $payload = [
+            "payment_link_id" => $id,
+        ];
+
+        $request = new SecurePaymentLinkRequest($payload);
+
+        try {
+            $result = $apiInstance->securePaymentlinksExpirationsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentIntentExpiresResponse::class, $result);
+            print "Success: PL - Expire Payment Link\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

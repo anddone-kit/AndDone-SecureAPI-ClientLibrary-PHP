@@ -64,7 +64,7 @@ class PaymentIntentResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'paymentDescription' => 'string',
         'invoiceNumber' => 'string',
         'expiresOn' => 'string',
-        'intent' => '\OpenAPI\Client\Model\PaymentIntentRequestIntent',
+        'intent' => '\OpenAPI\Client\Model\PaymentIntentResponseIntent',
         'saveForFuture' => 'bool',
         'enablePremiumFinance' => 'bool',
         'splits' => '\OpenAPI\Client\Model\PaymentIntentRequestSplitsInner[]',
@@ -684,7 +684,7 @@ class PaymentIntentResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets intent
      *
-     * @return \OpenAPI\Client\Model\PaymentIntentRequestIntent|null
+     * @return \OpenAPI\Client\Model\PaymentIntentResponseIntent|null
      */
     public function getIntent()
     {
@@ -694,7 +694,7 @@ class PaymentIntentResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets intent
      *
-     * @param \OpenAPI\Client\Model\PaymentIntentRequestIntent|null $intent intent
+     * @param \OpenAPI\Client\Model\PaymentIntentResponseIntent|null $intent intent
      *
      * @return self
      */

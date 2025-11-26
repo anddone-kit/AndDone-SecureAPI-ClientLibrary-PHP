@@ -57,7 +57,7 @@ class MerchantTransactionEntityResponse implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalRowCount' => 'float',
+        'totalRowCount' => 'int',
         'data' => '\OpenAPI\Client\Model\MerchantTransactionEntityResponseDataInner[]'
     ];
 
@@ -299,7 +299,7 @@ class MerchantTransactionEntityResponse implements ModelInterface, ArrayAccess, 
     /**
      * Gets totalRowCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTotalRowCount()
     {
@@ -309,7 +309,7 @@ class MerchantTransactionEntityResponse implements ModelInterface, ArrayAccess, 
     /**
      * Sets totalRowCount
      *
-     * @param float|null $totalRowCount totalRowCount
+     * @param int|null $totalRowCount totalRowCount
      *
      * @return self
      */

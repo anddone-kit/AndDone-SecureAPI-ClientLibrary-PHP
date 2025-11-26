@@ -58,12 +58,12 @@ class PFEndorsementRequestQuote implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'accountNumber' => 'string',
-        'agreementId' => 'string',
+        'agreementId' => 'int',
         'merchantReference' => 'string',
         'policies' => '\OpenAPI\Client\Model\PFEndorsementRequestQuotePoliciesInner[]',
         'details' => '\OpenAPI\Client\Model\PFEndorsementRequestQuoteDetails',
         'insured' => '\OpenAPI\Client\Model\PFEndorsementRequestQuoteInsured',
-        'agent' => '\OpenAPI\Client\Model\PFEndorsementRequestQuoteAgent',
+        'agent' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent',
         'communication' => '\OpenAPI\Client\Model\PFEndorsementRequestQuoteCommunication'
     ];
 
@@ -192,8 +192,8 @@ class PFEndorsementRequestQuote implements ModelInterface, ArrayAccess, \JsonSer
         'merchantReference' => 'merchantReference',
         'policies' => 'policies',
         'details' => 'details',
-        'insured' => 'Insured',
-        'agent' => 'Agent',
+        'insured' => 'insured',
+        'agent' => 'agent',
         'communication' => 'communication'
     ];
 
@@ -377,7 +377,7 @@ class PFEndorsementRequestQuote implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets agreementId
      *
-     * @return string
+     * @return int
      */
     public function getAgreementId()
     {
@@ -387,7 +387,7 @@ class PFEndorsementRequestQuote implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets agreementId
      *
-     * @param string $agreementId This denotes the agreementId received in check endorsement API.
+     * @param int $agreementId This denotes the agreementId received in check endorsement API.
      *
      * @return self
      */
@@ -512,7 +512,7 @@ class PFEndorsementRequestQuote implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets agent
      *
-     * @return \OpenAPI\Client\Model\PFEndorsementRequestQuoteAgent|null
+     * @return \OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent|null
      */
     public function getAgent()
     {
@@ -522,7 +522,7 @@ class PFEndorsementRequestQuote implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets agent
      *
-     * @param \OpenAPI\Client\Model\PFEndorsementRequestQuoteAgent|null $agent agent
+     * @param \OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent|null $agent agent
      *
      * @return self
      */

@@ -98,6 +98,15 @@ class TransactionPaymentResponseAchTenderInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "accountType"
+     */
+    public function testPropertyAccountType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "checkType"
      */
     public function testPropertyCheckType()
@@ -173,33 +182,6 @@ class TransactionPaymentResponseAchTenderInfoTest extends TestCase
      * Test attribute "binNumber"
      */
     public function testPropertyBinNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAmount"
-     */
-    public function testPropertyTaxAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAfterDiscount"
-     */
-    public function testPropertyTaxAfterDiscount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxPercent"
-     */
-    public function testPropertyTaxPercent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -305,33 +287,6 @@ class TransactionPaymentResponseAchTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "discountType"
-     */
-    public function testPropertyDiscountType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountPercent"
-     */
-    public function testPropertyDiscountPercent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountAmount"
-     */
-    public function testPropertyDiscountAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "commissionType"
      */
     public function testPropertyCommissionType()
@@ -344,6 +299,15 @@ class TransactionPaymentResponseAchTenderInfoTest extends TestCase
      * Test attribute "commissionValue"
      */
     public function testPropertyCommissionValue()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "commissionFixedValue"
+     */
+    public function testPropertyCommissionFixedValue()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

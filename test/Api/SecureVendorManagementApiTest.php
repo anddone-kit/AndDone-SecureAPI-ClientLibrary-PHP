@@ -31,6 +31,17 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecureVendorManagementApi;
+use \OpenAPI\Client\Model\SecureVendorStatusRequestDTO;
+use \OpenAPI\Client\Model\SecureVendorRequestDTO;
+use \OpenAPI\Client\Model\VendorResponseDTO;
+use \OpenAPI\Client\Model\SecureVendorUpdateRequestDTO;
+use \OpenAPI\Client\Model\SecureVendorResponseDTO;
+use \OpenAPI\Client\Model\VendorRequestDTO;
+use \OpenAPI\Client\Model\PageVendorResponseDTO;
+use \OpenAPI\Client\Model\SecureVendorTimelineRequestDTO;
+use \OpenAPI\Client\Model\VendorTimelineResponseListInner;
+use Exception;
 
 /**
  * SecureVendorManagementApiTest Class Doc Comment
@@ -42,6 +53,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureVendorManagementApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,8 +97,29 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsDeletePost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorId" => "J8P6PBvm",
+            "reason" => "Need this action"
+        ];
+
+        $request = new SecureVendorStatusRequestDTO($payload);
+
+        try {
+            $apiInstance->vendorapiSecureMerchantsVendorsDeletePost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: VM - Vendor Delete\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -91,8 +130,29 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsDetailsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorId" => "J8P6PBvm"
+        ];
+
+        $request = new SecureVendorRequestDTO($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureMerchantsVendorsDetailsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(VendorResponseDTO::class, $result);
+            print "Success: VM - Vendor Details\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -103,8 +163,64 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsEditPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorId" => "J8P6PBvm",
+            "paymentBasedId" => "CPZdOm6xQ",
+            "legalEntityType" => "Corporation",
+            "vendorName" => "Vendor Name",
+            "vendorAliasName" => "Alias",
+            "vendorDbName" => "DB Name",
+            "paymentMethodType" => "Check",
+            "notificationType" => "Email",
+            "vendorNotes" => "Some notes",
+            "phoneNumber" => "1234567890",
+            "isMobileNumber" => "true",
+            "useSameAsPhysicalAddress" => "true",
+            "email" => "vendor@example.com",
+            "url" => "https://vendor.com",
+            "remittanceAddress" => [
+                "attention" => "Attention",
+                "addressLine1" => "123 Main St",
+                "addressLine2" => "Apt 101",
+                "city" => "Pittsford",
+                "state" => "NJ",
+                "country" => "US",
+                "postalCode" => "12345",
+                "addressType" => "Remittance",
+                "addressSource" => "Manual"
+            ],
+            "physicalAddress" => [
+                "attention" => "Attention 2",
+                "addressLine1" => "456 Main St",
+                "addressLine2" => "Apt 202",
+                "city" => "Pittsford",
+                "state" => "NJ",
+                "country" => "US",
+                "postalCode" => "54321",
+                "addressType" => "Correspondence",
+                "addressSource" => "Manual"
+            ]
+        ];
+
+        $request = new SecureVendorUpdateRequestDTO($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureMerchantsVendorsEditPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(SecureVendorResponseDTO::class, $result);
+            print "Success: VM - Vendor Edit\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -115,8 +231,60 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorName" => "Vendor Name",
+            "vendorAliasName" => "Alias",
+            "vendorDbName" => "DB Name",
+            "legalEntityType" => "Corporation",
+            "paymentMethodType" => "Check",
+            "notificationType" => "Email",
+            "vendorNotes" => "Some notes",
+            "phoneNumber" => "1234567890",
+            "isMobileNumber" => "true",
+            "useSameAsPhysicalAddress" => "true",
+            "email" => "vendor@example.com",
+            "url" => "https://vendor.com",
+            "remittanceAddress" => [
+                "attention" => "Attention",
+                "addressLine1" => "123 Main St",
+                "addressLine2" => "Apt 101",
+                "city" => "Pittsford",
+                "state" => "NJ",
+                "country" => "US",
+                "postalCode" => "12345",
+                "addressSource" => "Manual"
+            ],
+            "physicalAddress" => [
+                "attention" => "Attention 2",
+                "addressLine1" => "456 Main St",
+                "addressLine2" => "Apt 202",
+                "city" => "Pittsford",
+                "state" => "NJ",
+                "country" => "US",
+                "postalCode" => "54321",
+                "addressSource" => "Manual"
+            ]
+        ];
+
+        $request = new VendorRequestDTO($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureMerchantsVendorsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(SecureVendorResponseDTO::class, $result);
+            print "Success: VM - Vendor Create\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -127,8 +295,41 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsSearchPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $startDate = "04-01-2023";
+        $endDate = "08-25-2023";
+        $startRow = 0;
+        $pageSize = 10;
+
+        try {
+            $result = $apiInstance->vendorapiSecureMerchantsVendorsSearchPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                $startDate,
+                $endDate,
+                $pageSize,
+                null,
+                null,
+                $startRow,
+                null,
+                null,
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PageVendorResponseDTO::class, $result);
+            print "Success: VM - Vendor Search\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -139,8 +340,29 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsSuspendPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorId" => "J8P6PBvm",
+            "reason" => "Need this action"
+        ];
+
+        $request = new SecureVendorStatusRequestDTO($payload);
+
+        try {
+            $apiInstance->vendorapiSecureMerchantsVendorsSuspendPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: VM - Vendor Suspend\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -151,8 +373,29 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsTimelinePost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorId" => "J8P6PBvm"
+        ];
+
+        $request = new SecureVendorTimelineRequestDTO($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureMerchantsVendorsTimelinePost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(VendorTimelineResponseListInner::class, $result);
+            print "Success: VM - Vendor Create\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -163,7 +406,28 @@ class SecureVendorManagementApiTest extends TestCase
      */
     public function testVendorapiSecureMerchantsVendorsUnsuspendPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVendorManagementApi();
+        $payload = [
+            "vendorId" => "J8P6PBvm",
+            "reason" => "Need this action"
+        ];
+
+        $request = new SecureVendorStatusRequestDTO($payload);
+
+        try {
+            $apiInstance->vendorapiSecureMerchantsVendorsUnsuspendPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: VM - Vendor Suspend\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

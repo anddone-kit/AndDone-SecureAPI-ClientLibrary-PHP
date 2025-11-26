@@ -7,6 +7,7 @@ All URIs are relative to https://api.uat.anddone.com, except if the operation de
 | [**vendorapiSecureOutboundPaymentsTimelinesPost()**](SecureOutboundPaymentsApi.md#vendorapiSecureOutboundPaymentsTimelinesPost) | **POST** /vendorapi/secure/outboundPayments/timelines | This API gets outbound payment timelines |
 | [**vendorapiSecureOutboundpaymentsCancelPost()**](SecureOutboundPaymentsApi.md#vendorapiSecureOutboundpaymentsCancelPost) | **POST** /vendorapi/secure/outboundpayments/cancel | This API cancel outbound payment request |
 | [**vendorapiSecureOutboundpaymentsDetailPost()**](SecureOutboundPaymentsApi.md#vendorapiSecureOutboundpaymentsDetailPost) | **POST** /vendorapi/secure/outboundpayments/detail | This API fetch outbound payment by paymentId |
+| [**vendorapiSecureOutboundpaymentsImagePost()**](SecureOutboundPaymentsApi.md#vendorapiSecureOutboundpaymentsImagePost) | **POST** /vendorapi/secure/outboundpayments/image | This API gets outbound payment JPG image in Base64 string format |
 | [**vendorapiSecureOutboundpaymentsPost()**](SecureOutboundPaymentsApi.md#vendorapiSecureOutboundpaymentsPost) | **POST** /vendorapi/secure/outboundpayments | This API creates outbound payment request |
 | [**vendorapiSecureOutboundpaymentsSearchPost()**](SecureOutboundPaymentsApi.md#vendorapiSecureOutboundpaymentsSearchPost) | **POST** /vendorapi/secure/outboundpayments/search | This API gets all outbound payment |
 
@@ -26,22 +27,11 @@ This API gets outbound payment timelines
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureOutboundPaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -73,7 +63,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -99,22 +89,11 @@ This API cancel outbound payment request
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureOutboundPaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -145,7 +124,7 @@ void (empty response body)
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -171,22 +150,11 @@ This API fetch outbound payment by paymentId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureOutboundPaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -218,7 +186,69 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `vendorapiSecureOutboundpaymentsImagePost()`
+
+```php
+vendorapiSecureOutboundpaymentsImagePost($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto): \OpenAPI\Client\Model\OutboundPaymentImageResponseDTO
+```
+
+This API gets outbound payment JPG image in Base64 string format
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SecureOutboundPaymentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$xApiKey = 'xApiKey_example'; // string | an authorization header
+$xAppKey = 'xAppKey_example'; // string | an authorization header
+$xVersion = 3.4; // float | x-version
+$origin = 'origin_example'; // string | origin
+$paymentTimeLineRequestDto = new \OpenAPI\Client\Model\PaymentTimeLineRequestDto(); // \OpenAPI\Client\Model\PaymentTimeLineRequestDto | OutboundPaymentImageRequestDto
+
+try {
+    $result = $apiInstance->vendorapiSecureOutboundpaymentsImagePost($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SecureOutboundPaymentsApi->vendorapiSecureOutboundpaymentsImagePost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiKey** | **string**| an authorization header | |
+| **xAppKey** | **string**| an authorization header | |
+| **xVersion** | **float**| x-version | |
+| **origin** | **string**| origin | |
+| **paymentTimeLineRequestDto** | [**\OpenAPI\Client\Model\PaymentTimeLineRequestDto**](../Model/PaymentTimeLineRequestDto.md)| OutboundPaymentImageRequestDto | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO**](../Model/OutboundPaymentImageResponseDTO.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -244,22 +274,11 @@ This API creates outbound payment request
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureOutboundPaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -291,7 +310,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -305,7 +324,7 @@ try {
 ## `vendorapiSecureOutboundpaymentsSearchPost()`
 
 ```php
-vendorapiSecureOutboundpaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $sortField): \OpenAPI\Client\Model\PagePaymentListResponseDTO
+vendorapiSecureOutboundpaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $startRow, $pageSize, $sortField, $asc): \OpenAPI\Client\Model\PagePaymentListResponseDTO
 ```
 
 This API gets all outbound payment
@@ -317,22 +336,11 @@ This API gets all outbound payment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureOutboundPaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -350,10 +358,13 @@ $toAmount = 3.4; // float | sets toAmount
 $startDate = 'startDate_example'; // string | sets startDate
 $endDate = 'endDate_example'; // string | sets endDate
 $searchText = 'searchText_example'; // string | sets searchText
+$startRow = 56; // int | sets startRow
+$pageSize = 56; // int | sets pageSize
 $sortField = 'sortField_example'; // string | sets sortField
+$asc = True; // bool | Set Asc
 
 try {
-    $result = $apiInstance->vendorapiSecureOutboundpaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $sortField);
+    $result = $apiInstance->vendorapiSecureOutboundpaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $startRow, $pageSize, $sortField, $asc);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecureOutboundPaymentsApi->vendorapiSecureOutboundpaymentsSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -380,7 +391,10 @@ try {
 | **startDate** | **string**| sets startDate | [optional] |
 | **endDate** | **string**| sets endDate | [optional] |
 | **searchText** | **string**| sets searchText | [optional] |
+| **startRow** | **int**| sets startRow | [optional] |
+| **pageSize** | **int**| sets pageSize | [optional] |
 | **sortField** | **string**| sets sortField | [optional] |
+| **asc** | **bool**| Set Asc | [optional] |
 
 ### Return type
 
@@ -388,7 +402,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 

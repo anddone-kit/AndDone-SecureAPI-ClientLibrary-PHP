@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **paymentDescription** | **string** |  | [optional]
 **invoiceNumber** | **string** |  | [optional]
 **expiresOn** | **string** |  | [optional]
-**intent** | [**\OpenAPI\Client\Model\PaymentIntentRequestIntent**](PaymentIntentRequestIntent.md) |  | [optional]
+**intent** | [**\OpenAPI\Client\Model\PaymentIntentResponseIntent**](PaymentIntentResponseIntent.md) |  | [optional]
 **saveForFuture** | **bool** |  | [optional]
 **enablePremiumFinance** | **bool** |  | [optional]
 **splits** | [**\OpenAPI\Client\Model\PaymentIntentRequestSplitsInner[]**](PaymentIntentRequestSplitsInner.md) |  | [optional]

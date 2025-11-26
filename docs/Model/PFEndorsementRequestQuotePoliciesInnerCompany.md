@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bestNumber** | **string** |  | [optional]
 **uniqueID** | **string** |  | [optional]
-**name** | **string** |  |
+**name** | **string** |  | [optional]
 **careOf** | **string** |  | [optional]
 **address1** | **string** |  | [optional]
 **address2** | **string** |  | [optional]

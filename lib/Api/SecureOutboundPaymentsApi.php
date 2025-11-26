@@ -80,6 +80,9 @@ class SecureOutboundPaymentsApi
         'vendorapiSecureOutboundpaymentsDetailPost' => [
             'application/json',
         ],
+        'vendorapiSecureOutboundpaymentsImagePost' => [
+            'application/json',
+        ],
         'vendorapiSecureOutboundpaymentsPost' => [
             'application/json',
         ],
@@ -483,16 +486,6 @@ class SecureOutboundPaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -773,16 +766,6 @@ class SecureOutboundPaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1154,16 +1137,377 @@ class SecureOutboundPaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation vendorapiSecureOutboundpaymentsImagePost
+     *
+     * This API gets outbound payment JPG image in Base64 string format
+     *
+     * @param  string $xApiKey an authorization header (required)
+     * @param  string $xAppKey an authorization header (required)
+     * @param  float $xVersion x-version (required)
+     * @param  string $origin origin (required)
+     * @param  \OpenAPI\Client\Model\PaymentTimeLineRequestDto $paymentTimeLineRequestDto OutboundPaymentImageRequestDto (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\OutboundPaymentImageResponseDTO
+     */
+    public function vendorapiSecureOutboundpaymentsImagePost($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'][0])
+    {
+        list($response) = $this->vendorapiSecureOutboundpaymentsImagePostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation vendorapiSecureOutboundpaymentsImagePostWithHttpInfo
+     *
+     * This API gets outbound payment JPG image in Base64 string format
+     *
+     * @param  string $xApiKey an authorization header (required)
+     * @param  string $xAppKey an authorization header (required)
+     * @param  float $xVersion x-version (required)
+     * @param  string $origin origin (required)
+     * @param  \OpenAPI\Client\Model\PaymentTimeLineRequestDto $paymentTimeLineRequestDto OutboundPaymentImageRequestDto (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\OutboundPaymentImageResponseDTO, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function vendorapiSecureOutboundpaymentsImagePostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'][0])
+    {
+        $request = $this->vendorapiSecureOutboundpaymentsImagePostRequest($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
         }
+    }
+
+    /**
+     * Operation vendorapiSecureOutboundpaymentsImagePostAsync
+     *
+     * This API gets outbound payment JPG image in Base64 string format
+     *
+     * @param  string $xApiKey an authorization header (required)
+     * @param  string $xAppKey an authorization header (required)
+     * @param  float $xVersion x-version (required)
+     * @param  string $origin origin (required)
+     * @param  \OpenAPI\Client\Model\PaymentTimeLineRequestDto $paymentTimeLineRequestDto OutboundPaymentImageRequestDto (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vendorapiSecureOutboundpaymentsImagePostAsync($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'][0])
+    {
+        return $this->vendorapiSecureOutboundpaymentsImagePostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation vendorapiSecureOutboundpaymentsImagePostAsyncWithHttpInfo
+     *
+     * This API gets outbound payment JPG image in Base64 string format
+     *
+     * @param  string $xApiKey an authorization header (required)
+     * @param  string $xAppKey an authorization header (required)
+     * @param  float $xVersion x-version (required)
+     * @param  string $origin origin (required)
+     * @param  \OpenAPI\Client\Model\PaymentTimeLineRequestDto $paymentTimeLineRequestDto OutboundPaymentImageRequestDto (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vendorapiSecureOutboundpaymentsImagePostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\OutboundPaymentImageResponseDTO';
+        $request = $this->vendorapiSecureOutboundpaymentsImagePostRequest($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'vendorapiSecureOutboundpaymentsImagePost'
+     *
+     * @param  string $xApiKey an authorization header (required)
+     * @param  string $xAppKey an authorization header (required)
+     * @param  float $xVersion x-version (required)
+     * @param  string $origin origin (required)
+     * @param  \OpenAPI\Client\Model\PaymentTimeLineRequestDto $paymentTimeLineRequestDto OutboundPaymentImageRequestDto (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function vendorapiSecureOutboundpaymentsImagePostRequest($xApiKey, $xAppKey, $xVersion, $origin, $paymentTimeLineRequestDto, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsImagePost'][0])
+    {
+
+        // verify the required parameter 'xApiKey' is set
+        if ($xApiKey === null || (is_array($xApiKey) && count($xApiKey) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xApiKey when calling vendorapiSecureOutboundpaymentsImagePost'
+            );
+        }
+
+        // verify the required parameter 'xAppKey' is set
+        if ($xAppKey === null || (is_array($xAppKey) && count($xAppKey) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xAppKey when calling vendorapiSecureOutboundpaymentsImagePost'
+            );
+        }
+
+        // verify the required parameter 'xVersion' is set
+        if ($xVersion === null || (is_array($xVersion) && count($xVersion) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xVersion when calling vendorapiSecureOutboundpaymentsImagePost'
+            );
+        }
+
+        // verify the required parameter 'origin' is set
+        if ($origin === null || (is_array($origin) && count($origin) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $origin when calling vendorapiSecureOutboundpaymentsImagePost'
+            );
+        }
+
+        // verify the required parameter 'paymentTimeLineRequestDto' is set
+        if ($paymentTimeLineRequestDto === null || (is_array($paymentTimeLineRequestDto) && count($paymentTimeLineRequestDto) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $paymentTimeLineRequestDto when calling vendorapiSecureOutboundpaymentsImagePost'
+            );
+        }
+
+
+        $resourcePath = '/vendorapi/secure/outboundpayments/image';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($xApiKey !== null) {
+            $headerParams['x-api-key'] = ObjectSerializer::toHeaderValue($xApiKey);
+        }
+        // header params
+        if ($xAppKey !== null) {
+            $headerParams['x-app-key'] = ObjectSerializer::toHeaderValue($xAppKey);
+        }
+        // header params
+        if ($xVersion !== null) {
+            $headerParams['x-version'] = ObjectSerializer::toHeaderValue($xVersion);
+        }
+        // header params
+        if ($origin !== null) {
+            $headerParams['origin'] = ObjectSerializer::toHeaderValue($origin);
+        }
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($paymentTimeLineRequestDto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($paymentTimeLineRequestDto));
+            } else {
+                $httpBody = $paymentTimeLineRequestDto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1535,16 +1879,6 @@ class SecureOutboundPaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1588,16 +1922,19 @@ class SecureOutboundPaymentsApi
      * @param  string $startDate sets startDate (optional)
      * @param  string $endDate sets endDate (optional)
      * @param  string $searchText sets searchText (optional)
+     * @param  int $startRow sets startRow (optional)
+     * @param  int $pageSize sets pageSize (optional)
      * @param  string $sortField sets sortField (optional)
+     * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PagePaymentListResponseDTO
      */
-    public function vendorapiSecureOutboundpaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $sortField = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
+    public function vendorapiSecureOutboundpaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $startRow = null, $pageSize = null, $sortField = null, $asc = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
     {
-        list($response) = $this->vendorapiSecureOutboundpaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $sortField, $contentType);
+        list($response) = $this->vendorapiSecureOutboundpaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $startRow, $pageSize, $sortField, $asc, $contentType);
         return $response;
     }
 
@@ -1622,16 +1959,19 @@ class SecureOutboundPaymentsApi
      * @param  string $startDate sets startDate (optional)
      * @param  string $endDate sets endDate (optional)
      * @param  string $searchText sets searchText (optional)
+     * @param  int $startRow sets startRow (optional)
+     * @param  int $pageSize sets pageSize (optional)
      * @param  string $sortField sets sortField (optional)
+     * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PagePaymentListResponseDTO, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vendorapiSecureOutboundpaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $sortField = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
+    public function vendorapiSecureOutboundpaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $startRow = null, $pageSize = null, $sortField = null, $asc = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
     {
-        $request = $this->vendorapiSecureOutboundpaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $sortField, $contentType);
+        $request = $this->vendorapiSecureOutboundpaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $startRow, $pageSize, $sortField, $asc, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1763,15 +2103,18 @@ class SecureOutboundPaymentsApi
      * @param  string $startDate sets startDate (optional)
      * @param  string $endDate sets endDate (optional)
      * @param  string $searchText sets searchText (optional)
+     * @param  int $startRow sets startRow (optional)
+     * @param  int $pageSize sets pageSize (optional)
      * @param  string $sortField sets sortField (optional)
+     * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vendorapiSecureOutboundpaymentsSearchPostAsync($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $sortField = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
+    public function vendorapiSecureOutboundpaymentsSearchPostAsync($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $startRow = null, $pageSize = null, $sortField = null, $asc = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
     {
-        return $this->vendorapiSecureOutboundpaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $sortField, $contentType)
+        return $this->vendorapiSecureOutboundpaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $startRow, $pageSize, $sortField, $asc, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1800,16 +2143,19 @@ class SecureOutboundPaymentsApi
      * @param  string $startDate sets startDate (optional)
      * @param  string $endDate sets endDate (optional)
      * @param  string $searchText sets searchText (optional)
+     * @param  int $startRow sets startRow (optional)
+     * @param  int $pageSize sets pageSize (optional)
      * @param  string $sortField sets sortField (optional)
+     * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vendorapiSecureOutboundpaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $sortField = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
+    public function vendorapiSecureOutboundpaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $startRow = null, $pageSize = null, $sortField = null, $asc = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PagePaymentListResponseDTO';
-        $request = $this->vendorapiSecureOutboundpaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $sortField, $contentType);
+        $request = $this->vendorapiSecureOutboundpaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $vendorId, $paymentBasedId, $paymentId, $vendorName, $paymentMethodType, $paymentMethodStatus, $amount, $fromAmount, $toAmount, $startDate, $endDate, $searchText, $startRow, $pageSize, $sortField, $asc, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1866,13 +2212,16 @@ class SecureOutboundPaymentsApi
      * @param  string $startDate sets startDate (optional)
      * @param  string $endDate sets endDate (optional)
      * @param  string $searchText sets searchText (optional)
+     * @param  int $startRow sets startRow (optional)
+     * @param  int $pageSize sets pageSize (optional)
      * @param  string $sortField sets sortField (optional)
+     * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function vendorapiSecureOutboundpaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $sortField = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
+    public function vendorapiSecureOutboundpaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $vendorId = null, $paymentBasedId = null, $paymentId = null, $vendorName = null, $paymentMethodType = null, $paymentMethodStatus = null, $amount = null, $fromAmount = null, $toAmount = null, $startDate = null, $endDate = null, $searchText = null, $startRow = null, $pageSize = null, $sortField = null, $asc = null, string $contentType = self::contentTypes['vendorapiSecureOutboundpaymentsSearchPost'][0])
     {
 
         // verify the required parameter 'xApiKey' is set
@@ -1902,6 +2251,9 @@ class SecureOutboundPaymentsApi
                 'Missing the required parameter $origin when calling vendorapiSecureOutboundpaymentsSearchPost'
             );
         }
+
+
+
 
 
 
@@ -2034,9 +2386,36 @@ class SecureOutboundPaymentsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $startRow,
+            'startRow', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageSize,
+            'pageSize', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sortField,
             'sortField', // param base name
             'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $asc,
+            'asc', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2092,16 +2471,6 @@ class SecureOutboundPaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

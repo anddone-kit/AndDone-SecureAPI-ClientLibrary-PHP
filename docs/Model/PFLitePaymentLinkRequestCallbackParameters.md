@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **referenceNo** | **string** |  | [optional]
 **referenceType** | **string** |  | [optional]
 **transactionId** | **string** |  | [optional]
-**redirectionTime** | **float** |  | [optional]
+**redirectionTime** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **transactionId** | **string** |  | [optional]
 **callbackApiUrl** | **string** |  | [optional]
 **callbackMessage** | **string** |  | [optional]
-**redirectionTime** | **float** |  | [optional]
+**redirectionTime** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

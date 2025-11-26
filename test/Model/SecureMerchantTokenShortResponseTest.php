@@ -134,6 +134,15 @@ class SecureMerchantTokenShortResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "cardNumber"
+     */
+    public function testPropertyCardNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "cardExpiry"
      */
     public function testPropertyCardExpiry()

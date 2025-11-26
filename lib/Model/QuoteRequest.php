@@ -58,6 +58,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'merchantId' => 'string',
+        'offerAutoPay' => 'bool',
         'paymentIntentId' => 'string',
         'details' => '\OpenAPI\Client\Model\QuoteRequestDetails',
         'insured' => '\OpenAPI\Client\Model\QuoteRequestInsured',
@@ -74,6 +75,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'merchantId' => null,
+        'offerAutoPay' => null,
         'paymentIntentId' => null,
         'details' => null,
         'insured' => null,
@@ -88,6 +90,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'merchantId' => false,
+        'offerAutoPay' => false,
         'paymentIntentId' => false,
         'details' => false,
         'insured' => false,
@@ -182,6 +185,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'merchantId' => 'merchantId',
+        'offerAutoPay' => 'offerAutoPay',
         'paymentIntentId' => 'paymentIntentId',
         'details' => 'details',
         'insured' => 'insured',
@@ -196,6 +200,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'merchantId' => 'setMerchantId',
+        'offerAutoPay' => 'setOfferAutoPay',
         'paymentIntentId' => 'setPaymentIntentId',
         'details' => 'setDetails',
         'insured' => 'setInsured',
@@ -210,6 +215,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'merchantId' => 'getMerchantId',
+        'offerAutoPay' => 'getOfferAutoPay',
         'paymentIntentId' => 'getPaymentIntentId',
         'details' => 'getDetails',
         'insured' => 'getInsured',
@@ -275,6 +281,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('offerAutoPay', $data ?? [], null);
         $this->setIfExists('paymentIntentId', $data ?? [], null);
         $this->setIfExists('details', $data ?? [], null);
         $this->setIfExists('insured', $data ?? [], null);
@@ -362,6 +369,33 @@ class QuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
         $this->container['merchantId'] = $merchantId;
+
+        return $this;
+    }
+
+    /**
+     * Gets offerAutoPay
+     *
+     * @return bool|null
+     */
+    public function getOfferAutoPay()
+    {
+        return $this->container['offerAutoPay'];
+    }
+
+    /**
+     * Sets offerAutoPay
+     *
+     * @param bool|null $offerAutoPay offerAutoPay
+     *
+     * @return self
+     */
+    public function setOfferAutoPay($offerAutoPay)
+    {
+        if (is_null($offerAutoPay)) {
+            throw new \InvalidArgumentException('non-nullable offerAutoPay cannot be null');
+        }
+        $this->container['offerAutoPay'] = $offerAutoPay;
 
         return $this;
     }

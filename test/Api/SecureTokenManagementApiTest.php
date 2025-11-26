@@ -31,6 +31,9 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecureTokenManagementApi;
+use \OpenAPI\Client\Model\TokenRequest;
+use Exception;
 
 /**
  * SecureTokenManagementApiTest Class Doc Comment
@@ -42,6 +45,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureTokenManagementApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,8 +89,27 @@ class SecureTokenManagementApiTest extends TestCase
      */
     public function testSecureTokensActivationsDelete()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureTokenManagementApi();
+        $payload = [
+            "token" => "YRBDNO60AGEPZVJV"
+        ];
+
+        $request = new TokenRequest($payload);
+        try {
+            $apiInstance->secureTokensActivationsDelete(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: TM - Delete Account Token\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**

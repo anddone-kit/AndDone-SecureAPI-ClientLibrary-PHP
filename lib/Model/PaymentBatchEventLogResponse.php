@@ -62,7 +62,7 @@ class PaymentBatchEventLogResponse implements ModelInterface, ArrayAccess, \Json
         'merchantId' => 'string',
         'previousEventStatus' => 'string',
         'eventStatus' => 'string',
-        'voidedCount' => 'float',
+        'voidedCount' => 'int',
         'voidedAmount' => 'float',
         'closedOn' => 'string',
         'eventDate' => 'string',
@@ -518,7 +518,7 @@ class PaymentBatchEventLogResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets voidedCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getVoidedCount()
     {
@@ -528,7 +528,7 @@ class PaymentBatchEventLogResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets voidedCount
      *
-     * @param float|null $voidedCount voidedCount
+     * @param int|null $voidedCount voidedCount
      *
      * @return self
      */

@@ -75,7 +75,7 @@ class PageVendorResponseDTODataInner implements ModelInterface, ArrayAccess, \Js
         'useSameAsPhysicalAddress' => 'bool',
         'physicalAddress' => '\OpenAPI\Client\Model\VendorResponseDTORemittanceAddress',
         'remittanceAddress' => '\OpenAPI\Client\Model\VendorResponseDTORemittanceAddress',
-        'verificationResults' => '\OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner[]',
+        'verificationResults' => '\OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner',
         'createdBy' => 'string',
         'modifiedBy' => 'string',
         'createdOn' => 'string',
@@ -1064,7 +1064,7 @@ class PageVendorResponseDTODataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets verificationResults
      *
-     * @return \OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner[]|null
+     * @return \OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner|null
      */
     public function getVerificationResults()
     {
@@ -1074,7 +1074,7 @@ class PageVendorResponseDTODataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets verificationResults
      *
-     * @param \OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner[]|null $verificationResults verificationResults
+     * @param \OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner|null $verificationResults verificationResults
      *
      * @return self
      */

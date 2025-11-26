@@ -60,11 +60,11 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
         'commercial' => 'string',
         'coupon' => 'string',
         'couponInvoicePrinted' => 'bool',
-        'crd' => 'float',
+        'crd' => 'int',
         'interval' => 'string',
         'installments' => 'int',
-        'programID' => 'float',
-        'brokerFee' => 'float',
+        'programID' => 'int',
+        'brokerFee' => 'int',
         'eSignOption' => 'string',
         'processDownPayment' => 'bool',
         'processDownPaymentNoReason' => 'string',
@@ -74,7 +74,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
         'batchID' => 'string',
         'returnPFA' => 'bool',
         'equalPayments' => 'string',
-        'quoteExpirationDays' => 'float',
+        'quoteExpirationDays' => 'int',
         'bypassCADNB' => 'bool',
         'allowZeroAPR' => 'bool',
         'associatedAccountNumber' => 'string',
@@ -232,29 +232,29 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'commercial' => 'Commercial',
-        'coupon' => 'Coupon',
-        'couponInvoicePrinted' => 'CouponInvoicePrinted',
-        'crd' => 'Crd',
-        'interval' => 'Interval',
-        'installments' => 'Installments',
-        'programID' => 'ProgramID',
-        'brokerFee' => 'BrokerFee',
-        'eSignOption' => 'ESignOption',
-        'processDownPayment' => 'ProcessDownPayment',
-        'processDownPaymentNoReason' => 'ProcessDownPaymentNoReason',
-        'downPaymentMethod' => 'DownPaymentMethod',
-        'downPaymentPaidBy' => 'DownPaymentPaidBy',
-        'recurringACH' => 'RecurringACH',
-        'batchID' => 'BatchID',
-        'returnPFA' => 'ReturnPFA',
-        'equalPayments' => 'EqualPayments',
-        'quoteExpirationDays' => 'QuoteExpirationDays',
-        'bypassCADNB' => 'BypassCADNB',
-        'allowZeroAPR' => 'AllowZeroAPR',
-        'associatedAccountNumber' => 'AssociatedAccountNumber',
-        'channel' => 'Channel',
-        'channelVersion' => 'ChannelVersion'
+        'commercial' => 'commercial',
+        'coupon' => 'coupon',
+        'couponInvoicePrinted' => 'couponInvoicePrinted',
+        'crd' => 'crd',
+        'interval' => 'interval',
+        'installments' => 'installments',
+        'programID' => 'programID',
+        'brokerFee' => 'brokerFee',
+        'eSignOption' => 'eSignOption',
+        'processDownPayment' => 'processDownPayment',
+        'processDownPaymentNoReason' => 'processDownPaymentNoReason',
+        'downPaymentMethod' => 'downPaymentMethod',
+        'downPaymentPaidBy' => 'downPaymentPaidBy',
+        'recurringACH' => 'recurringACH',
+        'batchID' => 'batchID',
+        'returnPFA' => 'returnPFA',
+        'equalPayments' => 'equalPayments',
+        'quoteExpirationDays' => 'quoteExpirationDays',
+        'bypassCADNB' => 'bypassCADNB',
+        'allowZeroAPR' => 'allowZeroAPR',
+        'associatedAccountNumber' => 'associatedAccountNumber',
+        'channel' => 'channel',
+        'channelVersion' => 'channelVersion'
     ];
 
     /**
@@ -527,7 +527,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Gets crd
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCrd()
     {
@@ -537,7 +537,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Sets crd
      *
-     * @param float|null $crd This denotes the Crd.
+     * @param int|null $crd This denotes the Crd.
      *
      * @return self
      */
@@ -608,7 +608,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Gets programID
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProgramID()
     {
@@ -618,7 +618,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Sets programID
      *
-     * @param float|null $programID This denotes the program ID.
+     * @param int|null $programID This denotes the program ID.
      *
      * @return self
      */
@@ -635,7 +635,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Gets brokerFee
      *
-     * @return float|null
+     * @return int|null
      */
     public function getBrokerFee()
     {
@@ -645,7 +645,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Sets brokerFee
      *
-     * @param float|null $brokerFee This denotes the broker fees.
+     * @param int|null $brokerFee This denotes the broker fees.
      *
      * @return self
      */
@@ -905,7 +905,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Gets quoteExpirationDays
      *
-     * @return float|null
+     * @return int|null
      */
     public function getQuoteExpirationDays()
     {
@@ -915,7 +915,7 @@ class PFEndorsementRequestQuoteDetails implements ModelInterface, ArrayAccess, \
     /**
      * Sets quoteExpirationDays
      *
-     * @param float|null $quoteExpirationDays This denotes the number of days to expire.
+     * @param int|null $quoteExpirationDays This denotes the number of days to expire.
      *
      * @return self
      */

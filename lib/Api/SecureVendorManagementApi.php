@@ -401,16 +401,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -782,16 +772,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1163,16 +1143,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1544,16 +1514,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1593,10 +1553,10 @@ class SecureVendorManagementApi
      * @param  string $createdBy Set createdBy (optional)
      * @param  string $startDate set start Date (optional)
      * @param  string $endDate set end Date (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $searchText search Text (optional)
      * @param  string $sortField Set SortField (optional)
-     * @param  string $startRow Set StartRow (optional)
+     * @param  int $startRow Set StartRow (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureMerchantsVendorsSearchPost'] to see the possible values for this operation
      *
@@ -1627,10 +1587,10 @@ class SecureVendorManagementApi
      * @param  string $createdBy Set createdBy (optional)
      * @param  string $startDate set start Date (optional)
      * @param  string $endDate set end Date (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $searchText search Text (optional)
      * @param  string $sortField Set SortField (optional)
-     * @param  string $startRow Set StartRow (optional)
+     * @param  int $startRow Set StartRow (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureMerchantsVendorsSearchPost'] to see the possible values for this operation
      *
@@ -1768,10 +1728,10 @@ class SecureVendorManagementApi
      * @param  string $createdBy Set createdBy (optional)
      * @param  string $startDate set start Date (optional)
      * @param  string $endDate set end Date (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $searchText search Text (optional)
      * @param  string $sortField Set SortField (optional)
-     * @param  string $startRow Set StartRow (optional)
+     * @param  int $startRow Set StartRow (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureMerchantsVendorsSearchPost'] to see the possible values for this operation
      *
@@ -1805,10 +1765,10 @@ class SecureVendorManagementApi
      * @param  string $createdBy Set createdBy (optional)
      * @param  string $startDate set start Date (optional)
      * @param  string $endDate set end Date (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $searchText search Text (optional)
      * @param  string $sortField Set SortField (optional)
-     * @param  string $startRow Set StartRow (optional)
+     * @param  int $startRow Set StartRow (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureMerchantsVendorsSearchPost'] to see the possible values for this operation
      *
@@ -1871,10 +1831,10 @@ class SecureVendorManagementApi
      * @param  string $createdBy Set createdBy (optional)
      * @param  string $startDate set start Date (optional)
      * @param  string $endDate set end Date (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  string $searchText search Text (optional)
      * @param  string $sortField Set SortField (optional)
-     * @param  string $startRow Set StartRow (optional)
+     * @param  int $startRow Set StartRow (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['vendorapiSecureMerchantsVendorsSearchPost'] to see the possible values for this operation
      *
@@ -2009,7 +1969,7 @@ class SecureVendorManagementApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $pageSize,
             'pageSize', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2036,7 +1996,7 @@ class SecureVendorManagementApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $startRow,
             'startRow', // param base name
-            'string', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2101,16 +2061,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2391,16 +2341,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2772,16 +2712,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -3062,16 +2992,6 @@ class SecureVendorManagementApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

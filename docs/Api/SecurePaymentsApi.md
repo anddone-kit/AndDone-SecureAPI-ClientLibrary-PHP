@@ -25,22 +25,11 @@ This API gets Secure payment by search criteria for the merchant.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecurePaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -68,7 +57,7 @@ $exportToCsv = True; // bool | Export To Csv
 $exportToPDF = True; // bool | Export To PDF
 $transactionOrigins = 'transactionOrigins_example'; // string | Type of origin used in the transaction
 $transactionSourceType = 'transactionSourceType_example'; // string | Transaction source type of the transaction
-$sourceId = 3.4; // float | Set SourceId
+$sourceId = 56; // int | Set SourceId
 $traceNumbers = 'traceNumbers_example'; // string | TraceNumbers associated with the transaction
 $binNumber = 'binNumber_example'; // string | BinNumber
 $processMethod = 'processMethod_example'; // string | Process Method used for the transaction
@@ -86,7 +75,7 @@ $suppressTechnologyFee = True; // bool | SuppressTechnologyFee
 $batchId = 'batchId_example'; // string | BatchId
 $sortField = 'sortField_example'; // string | SortField
 $startRow = 56; // int | Set StartRow
-$pageSize = 3.4; // float | Set PageSize
+$pageSize = 56; // int | Set PageSize
 $asc = True; // bool | Set Asc
 
 try {
@@ -126,7 +115,7 @@ try {
 | **exportToPDF** | **bool**| Export To PDF | [optional] |
 | **transactionOrigins** | **string**| Type of origin used in the transaction | [optional] |
 | **transactionSourceType** | **string**| Transaction source type of the transaction | [optional] |
-| **sourceId** | **float**| Set SourceId | [optional] |
+| **sourceId** | **int**| Set SourceId | [optional] |
 | **traceNumbers** | **string**| TraceNumbers associated with the transaction | [optional] |
 | **binNumber** | **string**| BinNumber | [optional] |
 | **processMethod** | **string**| Process Method used for the transaction | [optional] |
@@ -144,7 +133,7 @@ try {
 | **batchId** | **string**| BatchId | [optional] |
 | **sortField** | **string**| SortField | [optional] |
 | **startRow** | **int**| Set StartRow | [optional] |
-| **pageSize** | **float**| Set PageSize | [optional] |
+| **pageSize** | **int**| Set PageSize | [optional] |
 | **asc** | **bool**| Set Asc | [optional] |
 
 ### Return type
@@ -153,7 +142,7 @@ void (empty response body)
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -179,22 +168,11 @@ This API posts new Secure payment request for the merchant.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecurePaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -226,7 +204,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -240,7 +218,7 @@ try {
 ## `securePaymentsSearchPost()`
 
 ```php
-securePaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $sortField, $startRow, $pageSize, $asc): \OpenAPI\Client\Model\MerchantTransactionEntityResponse
+securePaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $transactionsCount, $sortField, $startRow, $pageSize, $asc): \OpenAPI\Client\Model\MerchantTransactionEntityResponse
 ```
 
 This API gets Secure payment by search criteria for the merchant.
@@ -252,22 +230,11 @@ This API gets Secure payment by search criteria for the merchant.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecurePaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -295,7 +262,7 @@ $exportToCsv = True; // bool | Export To Csv
 $exportToPDF = True; // bool | Export To PDF
 $transactionOrigins = 'transactionOrigins_example'; // string | Type of origin used in the transaction
 $transactionSourceType = 'transactionSourceType_example'; // string | Transaction source type of the transaction
-$sourceId = 3.4; // float | Set SourceId
+$sourceId = 56; // int | Set SourceId
 $traceNumbers = 'traceNumbers_example'; // string | TraceNumbers associated with the transaction
 $binNumber = 'binNumber_example'; // string | BinNumber
 $processMethod = 'processMethod_example'; // string | Process Method used for the transaction
@@ -311,13 +278,14 @@ $merchantId = 'merchantId_example'; // string | Search with Merchant Id
 $paymentCategories = 'paymentCategories_example'; // string | Set PaymentCategories
 $suppressTechnologyFee = True; // bool | SuppressTechnologyFee
 $batchId = 'batchId_example'; // string | BatchId
+$transactionsCount = True; // bool | Set whether to return only the transactions count
 $sortField = 'sortField_example'; // string | SortField
 $startRow = 56; // int | Set StartRow
-$pageSize = 3.4; // float | Set PageSize
+$pageSize = 56; // int | Set PageSize
 $asc = True; // bool | Set Asc
 
 try {
-    $result = $apiInstance->securePaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $sortField, $startRow, $pageSize, $asc);
+    $result = $apiInstance->securePaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $transactionsCount, $sortField, $startRow, $pageSize, $asc);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecurePaymentsApi->securePaymentsSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +322,7 @@ try {
 | **exportToPDF** | **bool**| Export To PDF | [optional] |
 | **transactionOrigins** | **string**| Type of origin used in the transaction | [optional] |
 | **transactionSourceType** | **string**| Transaction source type of the transaction | [optional] |
-| **sourceId** | **float**| Set SourceId | [optional] |
+| **sourceId** | **int**| Set SourceId | [optional] |
 | **traceNumbers** | **string**| TraceNumbers associated with the transaction | [optional] |
 | **binNumber** | **string**| BinNumber | [optional] |
 | **processMethod** | **string**| Process Method used for the transaction | [optional] |
@@ -370,9 +338,10 @@ try {
 | **paymentCategories** | **string**| Set PaymentCategories | [optional] |
 | **suppressTechnologyFee** | **bool**| SuppressTechnologyFee | [optional] |
 | **batchId** | **string**| BatchId | [optional] |
+| **transactionsCount** | **bool**| Set whether to return only the transactions count | [optional] |
 | **sortField** | **string**| SortField | [optional] |
 | **startRow** | **int**| Set StartRow | [optional] |
-| **pageSize** | **float**| Set PageSize | [optional] |
+| **pageSize** | **int**| Set PageSize | [optional] |
 | **asc** | **bool**| Set Asc | [optional] |
 
 ### Return type
@@ -381,7 +350,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -407,22 +376,11 @@ This API is used for getting details of Payments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecurePaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -454,7 +412,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 

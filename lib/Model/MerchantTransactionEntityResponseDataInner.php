@@ -68,7 +68,7 @@ class MerchantTransactionEntityResponseDataInner implements ModelInterface, Arra
         'referenceTransactionId' => 'string',
         'referenceCustomerId' => 'string',
         'recurringId' => 'string',
-        'batchId' => 'float',
+        'batchId' => 'int',
         'transactionStatus' => 'string',
         'settlementDate' => 'string',
         'authCode' => 'string',
@@ -1520,7 +1520,7 @@ class MerchantTransactionEntityResponseDataInner implements ModelInterface, Arra
     /**
      * Gets batchId
      *
-     * @return float|null
+     * @return int|null
      */
     public function getBatchId()
     {
@@ -1530,7 +1530,7 @@ class MerchantTransactionEntityResponseDataInner implements ModelInterface, Arra
     /**
      * Sets batchId
      *
-     * @param float|null $batchId batchId
+     * @param int|null $batchId batchId
      *
      * @return self
      */

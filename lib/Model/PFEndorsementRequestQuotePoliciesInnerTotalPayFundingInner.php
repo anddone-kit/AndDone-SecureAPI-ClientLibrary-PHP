@@ -187,14 +187,14 @@ class PFEndorsementRequestQuotePoliciesInnerTotalPayFundingInner implements Mode
      * @var string[]
      */
     protected static $attributeMap = [
-        'payTo' => 'PayTo',
-        'paymentMethod' => 'PaymentMethod',
-        'fundingType' => 'FundingType',
-        'bankRoutingNumber' => 'BankRoutingNumber',
-        'bankAcctNumber' => 'BankAcctNumber',
-        'isCheckingAccount' => 'IsCheckingAccount',
-        'amount' => 'Amount',
-        'fundingDate' => 'FundingDate'
+        'payTo' => 'payTo',
+        'paymentMethod' => 'paymentMethod',
+        'fundingType' => 'fundingType',
+        'bankRoutingNumber' => 'bankRoutingNumber',
+        'bankAcctNumber' => 'bankAcctNumber',
+        'isCheckingAccount' => 'isCheckingAccount',
+        'amount' => 'amount',
+        'fundingDate' => 'fundingDate'
     ];
 
     /**

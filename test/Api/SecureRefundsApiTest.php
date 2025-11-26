@@ -31,6 +31,12 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecureRefundsApi;
+use \OpenAPI\Client\Model\TransactionRefundEligibilityRequest;
+use \OpenAPI\Client\Model\RefundEligibility;
+use \OpenAPI\Client\Model\SecureTransactionRefundRequest;
+use \OpenAPI\Client\Model\SecureTransactionDetailDTO;
+use Exception;
 
 /**
  * SecureRefundsApiTest Class Doc Comment
@@ -42,6 +48,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureRefundsApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,19 +92,61 @@ class SecureRefundsApiTest extends TestCase
      */
     public function testSecureRefundsEligibilityPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureRefundsApi();
+        $payload = [
+            "TransactionId" => "c5ffedc0-d42e-439e-9efa-526528937e98"
+        ];
+
+        $request = new TransactionRefundEligibilityRequest($payload);
+
+        try {
+            $result = $apiInstance->secureRefundsEligibilityPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(RefundEligibility::class, $result);
+            print "Success: Refund - Check Refund Eligibility\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
      * Test case for secureRefundsPost
      *
-     * This API return refund a transaction..
+     * This API will refund a transaction which has been settled by the processor..
      *
      */
     public function testSecureRefundsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureRefundsApi();
+        $payload = [
+            "TransactionId" => "c5ffedc0-d42e-439e-9efa-526528937e98"
+        ];
+
+        $request = new SecureTransactionRefundRequest ($payload);
+
+        try {
+            $result = $apiInstance->secureRefundsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(SecureTransactionDetailDTO::class, $result);
+            print "Success: Refund - Secure Refund Request\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

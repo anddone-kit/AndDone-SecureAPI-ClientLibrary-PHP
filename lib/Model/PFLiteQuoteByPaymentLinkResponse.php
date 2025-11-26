@@ -62,7 +62,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'pfType' => 'string',
         'isEndorsement' => 'bool',
         'merchantId' => 'string',
-        'programId' => 'float',
+        'programId' => 'int',
         'paymentLinkId' => 'string',
         'accountNumber' => 'string',
         'quoteStatus' => 'string',
@@ -77,12 +77,13 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'financeCharge' => 'float',
         'totalPayments' => 'float',
         'paymentAmount' => 'float',
-        'docStamp' => 'float',
+        'docStamp' => 'int',
         'firstDueDate' => 'string',
         'apr' => 'float',
         'installments' => 'int',
         'batchId' => 'string',
-        'paymentsRetained' => 'float',
+        'autopayStatus' => 'string',
+        'paymentsRetained' => 'int',
         'paymentRetainedAmount' => 'float',
         'retailAgentRegisterLoginURL' => 'string',
         'insuredName' => 'string',
@@ -133,6 +134,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'apr' => null,
         'installments' => null,
         'batchId' => null,
+        'autopayStatus' => null,
         'paymentsRetained' => null,
         'paymentRetainedAmount' => null,
         'retailAgentRegisterLoginURL' => null,
@@ -182,6 +184,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'apr' => false,
         'installments' => false,
         'batchId' => false,
+        'autopayStatus' => false,
         'paymentsRetained' => false,
         'paymentRetainedAmount' => false,
         'retailAgentRegisterLoginURL' => false,
@@ -311,6 +314,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'apr' => 'apr',
         'installments' => 'installments',
         'batchId' => 'batchId',
+        'autopayStatus' => 'autopayStatus',
         'paymentsRetained' => 'paymentsRetained',
         'paymentRetainedAmount' => 'paymentRetainedAmount',
         'retailAgentRegisterLoginURL' => 'retailAgentRegisterLoginURL',
@@ -360,6 +364,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'apr' => 'setApr',
         'installments' => 'setInstallments',
         'batchId' => 'setBatchId',
+        'autopayStatus' => 'setAutopayStatus',
         'paymentsRetained' => 'setPaymentsRetained',
         'paymentRetainedAmount' => 'setPaymentRetainedAmount',
         'retailAgentRegisterLoginURL' => 'setRetailAgentRegisterLoginURL',
@@ -409,6 +414,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         'apr' => 'getApr',
         'installments' => 'getInstallments',
         'batchId' => 'getBatchId',
+        'autopayStatus' => 'getAutopayStatus',
         'paymentsRetained' => 'getPaymentsRetained',
         'paymentRetainedAmount' => 'getPaymentRetainedAmount',
         'retailAgentRegisterLoginURL' => 'getRetailAgentRegisterLoginURL',
@@ -544,6 +550,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
         $this->setIfExists('apr', $data ?? [], null);
         $this->setIfExists('installments', $data ?? [], null);
         $this->setIfExists('batchId', $data ?? [], null);
+        $this->setIfExists('autopayStatus', $data ?? [], null);
         $this->setIfExists('paymentsRetained', $data ?? [], null);
         $this->setIfExists('paymentRetainedAmount', $data ?? [], null);
         $this->setIfExists('retailAgentRegisterLoginURL', $data ?? [], null);
@@ -751,7 +758,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets programId
      *
-     * @return float|null
+     * @return int|null
      */
     public function getProgramId()
     {
@@ -761,7 +768,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets programId
      *
-     * @param float|null $programId Identifier of the program
+     * @param int|null $programId Identifier of the program
      *
      * @return self
      */
@@ -1166,7 +1173,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets docStamp
      *
-     * @return float|null
+     * @return int|null
      */
     public function getDocStamp()
     {
@@ -1176,7 +1183,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets docStamp
      *
-     * @param float|null $docStamp Document stamp
+     * @param int|null $docStamp Document stamp
      *
      * @return self
      */
@@ -1299,9 +1306,36 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
+     * Gets autopayStatus
+     *
+     * @return string|null
+     */
+    public function getAutopayStatus()
+    {
+        return $this->container['autopayStatus'];
+    }
+
+    /**
+     * Sets autopayStatus
+     *
+     * @param string|null $autopayStatus Autopayment status
+     *
+     * @return self
+     */
+    public function setAutopayStatus($autopayStatus)
+    {
+        if (is_null($autopayStatus)) {
+            throw new \InvalidArgumentException('non-nullable autopayStatus cannot be null');
+        }
+        $this->container['autopayStatus'] = $autopayStatus;
+
+        return $this;
+    }
+
+    /**
      * Gets paymentsRetained
      *
-     * @return float|null
+     * @return int|null
      */
     public function getPaymentsRetained()
     {
@@ -1311,7 +1345,7 @@ class PFLiteQuoteByPaymentLinkResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets paymentsRetained
      *
-     * @param float|null $paymentsRetained Number of payments retained
+     * @param int|null $paymentsRetained Number of payments retained
      *
      * @return self
      */

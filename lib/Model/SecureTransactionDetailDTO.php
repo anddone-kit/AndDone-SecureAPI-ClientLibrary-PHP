@@ -80,8 +80,8 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
         'remarks' => 'string',
         'recurringType' => 'string',
         'recurringId' => 'string',
-        'installmentNumber' => 'float',
-        'installmentCount' => 'float',
+        'installmentNumber' => 'int',
+        'installmentCount' => 'int',
         'allowDuplicates' => 'bool',
         'verificationEnabled' => 'bool',
         'sentSuccessNotification' => 'bool',
@@ -92,7 +92,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
         'transactionStatus' => 'string',
         'previousTransactionStatus' => 'string',
         'transactionResult' => '\OpenAPI\Client\Model\TransactionPaymentResponseTransactionResult',
-        'level' => 'float',
+        'level' => 'int',
         'partnerId' => 'string',
         'orderId' => 'string',
         'invoiceId' => 'string',
@@ -1581,7 +1581,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets installmentNumber
      *
-     * @return float|null
+     * @return int|null
      */
     public function getInstallmentNumber()
     {
@@ -1591,7 +1591,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets installmentNumber
      *
-     * @param float|null $installmentNumber installmentNumber
+     * @param int|null $installmentNumber installmentNumber
      *
      * @return self
      */
@@ -1608,7 +1608,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets installmentCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getInstallmentCount()
     {
@@ -1618,7 +1618,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets installmentCount
      *
-     * @param float|null $installmentCount installmentCount
+     * @param int|null $installmentCount installmentCount
      *
      * @return self
      */
@@ -1925,7 +1925,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets level
      *
-     * @return float|null
+     * @return int|null
      */
     public function getLevel()
     {
@@ -1935,7 +1935,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets level
      *
-     * @param float|null $level level
+     * @param int|null $level level
      *
      * @return self
      */

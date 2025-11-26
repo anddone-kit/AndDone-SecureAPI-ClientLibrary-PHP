@@ -80,27 +80,18 @@ class PaymentLinkRequestSettingsTest extends TestCase
     }
 
     /**
-     * Test attribute "additionalDetailsPreference"
-     */
-    public function testPropertyAdditionalDetailsPreference()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "intent"
-     */
-    public function testPropertyIntent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "selectedCustomerFields"
      */
     public function testPropertySelectedCustomerFields()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additionalDetailsPreference"
+     */
+    public function testPropertyAdditionalDetailsPreference()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -164,6 +155,15 @@ class PaymentLinkRequestSettingsTest extends TestCase
      * Test attribute "saveCustomerAccount"
      */
     public function testPropertySaveCustomerAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "intent"
+     */
+    public function testPropertyIntent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

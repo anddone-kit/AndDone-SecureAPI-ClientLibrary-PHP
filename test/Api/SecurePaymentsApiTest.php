@@ -27,10 +27,20 @@
 
 namespace OpenAPI\Client\Test\Api;
 
+use OpenAPI\Client\Api\SecureVoidsApi;
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
+use OpenAPI\Client\Model\MerchantTransactionEntityResponse;
+use OpenAPI\Client\Model\CancelledTransactionResponse;
+use OpenAPI\Client\Model\TransactionDetailResponse;
+use OpenAPI\Client\Model\TransactionPaymentResponse;
+use OpenAPI\Client\Model\TransactionCancelRequest;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use OpenAPI\Client\Api\SecurePaymentsApi;
+use OpenAPI\Client\Model\paymentRequest;
+use OpenAPI\Client\Model\SecurePaymentDetailsRequest;
+use Exception;
 
 /**
  * SecurePaymentsApiTest Class Doc Comment
@@ -42,6 +52,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecurePaymentsApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -71,16 +88,11 @@ class SecurePaymentsApiTest extends TestCase
     {
     }
 
-    /**
-     * Test case for securePaymentsExportPost
-     *
-     * This API gets Secure payment by search criteria for the merchant..
-     *
-     */
-    public function testSecurePaymentsExportPost()
+    protected function &getId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        static $id = null;
+
+        return $id;
     }
 
     /**
@@ -91,8 +103,134 @@ class SecurePaymentsApiTest extends TestCase
      */
     public function testSecurePaymentsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentsApi();
+        $payload = [
+            "payment_reference" => "PMT-543216785",
+            "type" => "OpenPayment",
+            "tender_info" => [
+                "amount" => 178,
+                "cardHolderName" => "John Doe",
+                "cardType" => "VISA",
+                "cardNumber" => "4000620000000007",
+                "cardExpiry" => "0330",
+                "cvDataStatus" => "AV",
+                "cvv" => 737,
+                "removeDiscounting" => false,
+            ],
+            "transaction_code" => "Web",
+            "channel_type" => "CreditCard",
+            "billing_contact" => [
+                "phone" => "8003213388",
+                "name" => [
+                    "firstname" => "John",
+                    "lastName" => "Doe",
+                ],
+                "address" => [
+                    "addressLine1" => "30",
+                    "addressLine2" => "Memorial Drive",
+                    "city" => "Avon",
+                    "state"=> "NY",
+                    "country"=> 1,
+                    "postalCode" => "12701",
+                ]
+            ]
+        ];
+
+        $request = new paymentRequest($payload);
+
+        try {
+            $result = $apiInstance->securePaymentsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(TransactionDetailResponse::class, $result);
+            print "Success: SP - Create Secure Payment\n";
+            $id = &$this->getId();
+            $id = $result["transaction_id"];
+            return $id;
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for securePaymentsExportPost
+     *
+     * This API gets Secure payment by search criteria for the merchant..
+     *
+     */
+    #[Depends("testSecurePaymentsPost")]
+    public function testSecurePaymentsExportPost()
+    {
+        $apiInstance = new SecurePaymentsApi();
+        $startDate = "04-01-2023";
+        $endDate = "08-25-2023";
+        $startRow = 0;
+        $pageSize = 10;
+
+        try {
+            $apiInstance->securePaymentsExportPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $startDate,
+                $endDate,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                $startRow,
+                $pageSize,
+                null,
+                null
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: SP - Export Secure Payments\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -101,10 +239,73 @@ class SecurePaymentsApiTest extends TestCase
      * This API gets Secure payment by search criteria for the merchant..
      *
      */
+    #[Depends("testSecurePaymentsExportPost")]
     public function testSecurePaymentsSearchPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentsApi();
+        $startDate = "04-01-2023";
+        $endDate = "08-25-2023";
+        $startRow = 0;
+        $pageSize = 10;
+
+        try {
+            $result = $apiInstance->securePaymentsSearchPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->version,
+                $this->origin,
+                $startDate,
+                $endDate,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                $startRow,
+                $pageSize,
+                null,
+                null
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(MerchantTransactionEntityResponse::class, $result);
+            print "Success: SP - Search Secure Payments\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -113,9 +314,35 @@ class SecurePaymentsApiTest extends TestCase
      * This API is used for getting details of Payments.
      *
      */
+    #[Depends("testSecurePaymentsSearchPost")]
     public function testSecurePaymentsdetailsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentsApi();
+        $this->assertInstanceOf(SecurePaymentsApi::class, $apiInstance);
+        // $id = &$this->getId();
+        $id = "c5ffedc0-d42e-439e-9efa-526528937e98";
+        $payload = [
+            "id" => $id,
+            "type" => "OpenPayment",
+        ];
+
+        $request = new SecurePaymentDetailsRequest($payload);
+
+        try {
+            $result = $apiInstance->securePaymentsdetailsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->version,
+                $this->origin,
+                $request
+            );
+
+            print $result;
+            // print "\n";
+            $this->assertInstanceOf(TransactionPaymentResponse::class, $result);
+            print "Success: TM - Get Payment Details\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

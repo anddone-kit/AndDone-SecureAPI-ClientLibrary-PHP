@@ -10,5 +10,7 @@ Name | Type | Description | Notes
 **insured** | [**\OpenAPI\Client\Model\PFLiteSecureQuoteRequestInsured**](PFLiteSecureQuoteRequestInsured.md) |  |
 **program** | [**\OpenAPI\Client\Model\PFLiteSecureQuoteRequestProgram**](PFLiteSecureQuoteRequestProgram.md) |  |
 **policies** | [**\OpenAPI\Client\Model\PFLiteSecureQuoteRequestPoliciesInner[]**](PFLiteSecureQuoteRequestPoliciesInner.md) |  |
+**offerAutoPay** | **bool** |  | [optional]
+**agent** | [**\OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent**](PFLiteSecureQuoteRequestAgent.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

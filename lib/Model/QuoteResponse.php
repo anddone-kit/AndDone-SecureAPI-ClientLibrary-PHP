@@ -83,6 +83,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'apr' => 'float',
         'installments' => 'int',
         'batchId' => 'string',
+        'autopayStatus' => 'string',
         'paymentsRetained' => 'int',
         'paymentRetainedAmount' => 'float',
         'retailAgentRegisterLoginURL' => 'string',
@@ -93,6 +94,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'isDownPaymentRequired' => 'bool',
         'isEsignRequired' => 'bool',
         'isDeleted' => 'bool',
+        'offerAutoPay' => 'bool',
         'createdOn' => 'string',
         'createdBy' => 'string',
         'modifiedOn' => 'string',
@@ -135,6 +137,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'apr' => null,
         'installments' => null,
         'batchId' => null,
+        'autopayStatus' => null,
         'paymentsRetained' => null,
         'paymentRetainedAmount' => null,
         'retailAgentRegisterLoginURL' => null,
@@ -145,6 +148,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'isDownPaymentRequired' => null,
         'isEsignRequired' => null,
         'isDeleted' => null,
+        'offerAutoPay' => null,
         'createdOn' => null,
         'createdBy' => null,
         'modifiedOn' => null,
@@ -185,6 +189,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'apr' => false,
         'installments' => false,
         'batchId' => false,
+        'autopayStatus' => false,
         'paymentsRetained' => false,
         'paymentRetainedAmount' => false,
         'retailAgentRegisterLoginURL' => false,
@@ -195,6 +200,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'isDownPaymentRequired' => false,
         'isEsignRequired' => false,
         'isDeleted' => false,
+        'offerAutoPay' => false,
         'createdOn' => false,
         'createdBy' => false,
         'modifiedOn' => false,
@@ -315,6 +321,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'apr' => 'apr',
         'installments' => 'installments',
         'batchId' => 'batchId',
+        'autopayStatus' => 'autopayStatus',
         'paymentsRetained' => 'paymentsRetained',
         'paymentRetainedAmount' => 'paymentRetainedAmount',
         'retailAgentRegisterLoginURL' => 'retailAgentRegisterLoginURL',
@@ -325,6 +332,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'isDownPaymentRequired' => 'isDownPaymentRequired',
         'isEsignRequired' => 'isEsignRequired',
         'isDeleted' => 'isDeleted',
+        'offerAutoPay' => 'offerAutoPay',
         'createdOn' => 'createdOn',
         'createdBy' => 'createdBy',
         'modifiedOn' => 'modifiedOn',
@@ -365,6 +373,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'apr' => 'setApr',
         'installments' => 'setInstallments',
         'batchId' => 'setBatchId',
+        'autopayStatus' => 'setAutopayStatus',
         'paymentsRetained' => 'setPaymentsRetained',
         'paymentRetainedAmount' => 'setPaymentRetainedAmount',
         'retailAgentRegisterLoginURL' => 'setRetailAgentRegisterLoginURL',
@@ -375,6 +384,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'isDownPaymentRequired' => 'setIsDownPaymentRequired',
         'isEsignRequired' => 'setIsEsignRequired',
         'isDeleted' => 'setIsDeleted',
+        'offerAutoPay' => 'setOfferAutoPay',
         'createdOn' => 'setCreatedOn',
         'createdBy' => 'setCreatedBy',
         'modifiedOn' => 'setModifiedOn',
@@ -415,6 +425,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'apr' => 'getApr',
         'installments' => 'getInstallments',
         'batchId' => 'getBatchId',
+        'autopayStatus' => 'getAutopayStatus',
         'paymentsRetained' => 'getPaymentsRetained',
         'paymentRetainedAmount' => 'getPaymentRetainedAmount',
         'retailAgentRegisterLoginURL' => 'getRetailAgentRegisterLoginURL',
@@ -425,6 +436,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'isDownPaymentRequired' => 'getIsDownPaymentRequired',
         'isEsignRequired' => 'getIsEsignRequired',
         'isDeleted' => 'getIsDeleted',
+        'offerAutoPay' => 'getOfferAutoPay',
         'createdOn' => 'getCreatedOn',
         'createdBy' => 'getCreatedBy',
         'modifiedOn' => 'getModifiedOn',
@@ -551,6 +563,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('apr', $data ?? [], null);
         $this->setIfExists('installments', $data ?? [], null);
         $this->setIfExists('batchId', $data ?? [], null);
+        $this->setIfExists('autopayStatus', $data ?? [], null);
         $this->setIfExists('paymentsRetained', $data ?? [], null);
         $this->setIfExists('paymentRetainedAmount', $data ?? [], null);
         $this->setIfExists('retailAgentRegisterLoginURL', $data ?? [], null);
@@ -561,6 +574,7 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('isDownPaymentRequired', $data ?? [], null);
         $this->setIfExists('isEsignRequired', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('offerAutoPay', $data ?? [], null);
         $this->setIfExists('createdOn', $data ?? [], null);
         $this->setIfExists('createdBy', $data ?? [], null);
         $this->setIfExists('modifiedOn', $data ?? [], null);
@@ -1333,6 +1347,33 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets autopayStatus
+     *
+     * @return string|null
+     */
+    public function getAutopayStatus()
+    {
+        return $this->container['autopayStatus'];
+    }
+
+    /**
+     * Sets autopayStatus
+     *
+     * @param string|null $autopayStatus The autopayStatus.
+     *
+     * @return self
+     */
+    public function setAutopayStatus($autopayStatus)
+    {
+        if (is_null($autopayStatus)) {
+            throw new \InvalidArgumentException('non-nullable autopayStatus cannot be null');
+        }
+        $this->container['autopayStatus'] = $autopayStatus;
+
+        return $this;
+    }
+
+    /**
      * Gets paymentsRetained
      *
      * @return int|null
@@ -1598,6 +1639,33 @@ class QuoteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
         }
         $this->container['isDeleted'] = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets offerAutoPay
+     *
+     * @return bool|null
+     */
+    public function getOfferAutoPay()
+    {
+        return $this->container['offerAutoPay'];
+    }
+
+    /**
+     * Sets offerAutoPay
+     *
+     * @param bool|null $offerAutoPay The OfferAutoPay Status.
+     *
+     * @return self
+     */
+    public function setOfferAutoPay($offerAutoPay)
+    {
+        if (is_null($offerAutoPay)) {
+            throw new \InvalidArgumentException('non-nullable offerAutoPay cannot be null');
+        }
+        $this->container['offerAutoPay'] = $offerAutoPay;
 
         return $this;
     }

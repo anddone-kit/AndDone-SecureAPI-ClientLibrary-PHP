@@ -49,7 +49,7 @@ class PFEndorsementRequestQuoteDetailsRecurringACH implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PFEndorsementRequest_quote_details_RecurringACH';
+    protected static $openAPIModelName = 'PFEndorsementRequest_quote_details_recurringACH';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -178,11 +178,11 @@ class PFEndorsementRequestQuoteDetailsRecurringACH implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'enrollRecurringAch' => 'EnrollRecurringAch',
-        'bankRoutingNumber' => 'BankRoutingNumber',
-        'bankAcctNumber' => 'BankAcctNumber',
-        'isCheckingAccount' => 'IsCheckingAccount',
-        'achDisclosure' => 'AchDisclosure'
+        'enrollRecurringAch' => 'enrollRecurringAch',
+        'bankRoutingNumber' => 'bankRoutingNumber',
+        'bankAcctNumber' => 'bankAcctNumber',
+        'isCheckingAccount' => 'isCheckingAccount',
+        'achDisclosure' => 'achDisclosure'
     ];
 
     /**

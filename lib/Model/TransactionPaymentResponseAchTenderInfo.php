@@ -266,7 +266,7 @@ class TransactionPaymentResponseAchTenderInfo implements ModelInterface, ArrayAc
         'createAccountToken' => 'createAccountToken',
         'commissionType' => 'commissionType',
         'commissionValue' => 'commissionValue',
-        'commissionFixedValue' => 'CommissionFixedValue'
+        'commissionFixedValue' => 'commissionFixedValue'
     ];
 
     /**

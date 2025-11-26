@@ -80,6 +80,24 @@ class SecureUpdatePaymentLinkRequestSettingsTest extends TestCase
     }
 
     /**
+     * Test attribute "selectedCustomerFields"
+     */
+    public function testPropertySelectedCustomerFields()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additionalDetailsPreference"
+     */
+    public function testPropertyAdditionalDetailsPreference()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "displaySummary"
      */
     public function testPropertyDisplaySummary()
@@ -143,9 +161,9 @@ class SecureUpdatePaymentLinkRequestSettingsTest extends TestCase
     }
 
     /**
-     * Test attribute "additionalDetailsPreference"
+     * Test attribute "intent"
      */
-    public function testPropertyAdditionalDetailsPreference()
+    public function testPropertyIntent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

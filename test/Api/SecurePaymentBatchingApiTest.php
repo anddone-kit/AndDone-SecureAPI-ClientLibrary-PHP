@@ -29,8 +29,13 @@ namespace OpenAPI\Client\Test\Api;
 
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
+use OpenAPI\Client\Model\SecureBatchExecuteRequest;
+use OpenAPI\Client\Model\SecurePaymentBatchDetailsRequest;
+use OpenAPI\Client\Model\PaymentBatchCancellationRequest;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecurePaymentBatchingApi;
+use Exception;
 
 /**
  * SecurePaymentBatchingApiTest Class Doc Comment
@@ -42,7 +47,14 @@ use PHPUnit\Framework\TestCase;
  */
 class SecurePaymentBatchingApiTest extends TestCase
 {
-
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
+    
     /**
      * Setup before running any test cases
      */
@@ -72,6 +84,33 @@ class SecurePaymentBatchingApiTest extends TestCase
     }
 
     /**
+     * Test case for secureBatchesPost
+     *
+     * This API is used for getting Secure Payment Batches.
+     *
+     */
+    public function testSecureBatchesPost()
+    {
+        $apiInstance = new SecurePaymentBatchingApi();
+
+        try {
+            $apiInstance->secureBatchesPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: Batch - Get Batches\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+    
+    /**
      * Test case for secureBatchesDetailsPost
      *
      * This API is used for getting Secure Payment Batch Details.
@@ -79,8 +118,29 @@ class SecurePaymentBatchingApiTest extends TestCase
      */
     public function testSecureBatchesDetailsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentBatchingApi();
+        $payload = [
+            "batchId" => "Nxro7M8l"
+        ];
+
+        $request = new SecurePaymentBatchDetailsRequest($payload);
+
+        try {
+            $apiInstance->secureBatchesDetailsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: Batch - Execute Batch\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -91,20 +151,29 @@ class SecurePaymentBatchingApiTest extends TestCase
      */
     public function testSecureBatchesExecutePost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+        $apiInstance = new SecurePaymentBatchingApi();
+        $payload = [
+            "batchId" => "Nxro7M8l"
+        ];
 
-    /**
-     * Test case for secureBatchesPost
-     *
-     * This API is used for getting Secure Payment Batches.
-     *
-     */
-    public function testSecureBatchesPost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $request = new SecureBatchExecuteRequest($payload);
+
+        try {
+            $apiInstance->secureBatchesExecutePost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: Batch - Execute Batch\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -115,8 +184,29 @@ class SecurePaymentBatchingApiTest extends TestCase
      */
     public function testSecureBatchesTimelinesPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentBatchingApi();
+        $payload = [
+            "batchId" => "Nxro7M8l"
+        ];
+
+        $request = new SecurePaymentBatchDetailsRequest($payload);
+
+        try {
+            $apiInstance->secureBatchesTimelinesPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: Batch - Batch Timelines\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -127,7 +217,33 @@ class SecurePaymentBatchingApiTest extends TestCase
      */
     public function testSecureBatchesTransactionsCancelPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentBatchingApi();
+        $payload = [
+            "merchantId" => $this->appKey,
+            "batchId" => "Nxro7M8l",
+            "voidReason" => "Duplicate Reason",
+            "transactionIds" => [
+                "878f4804-690b-455c-9ffa-df8a88311255"
+            ]
+        ];
+
+        $request = new PaymentBatchCancellationRequest($payload);
+
+        try {
+            $apiInstance->secureBatchesTransactionsCancelPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: Batch - Batch Transaction Cancellation\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

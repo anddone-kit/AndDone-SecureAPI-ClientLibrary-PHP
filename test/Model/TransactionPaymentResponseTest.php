@@ -89,6 +89,15 @@ class TransactionPaymentResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "transactionCode"
+     */
+    public function testPropertyTransactionCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "billingContact"
      */
     public function testPropertyBillingContact()
@@ -116,9 +125,36 @@ class TransactionPaymentResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "ipAddress"
+     */
+    public function testPropertyIpAddress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "channelType"
+     */
+    public function testPropertyChannelType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "processMethod"
      */
     public function testPropertyProcessMethod()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "processorName"
+     */
+    public function testPropertyProcessorName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -179,15 +215,6 @@ class TransactionPaymentResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "customerAccountId"
-     */
-    public function testPropertyCustomerAccountId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "invoiceNo"
      */
     public function testPropertyInvoiceNo()
@@ -197,9 +224,27 @@ class TransactionPaymentResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "referenceNo"
+     */
+    public function testPropertyReferenceNo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "remarks"
      */
     public function testPropertyRemarks()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "terminalId"
+     */
+    public function testPropertyTerminalId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -251,6 +296,24 @@ class TransactionPaymentResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "settlementDate"
+     */
+    public function testPropertySettlementDate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "issuer"
+     */
+    public function testPropertyIssuer()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "paymentType"
      */
     public function testPropertyPaymentType()
@@ -272,6 +335,51 @@ class TransactionPaymentResponseTest extends TestCase
      * Test attribute "transactionEntitySplitResponses"
      */
     public function testPropertyTransactionEntitySplitResponses()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "paymentDescription"
+     */
+    public function testPropertyPaymentDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "refundTransactions"
+     */
+    public function testPropertyRefundTransactions()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "chargebackTargetAccount"
+     */
+    public function testPropertyChargebackTargetAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "userId"
+     */
+    public function testPropertyUserId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "userName"
+     */
+    public function testPropertyUserName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -57,13 +57,13 @@ class PFCheckEndorsementsResponseItemPoliciesInner implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'policyID' => 'float',
+        'policyID' => 'int',
         'companyName' => 'string',
         'policyNumber' => 'string',
         'premium' => 'float',
         'coverageType' => 'string',
         'coverageTypeDescription' => 'string',
-        'companyTypeID' => 'float'
+        'companyTypeID' => 'int'
     ];
 
     /**
@@ -334,7 +334,7 @@ class PFCheckEndorsementsResponseItemPoliciesInner implements ModelInterface, Ar
     /**
      * Gets policyID
      *
-     * @return float|null
+     * @return int|null
      */
     public function getPolicyID()
     {
@@ -344,7 +344,7 @@ class PFCheckEndorsementsResponseItemPoliciesInner implements ModelInterface, Ar
     /**
      * Sets policyID
      *
-     * @param float|null $policyID policyID
+     * @param int|null $policyID policyID
      *
      * @return self
      */
@@ -496,7 +496,7 @@ class PFCheckEndorsementsResponseItemPoliciesInner implements ModelInterface, Ar
     /**
      * Gets companyTypeID
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCompanyTypeID()
     {
@@ -506,7 +506,7 @@ class PFCheckEndorsementsResponseItemPoliciesInner implements ModelInterface, Ar
     /**
      * Sets companyTypeID
      *
-     * @param float|null $companyTypeID companyTypeID
+     * @param int|null $companyTypeID companyTypeID
      *
      * @return self
      */

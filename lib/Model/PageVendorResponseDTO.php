@@ -57,7 +57,7 @@ class PageVendorResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalRowCount' => 'float',
+        'totalRowCount' => 'int',
         'data' => '\OpenAPI\Client\Model\PageVendorResponseDTODataInner[]'
     ];
 
@@ -299,7 +299,7 @@ class PageVendorResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets totalRowCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTotalRowCount()
     {
@@ -309,7 +309,7 @@ class PageVendorResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets totalRowCount
      *
-     * @param float|null $totalRowCount totalRowCount
+     * @param int|null $totalRowCount totalRowCount
      *
      * @return self
      */

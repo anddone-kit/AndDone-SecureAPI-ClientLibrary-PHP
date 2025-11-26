@@ -62,7 +62,7 @@ class PFLiteGenerateQuoteResponseItemESignResult implements ModelInterface, Arra
         'batchId' => 'string',
         'agentUrl' => 'string',
         'insuredUrl' => 'string',
-        'eSignOption' => 'float'
+        'eSignOption' => 'int'
     ];
 
     /**
@@ -462,7 +462,7 @@ class PFLiteGenerateQuoteResponseItemESignResult implements ModelInterface, Arra
     /**
      * Gets eSignOption
      *
-     * @return float|null
+     * @return int|null
      */
     public function getESignOption()
     {
@@ -472,7 +472,7 @@ class PFLiteGenerateQuoteResponseItemESignResult implements ModelInterface, Arra
     /**
      * Sets eSignOption
      *
-     * @param float|null $eSignOption eSignOption
+     * @param int|null $eSignOption eSignOption
      *
      * @return self
      */

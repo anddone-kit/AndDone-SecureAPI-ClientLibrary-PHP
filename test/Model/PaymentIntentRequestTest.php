@@ -80,6 +80,159 @@ class PaymentIntentRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "amount"
+     */
+    public function testPropertyAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "invoiceNumber"
+     */
+    public function testPropertyInvoiceNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "expiresIn"
+     */
+    public function testPropertyExpiresIn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "shortDescription"
+     */
+    public function testPropertyShortDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "paymentDescription"
+     */
+    public function testPropertyPaymentDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "merchantToken"
+     */
+    public function testPropertyMerchantToken()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "intent"
+     */
+    public function testPropertyIntent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "saveForFuture"
+     */
+    public function testPropertySaveForFuture()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "enablePremiumFinance"
+     */
+    public function testPropertyEnablePremiumFinance()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "splits"
+     */
+    public function testPropertySplits()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "quoteKey"
+     */
+    public function testPropertyQuoteKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "accountNumber"
+     */
+    public function testPropertyAccountNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "suppressTechnologyFee"
+     */
+    public function testPropertySuppressTechnologyFee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "overrideTechnologyFee"
+     */
+    public function testPropertyOverrideTechnologyFee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isPremiumFinancier"
+     */
+    public function testPropertyIsPremiumFinancier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pfr"
+     */
+    public function testPropertyPfr()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "saveCustomer"
      */
     public function testPropertySaveCustomer()
@@ -116,15 +269,6 @@ class PaymentIntentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "referenceDataList"
-     */
-    public function testPropertyReferenceDataList()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "referenceType"
      */
     public function testPropertyReferenceType()
@@ -146,6 +290,24 @@ class PaymentIntentRequestTest extends TestCase
      * Test attribute "referenceKey"
      */
     public function testPropertyReferenceKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceDataList"
+     */
+    public function testPropertyReferenceDataList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "displayMode"
+     */
+    public function testPropertyDisplayMode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

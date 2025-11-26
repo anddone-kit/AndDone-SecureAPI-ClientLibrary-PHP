@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **paymentDescription** | **string** |  | [optional]
 **customers** | [**\OpenAPI\Client\Model\PaymentLinkResponseCustomersInner[]**](PaymentLinkResponseCustomersInner.md) |  | [optional]
 **invoiceNumber** | **string** |  | [optional]
-**expireBy** | **float** |  | [optional]
+**expireBy** | **int** |  | [optional]
 **expireOn** | **string** |  | [optional]
 **lineItems** | [**\OpenAPI\Client\Model\PaymentLinkResponseLineItemsInner[]**](PaymentLinkResponseLineItemsInner.md) |  | [optional]
 **shortDescription** | **string** |  | [optional]

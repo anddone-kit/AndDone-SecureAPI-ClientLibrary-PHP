@@ -206,6 +206,15 @@ class QuoteResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "brokerFee"
+     */
+    public function testPropertyBrokerFee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "downAmount"
      */
     public function testPropertyDownAmount()

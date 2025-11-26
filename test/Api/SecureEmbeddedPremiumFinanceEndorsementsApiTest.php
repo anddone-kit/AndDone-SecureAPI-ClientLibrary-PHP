@@ -30,7 +30,12 @@ namespace OpenAPI\Client\Test\Api;
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
+use \OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceEndorsementsApi;
+use \OpenAPI\Client\Model\PFCheckEndorsementsRequest;
+use \OpenAPI\Client\Model\PFQuoteBookingRequest;
+use \OpenAPI\Client\Model\PFEndorsementRequest;
 use PHPUnit\Framework\TestCase;
+use Exception;
 
 /**
  * SecureEmbeddedPremiumFinanceEndorsementsApiTest Class Doc Comment
@@ -42,6 +47,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureEmbeddedPremiumFinanceEndorsementsApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,8 +91,30 @@ class SecureEmbeddedPremiumFinanceEndorsementsApiTest extends TestCase
      */
     public function testSecureEpfEndorsementsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceEndorsementsApi();
+        $payload = [
+            "accountNumber" => 240856,
+            "isCommercial" => true
+        ];
+
+        $request = new PFCheckEndorsementsRequest($payload);
+
+        try {
+            $apiInstance->secureEpfEndorsementsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Retrieve Endorsement Eligibility\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -91,8 +125,29 @@ class SecureEmbeddedPremiumFinanceEndorsementsApiTest extends TestCase
      */
     public function testSecureEpfQuoteEndorsementBookingPut()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceEndorsementsApi();
+        $payload = [
+            "quotekey" => 28283536
+        ];
+
+        $request = new PFQuoteBookingRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuoteEndorsementBookingPut(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Confirm (Book) Endorsement\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -103,7 +158,67 @@ class SecureEmbeddedPremiumFinanceEndorsementsApiTest extends TestCase
      */
     public function testSecureEpfQuoteEndorsementPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceEndorsementsApi();
+        $payload = [
+            "quote" => [
+                "merchantReference" => "test 6",
+                "accountNumber" => "240820",
+                "agreementId" => 7819615,
+                "policies" => [
+                    [
+                        "policyId" => 11419680,
+                        "premium" => 40000.0,
+                        "effectiveDate" => "2024-10-30T05:39:43.181Z",
+                        "expirationDate" => "2025-10-30T05:39:43.181Z",
+                        "coverage" => "BOP",
+                        "company" => [
+                            "bestNumber" => "",
+                            "UniqueId" => "1733",
+                            "Name" => "Bankers Standard Insurance Co",
+                            "careOf" => "string",
+                            "address1" => "string",
+                            "address2" => "string",
+                            "city" => "string",
+                            "state" => "string",
+                            "zip" => "string",
+                            "phone" => "string"
+                        ]
+                    ]
+                ],
+                "insured" => [
+                    "AgentCustomerNumber" => "Suyash",
+                    "Email" => "dylan.smith@fmkagency.com",
+                    "CareOf" => "",
+                    "Address" => [
+                        "Name" => "Sam",
+                        "Address1" => "1055 Broadway",
+                        "Address2" => "",
+                        "City" => "Kansas City",
+                        "State" => "MO",
+                        "Zip" => "64105",
+                        "Phone" => ""
+                    ]
+                ]
+            ]
+        ];
+
+        $request = new PFEndorsementRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuoteEndorsementPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Update Policy Endorsement\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

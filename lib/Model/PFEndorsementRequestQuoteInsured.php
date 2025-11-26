@@ -49,7 +49,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PFEndorsementRequest_quote_Insured';
+    protected static $openAPIModelName = 'PFEndorsementRequest_quote_insured';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,7 +65,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         'isCancellationWarningEnabled' => 'bool',
         'faxNumber' => 'string',
         'emailAddress' => 'string',
-        'pFType' => 'string',
+        'pfType' => 'string',
         'address' => '\OpenAPI\Client\Model\PFEndorsementRequestQuoteInsuredAddress',
         'hasDataChangeAgentCustomerNumber' => 'bool',
         'hasDataChangeName' => 'bool',
@@ -96,7 +96,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         'isCancellationWarningEnabled' => null,
         'faxNumber' => null,
         'emailAddress' => null,
-        'pFType' => null,
+        'pfType' => null,
         'address' => null,
         'hasDataChangeAgentCustomerNumber' => null,
         'hasDataChangeName' => null,
@@ -125,7 +125,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         'isCancellationWarningEnabled' => false,
         'faxNumber' => false,
         'emailAddress' => false,
-        'pFType' => false,
+        'pfType' => false,
         'address' => false,
         'hasDataChangeAgentCustomerNumber' => false,
         'hasDataChangeName' => false,
@@ -226,27 +226,27 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'agentCustomerNumber' => 'AgentCustomerNumber',
-        'email' => 'Email',
-        'careOf' => 'CareOf',
-        'uniqueID' => 'UniqueID',
-        'mobilePhoneNumber' => 'MobilePhoneNumber',
-        'isCancellationWarningEnabled' => 'IsCancellationWarningEnabled',
-        'faxNumber' => 'FaxNumber',
-        'emailAddress' => 'EmailAddress',
-        'pFType' => 'PFType',
-        'address' => 'Address',
-        'hasDataChangeAgentCustomerNumber' => 'HasDataChangeAgentCustomerNumber',
-        'hasDataChangeName' => 'HasDataChangeName',
-        'hasDataChangeAddress1' => 'HasDataChangeAddress1',
-        'hasDataChangeAddress2' => 'HasDataChangeAddress2',
-        'hasDataChangeCity' => 'HasDataChangeCity',
-        'hasDataChangeState' => 'HasDataChangeState',
-        'hasDataChangeZip' => 'HasDataChangeZip',
-        'hasDataChangePhone' => 'HasDataChangePhone',
-        'hasDataChangeEmail' => 'HasDataChangeEmail',
-        'hasDataChangeCareOf' => 'HasDataChangeCareOf',
-        'hasDataChangeInsured' => 'HasDataChangeInsured'
+        'agentCustomerNumber' => 'agentCustomerNumber',
+        'email' => 'email',
+        'careOf' => 'careOf',
+        'uniqueID' => 'uniqueID',
+        'mobilePhoneNumber' => 'mobilePhoneNumber',
+        'isCancellationWarningEnabled' => 'isCancellationWarningEnabled',
+        'faxNumber' => 'faxNumber',
+        'emailAddress' => 'emailAddress',
+        'pfType' => 'pfType',
+        'address' => 'address',
+        'hasDataChangeAgentCustomerNumber' => 'hasDataChangeAgentCustomerNumber',
+        'hasDataChangeName' => 'hasDataChangeName',
+        'hasDataChangeAddress1' => 'hasDataChangeAddress1',
+        'hasDataChangeAddress2' => 'hasDataChangeAddress2',
+        'hasDataChangeCity' => 'hasDataChangeCity',
+        'hasDataChangeState' => 'hasDataChangeState',
+        'hasDataChangeZip' => 'hasDataChangeZip',
+        'hasDataChangePhone' => 'hasDataChangePhone',
+        'hasDataChangeEmail' => 'hasDataChangeEmail',
+        'hasDataChangeCareOf' => 'hasDataChangeCareOf',
+        'hasDataChangeInsured' => 'hasDataChangeInsured'
     ];
 
     /**
@@ -263,7 +263,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         'isCancellationWarningEnabled' => 'setIsCancellationWarningEnabled',
         'faxNumber' => 'setFaxNumber',
         'emailAddress' => 'setEmailAddress',
-        'pFType' => 'setPFType',
+        'pfType' => 'setPfType',
         'address' => 'setAddress',
         'hasDataChangeAgentCustomerNumber' => 'setHasDataChangeAgentCustomerNumber',
         'hasDataChangeName' => 'setHasDataChangeName',
@@ -292,7 +292,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         'isCancellationWarningEnabled' => 'getIsCancellationWarningEnabled',
         'faxNumber' => 'getFaxNumber',
         'emailAddress' => 'getEmailAddress',
-        'pFType' => 'getPFType',
+        'pfType' => 'getPfType',
         'address' => 'getAddress',
         'hasDataChangeAgentCustomerNumber' => 'getHasDataChangeAgentCustomerNumber',
         'hasDataChangeName' => 'getHasDataChangeName',
@@ -348,21 +348,21 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
-    public const P_F_TYPE_NONE = 'None';
-    public const P_F_TYPE_EPF = 'EPF';
-    public const P_F_TYPE_PF_LITE = 'PFLite';
+    public const PF_TYPE_NONE = 'None';
+    public const PF_TYPE_EPF = 'EPF';
+    public const PF_TYPE_PF_LITE = 'PFLite';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getPFTypeAllowableValues()
+    public function getPfTypeAllowableValues()
     {
         return [
-            self::P_F_TYPE_NONE,
-            self::P_F_TYPE_EPF,
-            self::P_F_TYPE_PF_LITE,
+            self::PF_TYPE_NONE,
+            self::PF_TYPE_EPF,
+            self::PF_TYPE_PF_LITE,
         ];
     }
 
@@ -389,7 +389,7 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
         $this->setIfExists('isCancellationWarningEnabled', $data ?? [], null);
         $this->setIfExists('faxNumber', $data ?? [], null);
         $this->setIfExists('emailAddress', $data ?? [], null);
-        $this->setIfExists('pFType', $data ?? [], null);
+        $this->setIfExists('pfType', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('hasDataChangeAgentCustomerNumber', $data ?? [], null);
         $this->setIfExists('hasDataChangeName', $data ?? [], null);
@@ -431,11 +431,11 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getPFTypeAllowableValues();
-        if (!is_null($this->container['pFType']) && !in_array($this->container['pFType'], $allowedValues, true)) {
+        $allowedValues = $this->getPfTypeAllowableValues();
+        if (!is_null($this->container['pfType']) && !in_array($this->container['pfType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pFType', must be one of '%s'",
-                $this->container['pFType'],
+                "invalid value '%s' for 'pfType', must be one of '%s'",
+                $this->container['pfType'],
                 implode("', '", $allowedValues)
             );
         }
@@ -672,38 +672,38 @@ class PFEndorsementRequestQuoteInsured implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets pFType
+     * Gets pfType
      *
      * @return string|null
      */
-    public function getPFType()
+    public function getPfType()
     {
-        return $this->container['pFType'];
+        return $this->container['pfType'];
     }
 
     /**
-     * Sets pFType
+     * Sets pfType
      *
-     * @param string|null $pFType This denotes the PFType (enum or string depending on your definition).
+     * @param string|null $pfType This denotes the PFType (enum or string depending on your definition).
      *
      * @return self
      */
-    public function setPFType($pFType)
+    public function setPfType($pfType)
     {
-        if (is_null($pFType)) {
-            throw new \InvalidArgumentException('non-nullable pFType cannot be null');
+        if (is_null($pfType)) {
+            throw new \InvalidArgumentException('non-nullable pfType cannot be null');
         }
-        $allowedValues = $this->getPFTypeAllowableValues();
-        if (!in_array($pFType, $allowedValues, true)) {
+        $allowedValues = $this->getPfTypeAllowableValues();
+        if (!in_array($pfType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'pFType', must be one of '%s'",
-                    $pFType,
+                    "Invalid value '%s' for 'pfType', must be one of '%s'",
+                    $pfType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['pFType'] = $pFType;
+        $this->container['pfType'] = $pfType;
 
         return $this;
     }

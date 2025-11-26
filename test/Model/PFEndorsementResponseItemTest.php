@@ -96,4 +96,13 @@ class PFEndorsementResponseItemTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "paymentIntent"
+     */
+    public function testPropertyPaymentIntent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -62,7 +62,7 @@ class TokenLinkSecureRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'expireIn' => 'int',
         'expireInUnit' => 'string',
         'responseType' => 'string',
-        'intent' => '\OpenAPI\Client\Model\TokenLinkSecureRequestIntent',
+        'intent' => '\OpenAPI\Client\Model\PaymentIntentRequestIntent',
         'callbackParameters' => '\OpenAPI\Client\Model\PaymentLinkResponseCallbackParameters',
         'customers' => '\OpenAPI\Client\Model\TokenLinkSecureRequestCustomersInner[]'
     ];
@@ -564,7 +564,7 @@ class TokenLinkSecureRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets intent
      *
-     * @return \OpenAPI\Client\Model\TokenLinkSecureRequestIntent
+     * @return \OpenAPI\Client\Model\PaymentIntentRequestIntent
      */
     public function getIntent()
     {
@@ -574,7 +574,7 @@ class TokenLinkSecureRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets intent
      *
-     * @param \OpenAPI\Client\Model\TokenLinkSecureRequestIntent $intent intent
+     * @param \OpenAPI\Client\Model\PaymentIntentRequestIntent $intent intent
      *
      * @return self
      */

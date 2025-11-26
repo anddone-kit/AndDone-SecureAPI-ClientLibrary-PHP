@@ -231,4 +231,49 @@ class SecureVendorResponseDTOTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "vendorStatus"
+     */
+    public function testPropertyVendorStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdBy"
+     */
+    public function testPropertyCreatedBy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modifiedBy"
+     */
+    public function testPropertyModifiedBy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdOn"
+     */
+    public function testPropertyCreatedOn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modifiedOn"
+     */
+    public function testPropertyModifiedOn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

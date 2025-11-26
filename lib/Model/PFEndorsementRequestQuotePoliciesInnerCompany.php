@@ -193,15 +193,15 @@ class PFEndorsementRequestQuotePoliciesInnerCompany implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'bestNumber' => 'BestNumber',
-        'uniqueID' => 'UniqueID',
-        'name' => 'Name',
-        'careOf' => 'CareOf',
-        'address1' => 'Address1',
-        'address2' => 'Address2',
-        'city' => 'City',
-        'state' => 'State',
-        'zip' => 'Zip',
+        'bestNumber' => 'bestNumber',
+        'uniqueID' => 'uniqueID',
+        'name' => 'name',
+        'careOf' => 'careOf',
+        'address1' => 'address1',
+        'address2' => 'address2',
+        'city' => 'city',
+        'state' => 'state',
+        'zip' => 'zip',
         'phone' => 'phone'
     ];
 
@@ -337,9 +337,6 @@ class PFEndorsementRequestQuotePoliciesInnerCompany implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -412,7 +409,7 @@ class PFEndorsementRequestQuotePoliciesInnerCompany implements ModelInterface, A
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -422,7 +419,7 @@ class PFEndorsementRequestQuotePoliciesInnerCompany implements ModelInterface, A
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */

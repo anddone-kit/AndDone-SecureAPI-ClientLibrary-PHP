@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **expireIn** | **int** |  |
 **expireInUnit** | **string** |  |
 **responseType** | **string** |  | [optional]
-**intent** | [**\OpenAPI\Client\Model\TokenLinkSecureRequestIntent**](TokenLinkSecureRequestIntent.md) |  |
+**intent** | [**\OpenAPI\Client\Model\PaymentIntentRequestIntent**](PaymentIntentRequestIntent.md) |  |
 **callbackParameters** | [**\OpenAPI\Client\Model\PaymentLinkResponseCallbackParameters**](PaymentLinkResponseCallbackParameters.md) |  | [optional]
 **customers** | [**\OpenAPI\Client\Model\TokenLinkSecureRequestCustomersInner[]**](TokenLinkSecureRequestCustomersInner.md) |  | [optional]
 

@@ -477,16 +477,6 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -518,16 +508,16 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  \OpenAPI\Client\Model\PFQuoteBookingRequest $pFQuoteBookingRequest PFQuoteBooking Request details (required)
+     * @param  \OpenAPI\Client\Model\SecurePFQuoteBookingRequest $securePFQuoteBookingRequest PFQuoteBooking Request details (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureEpfQuoteEndorsementBookingPut'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PFUpdatePFAResponse
      */
-    public function secureEpfQuoteEndorsementBookingPut($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
+    public function secureEpfQuoteEndorsementBookingPut($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
     {
-        list($response) = $this->secureEpfQuoteEndorsementBookingPutWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, $contentType);
+        list($response) = $this->secureEpfQuoteEndorsementBookingPutWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, $contentType);
         return $response;
     }
 
@@ -540,16 +530,16 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  \OpenAPI\Client\Model\PFQuoteBookingRequest $pFQuoteBookingRequest PFQuoteBooking Request details (required)
+     * @param  \OpenAPI\Client\Model\SecurePFQuoteBookingRequest $securePFQuoteBookingRequest PFQuoteBooking Request details (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureEpfQuoteEndorsementBookingPut'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PFUpdatePFAResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function secureEpfQuoteEndorsementBookingPutWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
+    public function secureEpfQuoteEndorsementBookingPutWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
     {
-        $request = $this->secureEpfQuoteEndorsementBookingPutRequest($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, $contentType);
+        $request = $this->secureEpfQuoteEndorsementBookingPutRequest($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -669,15 +659,15 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  \OpenAPI\Client\Model\PFQuoteBookingRequest $pFQuoteBookingRequest PFQuoteBooking Request details (required)
+     * @param  \OpenAPI\Client\Model\SecurePFQuoteBookingRequest $securePFQuoteBookingRequest PFQuoteBooking Request details (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureEpfQuoteEndorsementBookingPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function secureEpfQuoteEndorsementBookingPutAsync($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
+    public function secureEpfQuoteEndorsementBookingPutAsync($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
     {
-        return $this->secureEpfQuoteEndorsementBookingPutAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, $contentType)
+        return $this->secureEpfQuoteEndorsementBookingPutAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -694,16 +684,16 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  \OpenAPI\Client\Model\PFQuoteBookingRequest $pFQuoteBookingRequest PFQuoteBooking Request details (required)
+     * @param  \OpenAPI\Client\Model\SecurePFQuoteBookingRequest $securePFQuoteBookingRequest PFQuoteBooking Request details (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureEpfQuoteEndorsementBookingPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function secureEpfQuoteEndorsementBookingPutAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
+    public function secureEpfQuoteEndorsementBookingPutAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PFUpdatePFAResponse';
-        $request = $this->secureEpfQuoteEndorsementBookingPutRequest($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, $contentType);
+        $request = $this->secureEpfQuoteEndorsementBookingPutRequest($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -748,13 +738,13 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
      * @param  string $xAppKey an authorization header (required)
      * @param  float $xVersion x-version (required)
      * @param  string $origin origin (required)
-     * @param  \OpenAPI\Client\Model\PFQuoteBookingRequest $pFQuoteBookingRequest PFQuoteBooking Request details (required)
+     * @param  \OpenAPI\Client\Model\SecurePFQuoteBookingRequest $securePFQuoteBookingRequest PFQuoteBooking Request details (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['secureEpfQuoteEndorsementBookingPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function secureEpfQuoteEndorsementBookingPutRequest($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
+    public function secureEpfQuoteEndorsementBookingPutRequest($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest, string $contentType = self::contentTypes['secureEpfQuoteEndorsementBookingPut'][0])
     {
 
         // verify the required parameter 'xApiKey' is set
@@ -785,10 +775,10 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
             );
         }
 
-        // verify the required parameter 'pFQuoteBookingRequest' is set
-        if ($pFQuoteBookingRequest === null || (is_array($pFQuoteBookingRequest) && count($pFQuoteBookingRequest) === 0)) {
+        // verify the required parameter 'securePFQuoteBookingRequest' is set
+        if ($securePFQuoteBookingRequest === null || (is_array($securePFQuoteBookingRequest) && count($securePFQuoteBookingRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $pFQuoteBookingRequest when calling secureEpfQuoteEndorsementBookingPut'
+                'Missing the required parameter $securePFQuoteBookingRequest when calling secureEpfQuoteEndorsementBookingPut'
             );
         }
 
@@ -827,12 +817,12 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
         );
 
         // for model (json/xml)
-        if (isset($pFQuoteBookingRequest)) {
+        if (isset($securePFQuoteBookingRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($pFQuoteBookingRequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($securePFQuoteBookingRequest));
             } else {
-                $httpBody = $pFQuoteBookingRequest;
+                $httpBody = $securePFQuoteBookingRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -858,16 +848,6 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1239,16 +1219,6 @@ class SecureEmbeddedPremiumFinanceEndorsementsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

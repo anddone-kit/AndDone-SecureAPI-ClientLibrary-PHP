@@ -29,22 +29,11 @@ This API deletes vendor into system
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -75,7 +64,7 @@ void (empty response body)
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,22 +90,11 @@ This API gets details of particular vendor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -148,7 +126,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,22 +152,11 @@ This API Updates the existing vendor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -221,7 +188,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -247,22 +214,11 @@ This API creates vendor into system
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -294,7 +250,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -320,22 +276,11 @@ This API returns list of all the Vendors of Merchant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -349,10 +294,10 @@ $vendorStatus = 'vendorStatus_example'; // string | Set vendorStatus
 $createdBy = 'createdBy_example'; // string | Set createdBy
 $startDate = 'startDate_example'; // string | set start Date
 $endDate = 'endDate_example'; // string | set end Date
-$pageSize = 3.4; // float | Set PageSize
+$pageSize = 56; // int | Set PageSize
 $searchText = 'searchText_example'; // string | search Text
 $sortField = 'sortField_example'; // string | Set SortField
-$startRow = 'startRow_example'; // string | Set StartRow
+$startRow = 56; // int | Set StartRow
 $asc = True; // bool | Set Asc
 
 try {
@@ -379,10 +324,10 @@ try {
 | **createdBy** | **string**| Set createdBy | [optional] |
 | **startDate** | **string**| set start Date | [optional] |
 | **endDate** | **string**| set end Date | [optional] |
-| **pageSize** | **float**| Set PageSize | [optional] |
+| **pageSize** | **int**| Set PageSize | [optional] |
 | **searchText** | **string**| search Text | [optional] |
 | **sortField** | **string**| Set SortField | [optional] |
-| **startRow** | **string**| Set StartRow | [optional] |
+| **startRow** | **int**| Set StartRow | [optional] |
 | **asc** | **bool**| Set Asc | [optional] |
 
 ### Return type
@@ -391,7 +336,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -417,22 +362,11 @@ This API suspends vendor into system
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -463,7 +397,7 @@ void (empty response body)
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -489,22 +423,11 @@ This API gets timeline of particular vendor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -536,7 +459,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -562,22 +485,11 @@ This API unsuspends vendor into system
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureVendorManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -608,7 +520,7 @@ void (empty response body)
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 

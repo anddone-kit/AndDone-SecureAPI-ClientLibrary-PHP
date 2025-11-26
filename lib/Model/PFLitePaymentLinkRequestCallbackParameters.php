@@ -64,7 +64,7 @@ class PFLitePaymentLinkRequestCallbackParameters implements ModelInterface, Arra
         'referenceNo' => 'string',
         'referenceType' => 'string',
         'transactionId' => 'string',
-        'redirectionTime' => 'float'
+        'redirectionTime' => 'int'
     ];
 
     /**
@@ -530,7 +530,7 @@ class PFLitePaymentLinkRequestCallbackParameters implements ModelInterface, Arra
     /**
      * Gets redirectionTime
      *
-     * @return float|null
+     * @return int|null
      */
     public function getRedirectionTime()
     {
@@ -540,7 +540,7 @@ class PFLitePaymentLinkRequestCallbackParameters implements ModelInterface, Arra
     /**
      * Sets redirectionTime
      *
-     * @param float|null $redirectionTime redirectionTime
+     * @param int|null $redirectionTime redirectionTime
      *
      * @return self
      */

@@ -57,7 +57,7 @@ class PagePaymentListResponseDTO implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalRowCount' => 'float',
+        'totalRowCount' => 'int',
         'totalAmount' => 'float',
         'data' => '\OpenAPI\Client\Model\PagePaymentListResponseDTODataInner[]'
     ];
@@ -306,7 +306,7 @@ class PagePaymentListResponseDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets totalRowCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTotalRowCount()
     {
@@ -316,7 +316,7 @@ class PagePaymentListResponseDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets totalRowCount
      *
-     * @param float|null $totalRowCount totalRowCount
+     * @param int|null $totalRowCount totalRowCount
      *
      * @return self
      */

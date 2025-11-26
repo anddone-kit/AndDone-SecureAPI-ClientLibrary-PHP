@@ -213,4 +213,31 @@ class PFEndorsementResponseItemQuoteTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "isDownPaymentRequired"
+     */
+    public function testPropertyIsDownPaymentRequired()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isEsignRequired"
+     */
+    public function testPropertyIsEsignRequired()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isEndorsement"
+     */
+    public function testPropertyIsEndorsement()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

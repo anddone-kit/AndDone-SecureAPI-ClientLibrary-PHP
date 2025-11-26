@@ -31,6 +31,12 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecurePaymentIntentApi;
+use \OpenAPI\Client\Model\PaymentIntentRequest;
+use \OpenAPI\Client\Model\PaymentIntentResponse;
+use \OpenAPI\Client\Model\PaymentIntentExpiresResponse;
+use Exception;
+use SebastianBergmann\Environment\Console;
 
 /**
  * SecurePaymentIntentApiTest Class Doc Comment
@@ -42,6 +48,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecurePaymentIntentApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -71,16 +84,11 @@ class SecurePaymentIntentApiTest extends TestCase
     {
     }
 
-    /**
-     * Test case for securePaymentintentsExpirationsPost
-     *
-     * This API expires the payment Intent or link..
-     *
-     */
-    public function testSecurePaymentintentsExpirationsPost()
+    protected function &getPaymentToken()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        static $id = null;
+
+        return $id;
     }
 
     /**
@@ -91,7 +99,86 @@ class SecurePaymentIntentApiTest extends TestCase
      */
     public function testSecurePaymentintentsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePaymentIntentApi();
+        $this->assertInstanceOf(SecurePaymentIntentApi::class, $apiInstance);
+
+        try {
+            $payload = [
+                "saveForFuture" => false,
+                "amount" => "101",
+                // "title" => "PHP PI test 001",
+                "title" => "PHP PI - " . date("Y m d H-i-s"),
+                "shortDescription" => "shortDescription",
+                "invoiceNumber" => "invoiceNumber",
+                "expiresIn" => "300000",
+                "enablePremiumFinance" => false,
+                "intent" => [
+                    "paymentTypes" => [
+                        "CreditCard"
+                    ],
+                ],
+                "splits" => null,
+                "additionalDetailsPreference" => "NoAdditionalDetails"
+            ];
+
+            $request = new PaymentIntentRequest($payload);
+
+            // $apiKey = "";
+            // $result = new SecurePaymentIntentApi()->securePaymentIntentsPost(
+            //     $apiKey,
+            //     $this->appKey,
+            //     $this->version,
+            //     $this->origin,
+            //     $request
+            // );
+            $result = $apiInstance->securePaymentintentsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->version,
+                $this->origin,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentIntentResponse::class, $result);
+            print "Success: PI - Create Payment Intent\n";
+            $id = &$this->getPaymentToken();
+            $id = $result["paymentToken"];
+            return $id;
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for securePaymentintentsExpirationsPost
+     *
+     * This API expires the payment Intent or link..
+     *
+     */
+    #[Depends('testSecurePaymentintentsPost')]
+     public function testSecurePaymentintentsExpirationsPost()
+    {
+        $apiInstance = new SecurePaymentIntentApi();
+
+        $id = &$this->getPaymentToken();
+
+        try {
+            $result = $apiInstance->securePaymentintentsExpirationsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->version,
+                $this->origin,
+                $id
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentIntentExpiresResponse::class, $result);
+            print "Success: PI - Expire Payment Intent\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

@@ -57,8 +57,8 @@ class PFCheckEndorsementsResponseItem implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'agreementID' => 'float',
-        'clientID' => 'float',
+        'agreementID' => 'int',
+        'clientID' => 'int',
         'accountNumber' => 'string',
         'clientName' => 'string',
         'isCommercial' => 'bool',
@@ -327,7 +327,7 @@ class PFCheckEndorsementsResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Gets agreementID
      *
-     * @return float|null
+     * @return int|null
      */
     public function getAgreementID()
     {
@@ -337,7 +337,7 @@ class PFCheckEndorsementsResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Sets agreementID
      *
-     * @param float|null $agreementID agreementID
+     * @param int|null $agreementID agreementID
      *
      * @return self
      */
@@ -354,7 +354,7 @@ class PFCheckEndorsementsResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Gets clientID
      *
-     * @return float|null
+     * @return int|null
      */
     public function getClientID()
     {
@@ -364,7 +364,7 @@ class PFCheckEndorsementsResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Sets clientID
      *
-     * @param float|null $clientID clientID
+     * @param int|null $clientID clientID
      *
      * @return self
      */

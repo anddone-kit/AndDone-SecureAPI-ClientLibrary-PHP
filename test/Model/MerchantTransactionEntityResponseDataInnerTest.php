@@ -170,15 +170,6 @@ class MerchantTransactionEntityResponseDataInnerTest extends TestCase
     }
 
     /**
-     * Test attribute "customerAccountId"
-     */
-    public function testPropertyCustomerAccountId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "recurringId"
      */
     public function testPropertyRecurringId()
@@ -314,15 +305,6 @@ class MerchantTransactionEntityResponseDataInnerTest extends TestCase
     }
 
     /**
-     * Test attribute "tipAmount"
-     */
-    public function testPropertyTipAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "convenienceAmount"
      */
     public function testPropertyConvenienceAmount()
@@ -335,24 +317,6 @@ class MerchantTransactionEntityResponseDataInnerTest extends TestCase
      * Test attribute "captureAmount"
      */
     public function testPropertyCaptureAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxPercent"
-     */
-    public function testPropertyTaxPercent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAmount"
-     */
-    public function testPropertyTaxAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -470,6 +434,15 @@ class MerchantTransactionEntityResponseDataInnerTest extends TestCase
      * Test attribute "processorName"
      */
     public function testPropertyProcessorName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "processorDisplayName"
+     */
+    public function testPropertyProcessorDisplayName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -611,6 +584,15 @@ class MerchantTransactionEntityResponseDataInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "accountToken"
+     */
+    public function testPropertyAccountToken()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "paymentType"
      */
     public function testPropertyPaymentType()
@@ -623,6 +605,24 @@ class MerchantTransactionEntityResponseDataInnerTest extends TestCase
      * Test attribute "paymentCategory"
      */
     public function testPropertyPaymentCategory()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "refundReason"
+     */
+    public function testPropertyRefundReason()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "refundDetail"
+     */
+    public function testPropertyRefundDetail()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

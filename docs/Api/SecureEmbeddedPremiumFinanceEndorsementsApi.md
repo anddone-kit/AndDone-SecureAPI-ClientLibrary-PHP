@@ -24,22 +24,11 @@ This API will do a check of eligibility of account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceEndorsementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -71,7 +60,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,7 +74,7 @@ try {
 ## `secureEpfQuoteEndorsementBookingPut()`
 
 ```php
-secureEpfQuoteEndorsementBookingPut($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest): \OpenAPI\Client\Model\PFUpdatePFAResponse
+secureEpfQuoteEndorsementBookingPut($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest): \OpenAPI\Client\Model\PFUpdatePFAResponse
 ```
 
 This API will update PFA to book a endorsement quote.
@@ -97,31 +86,20 @@ This API will update PFA to book a endorsement quote.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceEndorsementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
 $xVersion = 3.4; // float | x-version
 $origin = 'origin_example'; // string | origin
-$pFQuoteBookingRequest = new \OpenAPI\Client\Model\PFQuoteBookingRequest(); // \OpenAPI\Client\Model\PFQuoteBookingRequest | PFQuoteBooking Request details
+$securePFQuoteBookingRequest = new \OpenAPI\Client\Model\SecurePFQuoteBookingRequest(); // \OpenAPI\Client\Model\SecurePFQuoteBookingRequest | PFQuoteBooking Request details
 
 try {
-    $result = $apiInstance->secureEpfQuoteEndorsementBookingPut($xApiKey, $xAppKey, $xVersion, $origin, $pFQuoteBookingRequest);
+    $result = $apiInstance->secureEpfQuoteEndorsementBookingPut($xApiKey, $xAppKey, $xVersion, $origin, $securePFQuoteBookingRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecureEmbeddedPremiumFinanceEndorsementsApi->secureEpfQuoteEndorsementBookingPut: ', $e->getMessage(), PHP_EOL;
@@ -136,7 +114,7 @@ try {
 | **xAppKey** | **string**| an authorization header | |
 | **xVersion** | **float**| x-version | |
 | **origin** | **string**| origin | |
-| **pFQuoteBookingRequest** | [**\OpenAPI\Client\Model\PFQuoteBookingRequest**](../Model/PFQuoteBookingRequest.md)| PFQuoteBooking Request details | |
+| **securePFQuoteBookingRequest** | [**\OpenAPI\Client\Model\SecurePFQuoteBookingRequest**](../Model/SecurePFQuoteBookingRequest.md)| PFQuoteBooking Request details | |
 
 ### Return type
 
@@ -144,7 +122,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 
@@ -170,22 +148,11 @@ This API will do return a quote for an existing policy or new policy for an exis
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: x-api-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-// Configure API key authorization: x-app-key
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-app-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-app-key', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceEndorsementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $xApiKey = 'xApiKey_example'; // string | an authorization header
 $xAppKey = 'xAppKey_example'; // string | an authorization header
@@ -217,7 +184,7 @@ try {
 
 ### Authorization
 
-[x-api-key](../../README.md#x-api-key), [x-app-key](../../README.md#x-app-key)
+No authorization required
 
 ### HTTP request headers
 

@@ -29,8 +29,17 @@ namespace OpenAPI\Client\Test\Api;
 
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
+use OpenAPI\Client\Model\TokenLinkByIdResponse;
+use OpenAPI\Client\Model\TokenLinkResponse;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use OpenAPI\Client\Api\SecureTokenLinksApi;
+use OpenAPI\Client\Model\TokenLinkSecureRequest;
+use OpenAPI\Client\Model\SecureTokenLinkRequest;
+use OpenAPI\Client\Model\SecureTokenLinkByIdResponse;
+use OpenAPI\Client\Model\SecureTokenLinkUpdateRequest;
+use OpenAPI\Client\Model\SecureTokenLinkExpiredResponse;
+use Exception;
 
 /**
  * SecureTokenLinksApiTest Class Doc Comment
@@ -42,10 +51,17 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureTokenLinksApiTest extends TestCase
 {
-
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
     /**
      * Setup before running any test cases
      */
+
     public static function setUpBeforeClass(): void
     {
     }
@@ -71,40 +87,11 @@ class SecureTokenLinksApiTest extends TestCase
     {
     }
 
-    /**
-     * Test case for secureTokenlinksDetailsPost
-     *
-     * This API is used for getting Token Links by TokenLink ID.
-     *
-     */
-    public function testSecureTokenlinksDetailsPost()
+    protected function &getId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+        static $id = null;
 
-    /**
-     * Test case for secureTokenlinksExpirationsPost
-     *
-     * This API expires the token link..
-     *
-     */
-    public function testSecureTokenlinksExpirationsPost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for secureTokenlinksListPost
-     *
-     * This API is used for getting all Token Links for Merchant.
-     *
-     */
-    public function testSecureTokenlinksListPost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        return $id;
     }
 
     /**
@@ -115,8 +102,76 @@ class SecureTokenLinksApiTest extends TestCase
      */
     public function testSecureTokenlinksPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureTokenLinksApi();
+        $payload = [
+            "merchant_id" => $this->appKey,
+            "title" => "PHP TL - " . date("Y m d H-i-s"),
+            "intent" => [
+                "PaymentTypes" => [
+                    "ACH",
+                    "CreditCard",
+                    "DebitCard"
+                ]
+            ],
+            "expire_in" => "7",
+            "expire_in_unit" => 4
+        ];
+
+        $request = new TokenLinkSecureRequest($payload);
+
+        try {
+            $result = $apiInstance->secureTokenlinksPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(TokenLinkResponse::class, $result);
+            print "Success: TL - Create Token Link\n";
+            $id = &$this->getId();
+            $id = $result["token_link_id"];
+            return $id;
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for secureTokenlinksDetailsPost
+     *
+     * This API is used for getting Token Links by TokenLink ID.
+     *
+     */
+    #[Depends('testSecureTokenlinksPost')]
+    public function testSecureTokenlinksDetailsPost()
+    {
+        $apiInstance = new SecureTokenLinksApi();
+        $id = &$this->getId();
+        $payload = [
+            "token_link_id" => $id,
+        ];
+
+        $request = new SecureTokenLinkRequest($payload);
+        try {
+            $result = $apiInstance->secureTokenlinksDetailsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(SecureTokenLinkByIdResponse::class, $result);
+            print "Success: TL - Get Token Link Details\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -125,9 +180,99 @@ class SecureTokenLinksApiTest extends TestCase
      * This API will update the expireIn and paymentType of Token Link..
      *
      */
+    #[Depends('testSecureTokenlinksDetailsPost')]
     public function testSecureTokenlinksPut()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureTokenLinksApi();
+        $id = &$this->getId();
+        $payload = [
+            "token_link_id" => $id,
+        ];
+
+        $request = new SecureTokenLinkUpdateRequest ($payload);
+        try {
+            $apiInstance->secureTokenlinksPut(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: TL - Update Token Link\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+    
+    /**
+     * Test case for secureTokenlinksExpirationsPost
+     *
+     * This API expires the token link..
+     *
+     */
+    #[Depends('testSecureTokenlinksPut')]
+     public function testSecureTokenlinksExpirationsPost()
+    {
+        $apiInstance = new SecureTokenLinksApi();
+        $id = &$this->getId();
+        $payload = [
+            "tokenLinkId" => $id,
+            "expireIn" => 8,
+            "expireInUnit" => 4,
+            "intent" => [
+                "PaymentTypes" => [
+                    "ACH",
+                    "CreditCard",
+                    "DebitCard"
+                ]
+            ]
+        ];
+
+        $request = new SecureTokenLinkRequest($payload);
+        try {
+            $result = $apiInstance->secureTokenlinksExpirationsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(SecureTokenLinkExpiredResponse::class, $result);
+            print "Success: TL - Expire Token Link\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for secureTokenlinksListPost
+     *
+     * This API is used for getting all Token Links for Merchant.
+     *
+     */
+    #[Depends('testSecureTokenlinksExpirationsPost')]
+    public function testSecureTokenlinksListPost()
+    {
+        $apiInstance = new SecureTokenLinksApi();
+        try {
+            $result = $apiInstance->secureTokenlinksListPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: TL - Token Link List\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

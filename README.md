@@ -1,175 +1,82 @@
-# AndDone Client Library - PHP
+# OpenAPIClient-php
 
-This client library integrates with AndDone's secure APIs.
+Secure API
 
-Please see our developer documentation & API Explorer, linked below, for detailed instructions on how to integrate this into your systems.
 
-**Secure API PHP Client**
+## Installation & Usage
 
-This PHP SDK is an auto-generated client for the AndDone Secure API, built using the [OpenAPI Generator](https://openapi-generator.tech).
+### Requirements
 
-* **API version**: 2.3
-* **Generator version**: 7.9.0
-* **Build package**: `org.openapitools.codegen.languages.PhpClientCodegen`
-* **Developer Documentation**: [DevDocs](https://docs.anddone.com/)
-* **API Explorer**: [AndDone API Explorer](https://docs.anddone.com/explorer/)
+PHP 7.4 and later.
+Should also work with PHP 8.0.
 
----
+### Composer
 
-## Table of Contents
-
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Configuration](#configuration)
-* [Quickstart](#quickstart)
-* [API Endpoints](#api-endpoints)
-* [Models](#models)
-* [Authorization](#authorization)
-* [Testing](#testing)
-* [Support & Versioning](#support--versioning)
-
----
-
-## Requirements
-
-* **PHP 7.4+** (works with PHP 8.0+)
-* Composer package manager
-* Access to **AndDone Merchant Portal** for API keys
-
----
-
-## Installation
-
-Install via [Composer](https://getcomposer.org/). In your `composer.json`:
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
 ```json
 {
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/anddone-kit/AndDone-SecureAPI-ClientLibrary-PHP.git"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "anddone-kit/AndDone-SecureAPI-ClientLibrary-PHP": "*@dev"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
 
-Then run:
+Then run `composer install`
 
-```bash
-composer install
-```
+### Manual Installation
 
-Or, if manually installing, include the autoloader:
+Download the files and include `autoload.php`:
 
 ```php
 <?php
 require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
----
+## Getting Started
 
-## Configuration
-
-1. **Retrieve Developer Credentials:**
-
-   1. Log in to AndDone Merchant Portal:
-
-      * **UAT**: [https://portal.uat.anddone.com](https://portal.uat.anddone.com)
-      * **Production**: [https://portal.anddone.com](https://portal.anddone.com)
-   2. Go to **Developer → API Keys** in the left menu.
-   3. Copy:
-
-      * `xApiKey` (API Key)
-      * `xAppKey` (App Key)
-
-2. **Determine Your Origin:**
-   The `origin` is your public IP address.
-   Find it by searching **"what's my IP"** in Google or visiting [https://www.whatsmyip.org](https://www.whatsmyip.org).
-
-   * Contact AndDone support to ensure your origin IP is registered.
-   * Email: [integrations@anddone.com](mailto:integrations@anddone.com)
-
-3. **Optional: Create a Configuration File**
-   Store your values in a JSON file (`config.json`) for reuse:
-
-   ```json
-   {
-     "xApiKey": "YOUR_API_KEY",
-     "xAppKey": "YOUR_APP_KEY",
-     "xVersion": "2.3",
-     "origin": "YOUR_IP_ADDRESS"
-   }
-   ```
-
----
-
-## Quickstart
-
-Here’s a minimal working example to call the **Secure Create Payment Intent API**:
+Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use OpenAPI\Client\Api\SecurePaymentIntentApi;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\Model\PaymentIntentRequest;
 
-// Configure API keys
-$config = Configuration::getDefaultConfiguration()
-    ->setApiKey('x-api-key', 'YOUR_API_KEY')
-    ->setApiKey('x-app-key', 'YOUR_APP_KEY')
-    ->setApiKey('x-version', '2.3')
-    ->setApiKey('origin', 'YOUR_ORIGIN');
 
-// Initialize API client
-$apiInstance = new SecurePaymentIntentApi(
-    new GuzzleHttp\Client(),
-    $config
+
+$apiInstance = new OpenAPI\Client\Api\SecureAutopayEnrollmentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
+$xApiKey = 'xApiKey_example'; // string | an authorization header
+$xAppKey = 'xAppKey_example'; // string | an authorization header
+$xVersion = 3.4; // float | x-version
+$origin = 'origin_example'; // string | origin
+$autoPayEnrollmentRequest = new \OpenAPI\Client\Model\AutoPayEnrollmentRequest(); // \OpenAPI\Client\Model\AutoPayEnrollmentRequest | Autopay Enrollment Detail
 
-// Build request
-$request = new PaymentIntentRequest([
-    'saveForFuture' => true,
-    'amount' => 10000,
-    'title' => 'YOUR UNIQUE TITLE',
-    'shortDescription' => 'shortDescription',
-    'paymentDescription' => 'paymentDescription',
-    'invoiceNumber' => 'php-sdk',
-    'expiresIn' => '300000',
-    'intent' => [
-        'paymentTypes' => ['CreditCard', 'ACH']
-    ],
-    'enablePremiumFinance' => true,
-    'additionalDetailsPreference' => 'NoAdditionalDetails'
-]);
-
-// Execute API call
 try {
-    $result = $apiInstance->securePaymentintentsPost($request);
+    $result = $apiInstance->secureAutopayenrollmentPost($xApiKey, $xAppKey, $xVersion, $origin, $autoPayEnrollmentRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo "Exception when calling SecurePaymentIntentApi: ", $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SecureAutopayEnrollmentApi->secureAutopayenrollmentPost: ', $e->getMessage(), PHP_EOL;
 }
-```
 
----
+```
 
 ## API Endpoints
 
-All URIs are relative to:
-
-* **UAT**: `https://api.uat.anddone.com`
-* **Production**: `https://api.anddone.com`
-
-<details>
-  <summary>Click to view all endpoints</summary>
+All URIs are relative to *https://api.uat.anddone.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*SecureAutopayEnrollmentApi* | [**secureAutopayenrollmentPost**](docs/Api/SecureAutopayEnrollmentApi.md#secureautopayenrollmentpost) | **POST** /secure/autopayenrollment | This API is used for Autopay Enrollment.
 *SecureEmbeddedPremiumFinanceApi* | [**secureEpfMerchantsQuotesPolicyPut**](docs/Api/SecureEmbeddedPremiumFinanceApi.md#secureepfmerchantsquotespolicyput) | **PUT** /secure/epf/merchants/quotes/policy | This API is will update the policy number
 *SecureEmbeddedPremiumFinanceApi* | [**secureEpfQuotesBookingPut**](docs/Api/SecureEmbeddedPremiumFinanceApi.md#secureepfquotesbookingput) | **PUT** /secure/epf/quotes/booking | This API will update PFA to book a quote.
 *SecureEmbeddedPremiumFinanceApi* | [**secureEpfQuotesCaptureesignPut**](docs/Api/SecureEmbeddedPremiumFinanceApi.md#secureepfquotescaptureesignput) | **PUT** /secure/epf/quotes/captureesign | This API will eSign the pfa with insured name.
@@ -180,11 +87,10 @@ Class | Method | HTTP request | Description
 *SecureEmbeddedPremiumFinanceEndorsementsApi* | [**secureEpfEndorsementsPost**](docs/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.md#secureepfendorsementspost) | **POST** /secure/epf/endorsements | This API will do a check of eligibility of account
 *SecureEmbeddedPremiumFinanceEndorsementsApi* | [**secureEpfQuoteEndorsementBookingPut**](docs/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.md#secureepfquoteendorsementbookingput) | **PUT** /secure/epf/quote/endorsement/booking | This API will update PFA to book a endorsement quote.
 *SecureEmbeddedPremiumFinanceEndorsementsApi* | [**secureEpfQuoteEndorsementPost**](docs/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.md#secureepfquoteendorsementpost) | **POST** /secure/epf/quote/endorsement | This API will do return a quote for an existing policy or new policy for an existing account
-*SecureOrumApi* | [**secureBankaccountsDetailsPost**](docs/Api/SecureOrumApi.md#securebankaccountsdetailspost) | **POST** /secure/bankaccounts/details | This API will request for verified bank account.
-*SecureOrumApi* | [**secureBankaccountsVerifyPost**](docs/Api/SecureOrumApi.md#securebankaccountsverifypost) | **POST** /secure/bankaccounts/verify | This API will request for account verification.
 *SecureOutboundPaymentsApi* | [**vendorapiSecureOutboundPaymentsTimelinesPost**](docs/Api/SecureOutboundPaymentsApi.md#vendorapisecureoutboundpaymentstimelinespost) | **POST** /vendorapi/secure/outboundPayments/timelines | This API gets outbound payment timelines
 *SecureOutboundPaymentsApi* | [**vendorapiSecureOutboundpaymentsCancelPost**](docs/Api/SecureOutboundPaymentsApi.md#vendorapisecureoutboundpaymentscancelpost) | **POST** /vendorapi/secure/outboundpayments/cancel | This API cancel outbound payment request
 *SecureOutboundPaymentsApi* | [**vendorapiSecureOutboundpaymentsDetailPost**](docs/Api/SecureOutboundPaymentsApi.md#vendorapisecureoutboundpaymentsdetailpost) | **POST** /vendorapi/secure/outboundpayments/detail | This API fetch outbound payment by paymentId
+*SecureOutboundPaymentsApi* | [**vendorapiSecureOutboundpaymentsImagePost**](docs/Api/SecureOutboundPaymentsApi.md#vendorapisecureoutboundpaymentsimagepost) | **POST** /vendorapi/secure/outboundpayments/image | This API gets outbound payment JPG image in Base64 string format
 *SecureOutboundPaymentsApi* | [**vendorapiSecureOutboundpaymentsPost**](docs/Api/SecureOutboundPaymentsApi.md#vendorapisecureoutboundpaymentspost) | **POST** /vendorapi/secure/outboundpayments | This API creates outbound payment request
 *SecureOutboundPaymentsApi* | [**vendorapiSecureOutboundpaymentsSearchPost**](docs/Api/SecureOutboundPaymentsApi.md#vendorapisecureoutboundpaymentssearchpost) | **POST** /vendorapi/secure/outboundpayments/search | This API gets all outbound payment
 *SecurePaymentBatchingApi* | [**secureBatchesDetailsPost**](docs/Api/SecurePaymentBatchingApi.md#securebatchesdetailspost) | **POST** /secure/batches/details | This API is used for getting Secure Payment Batch Details
@@ -225,16 +131,10 @@ Class | Method | HTTP request | Description
 *SecureVendorManagementApi* | [**vendorapiSecureMerchantsVendorsUnsuspendPost**](docs/Api/SecureVendorManagementApi.md#vendorapisecuremerchantsvendorsunsuspendpost) | **POST** /vendorapi/secure/merchants/vendors/unsuspend | This API unsuspends vendor into system
 *SecureVoidsApi* | [**secureCancellationsPost**](docs/Api/SecureVoidsApi.md#securecancellationspost) | **POST** /secure/cancellations | This API cancel a transaction.
 
-
-</details>
-
----
-
 ## Models
 
-<details>
-  <summary>Click to view all models</summary>
-
+- [AutoPayEnrollmentRequest](docs/Model/AutoPayEnrollmentRequest.md)
+- [AutoPayEnrollmentResponse](docs/Model/AutoPayEnrollmentResponse.md)
 - [BankDetailDto](docs/Model/BankDetailDto.md)
 - [CancelPaymentRequestDTO](docs/Model/CancelPaymentRequestDTO.md)
 - [DataDto](docs/Model/DataDto.md)
@@ -243,6 +143,7 @@ Class | Method | HTTP request | Description
 - [HeadingDto](docs/Model/HeadingDto.md)
 - [MerchantTransactionEntityResponse](docs/Model/MerchantTransactionEntityResponse.md)
 - [MerchantTransactionEntityResponseDataInner](docs/Model/MerchantTransactionEntityResponseDataInner.md)
+- [OutboundPaymentImageResponseDTO](docs/Model/OutboundPaymentImageResponseDTO.md)
 - [OutboundPaymentTimelineResponseDTOInner](docs/Model/OutboundPaymentTimelineResponseDTOInner.md)
 - [PFCheckEndorsementsRequest](docs/Model/PFCheckEndorsementsRequest.md)
 - [PFCheckEndorsementsResponse](docs/Model/PFCheckEndorsementsResponse.md)
@@ -250,8 +151,6 @@ Class | Method | HTTP request | Description
 - [PFCheckEndorsementsResponseItemPoliciesInner](docs/Model/PFCheckEndorsementsResponseItemPoliciesInner.md)
 - [PFEndorsementRequest](docs/Model/PFEndorsementRequest.md)
 - [PFEndorsementRequestQuote](docs/Model/PFEndorsementRequestQuote.md)
-- [PFEndorsementRequestQuoteAgent](docs/Model/PFEndorsementRequestQuoteAgent.md)
-- [PFEndorsementRequestQuoteAgentAddress](docs/Model/PFEndorsementRequestQuoteAgentAddress.md)
 - [PFEndorsementRequestQuoteCommunication](docs/Model/PFEndorsementRequestQuoteCommunication.md)
 - [PFEndorsementRequestQuoteDetails](docs/Model/PFEndorsementRequestQuoteDetails.md)
 - [PFEndorsementRequestQuoteDetailsRecurringACH](docs/Model/PFEndorsementRequestQuoteDetailsRecurringACH.md)
@@ -285,6 +184,8 @@ Class | Method | HTTP request | Description
 - [PFLiteQuoteByPaymentLinkResponsePoliciesInner](docs/Model/PFLiteQuoteByPaymentLinkResponsePoliciesInner.md)
 - [PFLiteQuoteByPaymentLinkResponsePoliciesInnerCarrier](docs/Model/PFLiteQuoteByPaymentLinkResponsePoliciesInnerCarrier.md)
 - [PFLiteSecureQuoteRequest](docs/Model/PFLiteSecureQuoteRequest.md)
+- [PFLiteSecureQuoteRequestAgent](docs/Model/PFLiteSecureQuoteRequestAgent.md)
+- [PFLiteSecureQuoteRequestAgentAddress](docs/Model/PFLiteSecureQuoteRequestAgentAddress.md)
 - [PFLiteSecureQuoteRequestInsured](docs/Model/PFLiteSecureQuoteRequestInsured.md)
 - [PFLiteSecureQuoteRequestInsuredAddress](docs/Model/PFLiteSecureQuoteRequestInsuredAddress.md)
 - [PFLiteSecureQuoteRequestMerchant](docs/Model/PFLiteSecureQuoteRequestMerchant.md)
@@ -319,8 +220,10 @@ Class | Method | HTTP request | Description
 - [PaymentIntentRequestSplitsInner](docs/Model/PaymentIntentRequestSplitsInner.md)
 - [PaymentIntentResponse](docs/Model/PaymentIntentResponse.md)
 - [PaymentIntentResponseCustomersInner](docs/Model/PaymentIntentResponseCustomersInner.md)
+- [PaymentIntentResponseIntent](docs/Model/PaymentIntentResponseIntent.md)
 - [PaymentLinkExpiresResponse](docs/Model/PaymentLinkExpiresResponse.md)
 - [PaymentLinkRequest](docs/Model/PaymentLinkRequest.md)
+- [PaymentLinkRequestReferenceDataListInner](docs/Model/PaymentLinkRequestReferenceDataListInner.md)
 - [PaymentLinkRequestSettings](docs/Model/PaymentLinkRequestSettings.md)
 - [PaymentLinkRequestSettingsIntent](docs/Model/PaymentLinkRequestSettingsIntent.md)
 - [PaymentLinkResponse](docs/Model/PaymentLinkResponse.md)
@@ -343,7 +246,6 @@ Class | Method | HTTP request | Description
 - [PaymentTimeLineRequestDto](docs/Model/PaymentTimeLineRequestDto.md)
 - [QuoteRequest](docs/Model/QuoteRequest.md)
 - [QuoteRequestAgent](docs/Model/QuoteRequestAgent.md)
-- [QuoteRequestAgentAddress](docs/Model/QuoteRequestAgentAddress.md)
 - [QuoteRequestDetails](docs/Model/QuoteRequestDetails.md)
 - [QuoteRequestInsured](docs/Model/QuoteRequestInsured.md)
 - [QuoteRequestInsuredAddress](docs/Model/QuoteRequestInsuredAddress.md)
@@ -359,6 +261,7 @@ Class | Method | HTTP request | Description
 - [SecureBatchExecuteRequest](docs/Model/SecureBatchExecuteRequest.md)
 - [SecureCancelledTransactionResponse](docs/Model/SecureCancelledTransactionResponse.md)
 - [SecureMerchantTokenShortResponse](docs/Model/SecureMerchantTokenShortResponse.md)
+- [SecurePFQuoteBookingRequest](docs/Model/SecurePFQuoteBookingRequest.md)
 - [SecurePaymentBatchDetailsRequest](docs/Model/SecurePaymentBatchDetailsRequest.md)
 - [SecurePaymentDetailsRequest](docs/Model/SecurePaymentDetailsRequest.md)
 - [SecurePaymentLinkRequest](docs/Model/SecurePaymentLinkRequest.md)
@@ -389,19 +292,16 @@ Class | Method | HTTP request | Description
 - [TokenLinkResponseDataInner](docs/Model/TokenLinkResponseDataInner.md)
 - [TokenLinkSecureRequest](docs/Model/TokenLinkSecureRequest.md)
 - [TokenLinkSecureRequestCustomersInner](docs/Model/TokenLinkSecureRequestCustomersInner.md)
-- [TokenLinkSecureRequestIntent](docs/Model/TokenLinkSecureRequestIntent.md)
 - [TokenRequest](docs/Model/TokenRequest.md)
 - [TransactionDetailResponse](docs/Model/TransactionDetailResponse.md)
 - [TransactionDetailResponseSplitsInner](docs/Model/TransactionDetailResponseSplitsInner.md)
 - [TransactionDetailResponseTenderInfo](docs/Model/TransactionDetailResponseTenderInfo.md)
 - [TransactionPaymentResponse](docs/Model/TransactionPaymentResponse.md)
 - [TransactionPaymentResponseAchTenderInfo](docs/Model/TransactionPaymentResponseAchTenderInfo.md)
-- [TransactionPaymentResponseAchTenderInfoCommissionType](docs/Model/TransactionPaymentResponseAchTenderInfoCommissionType.md)
 - [TransactionPaymentResponseBillingContact](docs/Model/TransactionPaymentResponseBillingContact.md)
 - [TransactionPaymentResponseBillingContactAddress](docs/Model/TransactionPaymentResponseBillingContactAddress.md)
 - [TransactionPaymentResponseBillingContactName](docs/Model/TransactionPaymentResponseBillingContactName.md)
 - [TransactionPaymentResponseCcTenderInfo](docs/Model/TransactionPaymentResponseCcTenderInfo.md)
-- [TransactionPaymentResponseRefundOrigin](docs/Model/TransactionPaymentResponseRefundOrigin.md)
 - [TransactionPaymentResponseRefundTransactions](docs/Model/TransactionPaymentResponseRefundTransactions.md)
 - [TransactionPaymentResponseRefundTransactionsDataInner](docs/Model/TransactionPaymentResponseRefundTransactionsDataInner.md)
 - [TransactionPaymentResponseTransactionEntitySplitResponsesInner](docs/Model/TransactionPaymentResponseTransactionEntitySplitResponsesInner.md)
@@ -416,42 +316,55 @@ Class | Method | HTTP request | Description
 - [VendorResponseDTOTemplate](docs/Model/VendorResponseDTOTemplate.md)
 - [VendorResponseDTOVerificationResultsInner](docs/Model/VendorResponseDTOVerificationResultsInner.md)
 - [VendorTimelineResponseListInner](docs/Model/VendorTimelineResponseListInner.md)
-- [VerificationEntityRequest](docs/Model/VerificationEntityRequest.md)
-- [VerifyBankAccountRequest](docs/Model/VerifyBankAccountRequest.md)
-- [VerifyBankAccountRequestBankAccountEntity](docs/Model/VerifyBankAccountRequestBankAccountEntity.md)
-- [VerifyBankAccountResponse](docs/Model/VerifyBankAccountResponse.md)
-- [VerifyBankAccountResponseHttpResponse](docs/Model/VerifyBankAccountResponseHttpResponse.md)
-
-
-</details>
-
----
 
 ## Authorization
 
-Authentication is handled via API keys in HTTP headers:
+Authentication schemes defined for the API:
+### api-key
 
-| Key           | Location | Description             |
-| ------------- | -------- | ----------------------- |
-| **x-api-key** | Header   | Your API key            |
-| **x-app-key** | Header   | Your App key            |
-| **x-version** | Header   | API version (e.g., 2.3) |
-| **origin**    | Header   | Your public IP address  |
+- **Type**: API key
+- **API key parameter name**: x-api-key
+- **Location**: HTTP header
 
----
 
-## Testing
+### app-key
 
-To run the tests:
+- **Type**: API key
+- **API key parameter name**: x-app-key
+- **Location**: HTTP header
+
+
+### x-version
+
+- **Type**: API key
+- **API key parameter name**: x-version
+- **Location**: HTTP header
+
+
+### origin
+
+- **Type**: API key
+- **API key parameter name**: origin
+- **Location**: HTTP header
+
+
+## Tests
+
+To run the tests, use:
 
 ```bash
 composer install
 vendor/bin/phpunit
 ```
 
----
+## Author
 
-## Support & Versioning
 
-* **API Environments:** Use UAT for testing; switch to Production only after validation.
-* **Issues:** Report bugs or request features via the [GitHub Issues](https://github.com/anddone-kit/AndDone-SecureAPI-ClientLibrary-PHP/issues) page.
+
+## About this package
+
+This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
+
+- API version: `2.3`
+    - Generator version: `7.9.0`
+- Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

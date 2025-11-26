@@ -61,7 +61,7 @@ class SecureTokenLinkUpdateRequest implements ModelInterface, ArrayAccess, \Json
         'expireIn' => 'int',
         'responseType' => 'string',
         'expireInUnit' => 'string',
-        'intent' => '\OpenAPI\Client\Model\PaymentIntentRequestIntent',
+        'intent' => '\OpenAPI\Client\Model\PaymentIntentResponseIntent',
         'callBackParameters' => '\OpenAPI\Client\Model\PaymentLinkResponseCallbackParameters'
     ];
 
@@ -523,7 +523,7 @@ class SecureTokenLinkUpdateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets intent
      *
-     * @return \OpenAPI\Client\Model\PaymentIntentRequestIntent
+     * @return \OpenAPI\Client\Model\PaymentIntentResponseIntent
      */
     public function getIntent()
     {
@@ -533,7 +533,7 @@ class SecureTokenLinkUpdateRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets intent
      *
-     * @param \OpenAPI\Client\Model\PaymentIntentRequestIntent $intent intent
+     * @param \OpenAPI\Client\Model\PaymentIntentResponseIntent $intent intent
      *
      * @return self
      */

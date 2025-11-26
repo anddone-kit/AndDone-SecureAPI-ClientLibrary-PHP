@@ -58,18 +58,18 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'pfa' => 'string',
-        'quoteKey' => 'float',
+        'quoteKey' => 'int',
         'premium' => 'float',
         'downAmount' => 'float',
         'amountFinanced' => 'float',
         'financeCharge' => 'float',
         'totalPayments' => 'float',
         'paymentAmount' => 'float',
-        'docStamp' => 'float',
+        'docStamp' => 'int',
         'firstDueDate' => 'string',
         'apr' => 'float',
         'installments' => 'int',
-        'paymentsRetained' => 'float',
+        'paymentsRetained' => 'int',
         'paymentRetainedAmount' => 'float',
         'eSignResult' => '\OpenAPI\Client\Model\PFEndorsementResponseItemQuoteESignResult',
         'isDownPaymentRequired' => 'bool',
@@ -233,8 +233,8 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
         'paymentRetainedAmount' => 'paymentRetainedAmount',
         'eSignResult' => 'eSignResult',
         'isDownPaymentRequired' => 'isDownPaymentRequired',
-        'isEsignRequired' => 'IsEsignRequired',
-        'isEndorsement' => 'IsEndorsement'
+        'isEsignRequired' => 'isEsignRequired',
+        'isEndorsement' => 'isEndorsement'
     ];
 
     /**
@@ -438,7 +438,7 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets quoteKey
      *
-     * @return float|null
+     * @return int|null
      */
     public function getQuoteKey()
     {
@@ -448,7 +448,7 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets quoteKey
      *
-     * @param float|null $quoteKey quoteKey
+     * @param int|null $quoteKey quoteKey
      *
      * @return self
      */
@@ -627,7 +627,7 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets docStamp
      *
-     * @return float|null
+     * @return int|null
      */
     public function getDocStamp()
     {
@@ -637,7 +637,7 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets docStamp
      *
-     * @param float|null $docStamp docStamp
+     * @param int|null $docStamp docStamp
      *
      * @return self
      */
@@ -735,7 +735,7 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets paymentsRetained
      *
-     * @return float|null
+     * @return int|null
      */
     public function getPaymentsRetained()
     {
@@ -745,7 +745,7 @@ class PFEndorsementResponseItemQuote implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets paymentsRetained
      *
-     * @param float|null $paymentsRetained paymentsRetained
+     * @param int|null $paymentsRetained paymentsRetained
      *
      * @return self
      */

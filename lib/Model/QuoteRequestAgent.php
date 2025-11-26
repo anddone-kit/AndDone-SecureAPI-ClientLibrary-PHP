@@ -59,7 +59,7 @@ class QuoteRequestAgent implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'uniqueID' => 'string',
         'email' => 'string',
-        'address' => '\OpenAPI\Client\Model\QuoteRequestAgentAddress'
+        'address' => '\OpenAPI\Client\Model\QuoteRequestInsuredAddress'
     ];
 
     /**
@@ -360,7 +360,7 @@ class QuoteRequestAgent implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\QuoteRequestAgentAddress|null
+     * @return \OpenAPI\Client\Model\QuoteRequestInsuredAddress|null
      */
     public function getAddress()
     {
@@ -370,7 +370,7 @@ class QuoteRequestAgent implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\QuoteRequestAgentAddress|null $address address
+     * @param \OpenAPI\Client\Model\QuoteRequestInsuredAddress|null $address address
      *
      * @return self
      */

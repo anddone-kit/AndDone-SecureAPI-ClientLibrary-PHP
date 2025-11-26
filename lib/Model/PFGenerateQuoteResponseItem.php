@@ -57,7 +57,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'quoteKey' => 'float',
+        'quoteKey' => 'int',
         'premium' => 'float',
         'downAmount' => 'float',
         'amountFinanced' => 'float',
@@ -68,8 +68,9 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         'firstDueDate' => 'string',
         'apr' => 'float',
         'installments' => 'int',
+        'offerAutoPay' => 'bool',
         'batchId' => 'string',
-        'paymentsRetained' => 'float',
+        'paymentsRetained' => 'int',
         'paymentRetainedAmount' => 'float',
         'unsignedPFAUrl' => 'string',
         'retailAgentRegisterLoginURL' => 'string',
@@ -98,6 +99,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         'firstDueDate' => null,
         'apr' => null,
         'installments' => null,
+        'offerAutoPay' => null,
         'batchId' => null,
         'paymentsRetained' => null,
         'paymentRetainedAmount' => null,
@@ -126,6 +128,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         'firstDueDate' => false,
         'apr' => false,
         'installments' => false,
+        'offerAutoPay' => false,
         'batchId' => false,
         'paymentsRetained' => false,
         'paymentRetainedAmount' => false,
@@ -234,6 +237,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         'firstDueDate' => 'firstDueDate',
         'apr' => 'apr',
         'installments' => 'installments',
+        'offerAutoPay' => 'offerAutoPay',
         'batchId' => 'batchId',
         'paymentsRetained' => 'paymentsRetained',
         'paymentRetainedAmount' => 'paymentRetainedAmount',
@@ -262,6 +266,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         'firstDueDate' => 'setFirstDueDate',
         'apr' => 'setApr',
         'installments' => 'setInstallments',
+        'offerAutoPay' => 'setOfferAutoPay',
         'batchId' => 'setBatchId',
         'paymentsRetained' => 'setPaymentsRetained',
         'paymentRetainedAmount' => 'setPaymentRetainedAmount',
@@ -290,6 +295,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         'firstDueDate' => 'getFirstDueDate',
         'apr' => 'getApr',
         'installments' => 'getInstallments',
+        'offerAutoPay' => 'getOfferAutoPay',
         'batchId' => 'getBatchId',
         'paymentsRetained' => 'getPaymentsRetained',
         'paymentRetainedAmount' => 'getPaymentRetainedAmount',
@@ -369,6 +375,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('firstDueDate', $data ?? [], null);
         $this->setIfExists('apr', $data ?? [], null);
         $this->setIfExists('installments', $data ?? [], null);
+        $this->setIfExists('offerAutoPay', $data ?? [], null);
         $this->setIfExists('batchId', $data ?? [], null);
         $this->setIfExists('paymentsRetained', $data ?? [], null);
         $this->setIfExists('paymentRetainedAmount', $data ?? [], null);
@@ -425,7 +432,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets quoteKey
      *
-     * @return float|null
+     * @return int|null
      */
     public function getQuoteKey()
     {
@@ -435,7 +442,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets quoteKey
      *
-     * @param float|null $quoteKey The key associated with the quote.
+     * @param int|null $quoteKey The key associated with the quote.
      *
      * @return self
      */
@@ -720,6 +727,33 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets offerAutoPay
+     *
+     * @return bool|null
+     */
+    public function getOfferAutoPay()
+    {
+        return $this->container['offerAutoPay'];
+    }
+
+    /**
+     * Sets offerAutoPay
+     *
+     * @param bool|null $offerAutoPay The offerAutoPay status.
+     *
+     * @return self
+     */
+    public function setOfferAutoPay($offerAutoPay)
+    {
+        if (is_null($offerAutoPay)) {
+            throw new \InvalidArgumentException('non-nullable offerAutoPay cannot be null');
+        }
+        $this->container['offerAutoPay'] = $offerAutoPay;
+
+        return $this;
+    }
+
+    /**
      * Gets batchId
      *
      * @return string|null
@@ -749,7 +783,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets paymentsRetained
      *
-     * @return float|null
+     * @return int|null
      */
     public function getPaymentsRetained()
     {
@@ -759,7 +793,7 @@ class PFGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets paymentsRetained
      *
-     * @param float|null $paymentsRetained The number of payments retained.
+     * @param int|null $paymentsRetained The number of payments retained.
      *
      * @return self
      */

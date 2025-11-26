@@ -143,9 +143,18 @@ class PaymentLinkResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "expireBy"
+     * Test attribute "expireIn"
      */
-    public function testPropertyExpireBy()
+    public function testPropertyExpireIn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "expireInUnit"
+     */
+    public function testPropertyExpireInUnit()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -155,33 +164,6 @@ class PaymentLinkResponseTest extends TestCase
      * Test attribute "expireOn"
      */
     public function testPropertyExpireOn()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "applyPaymentAdjustments"
-     */
-    public function testPropertyApplyPaymentAdjustments()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "enablePartialPayment"
-     */
-    public function testPropertyEnablePartialPayment()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "enableMultiplePayment"
-     */
-    public function testPropertyEnableMultiplePayment()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -209,33 +191,6 @@ class PaymentLinkResponseTest extends TestCase
      * Test attribute "totalPaidAmount"
      */
     public function testPropertyTotalPaidAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "enableProtection"
-     */
-    public function testPropertyEnableProtection()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "protectionMode"
-     */
-    public function testPropertyProtectionMode()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "displayReceipt"
-     */
-    public function testPropertyDisplayReceipt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -305,9 +260,9 @@ class PaymentLinkResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "resonseType"
+     * Test attribute "responseType"
      */
-    public function testPropertyResonseType()
+    public function testPropertyResponseType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -380,6 +335,33 @@ class PaymentLinkResponseTest extends TestCase
      * Test attribute "accountNumber"
      */
     public function testPropertyAccountNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceType"
+     */
+    public function testPropertyReferenceType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceNumber"
+     */
+    public function testPropertyReferenceNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceKey"
+     */
+    public function testPropertyReferenceKey()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

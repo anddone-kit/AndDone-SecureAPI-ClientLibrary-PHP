@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quoteKey** | **float** | The key associated with the quote. | [optional]
+**quoteKey** | **int** | The key associated with the quote. | [optional]
 **premium** | **float** | The premium amount. | [optional]
 **downAmount** | **float** | The down payment amount. | [optional]
 **amountFinanced** | **float** | The amount financed. | [optional]
@@ -15,8 +15,9 @@ Name | Type | Description | Notes
 **firstDueDate** | **string** | The first due date. | [optional]
 **apr** | **float** | The annual percentage rate (APR). | [optional]
 **installments** | **int** | The number of installments. | [optional]
+**offerAutoPay** | **bool** | The offerAutoPay status. | [optional]
 **batchId** | **string** | The batch ID. | [optional]
-**paymentsRetained** | **float** | The number of payments retained. | [optional]
+**paymentsRetained** | **int** | The number of payments retained. | [optional]
 **paymentRetainedAmount** | **float** | The amount retained from the payment. | [optional]
 **unsignedPFAUrl** | **string** | The URL for the unsigned PFA document. | [optional]
 **retailAgentRegisterLoginURL** | **string** | The URL for the retail agent register login. | [optional]

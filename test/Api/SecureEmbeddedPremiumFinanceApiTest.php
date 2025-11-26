@@ -30,7 +30,16 @@ namespace OpenAPI\Client\Test\Api;
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
+use \OpenAPI\Client\Api\SecureEmbeddedPremiumFinanceApi;
+use \OpenAPI\Client\Model\PFPolicyUpdateRequestDTO;
+use \OpenAPI\Client\Model\QuoteRequest;
+use \OpenAPI\Client\Model\PFQuoteEsignRequest;
+use \OpenAPI\Client\Model\PFQuoteBookingRequest;
+use \OpenAPI\Client\Model\GetQuoteRequest;
+use \OpenAPI\Client\Model\GetQuoteKeyRequest;
+use \OpenAPI\Client\Model\PFRetrievePFARequestDTO;
 use PHPUnit\Framework\TestCase;
+use Exception;
 
 /**
  * SecureEmbeddedPremiumFinanceApiTest Class Doc Comment
@@ -42,6 +51,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureEmbeddedPremiumFinanceApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -72,86 +88,310 @@ class SecureEmbeddedPremiumFinanceApiTest extends TestCase
     }
 
     /**
-     * Test case for secureEpfMerchantsQuotesPolicyPut
+     * Test case for secureMerchantsEpfQuotesPolicyPut
      *
      * This API is will update the policy number.
      *
      */
     public function testSecureEpfMerchantsQuotesPolicyPut()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "quoteKey" => 28283515,
+            "premium" => 9000,
+            "category" => "FIRE",
+            "newPolicyNumber" => "1256"
+        ];
 
-    /**
-     * Test case for secureEpfQuotesBookingPut
-     *
-     * This API will update PFA to book a quote..
-     *
-     */
-    public function testSecureEpfQuotesBookingPut()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+        $request = new PFPolicyUpdateRequestDTO($payload);
 
-    /**
-     * Test case for secureEpfQuotesCaptureesignPut
-     *
-     * This API will eSign the pfa with insured name..
-     *
-     */
-    public function testSecureEpfQuotesCaptureesignPut()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        try {
+            $apiInstance->secureEpfMerchantsQuotesPolicyPut(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Update Policy\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
      * Test case for secureEpfQuotesGeneratePost
      *
-     * This API is used to Generate Quotes.
+     * This API is will generate a quote.
      *
      */
     public function testSecureEpfQuotesGeneratePost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "PaymentIntentId" => "78EQV6V8",
+            "Details" => [
+                "CouponInvoicePrinted" => null,
+                "Installments" => null,
+                "ProgramIDs" => [82262],
+                "BatchId" => "Batch-00543738", //this need to //update background
+                "Commercial" => null,
+                "Coupon" => null,
+                "Interval" => null,
+                "DownPaymentMethod" => "BOTH", // Take it from allow Transaction Type
+                "DownPaymentPaidBy" => "Insured"
+            ],
+            "Insured" => [
+                "UniqueId" => $this->appKey,
+                "AgentCustomerNumber" => "Suyash",
+                "Email" => "dylan.smith@fmkagency.com",
+                "CareOf" => "",
+                "Address" => [
+                    "Name" => "Sam",
+                    "Address1" => "1055 Broadway",
+                    "Address2" => "",
+                    "City" => "Kansas City",
+                    "State" => "KY",
+                    "Zip" => "64105",
+                    "Phone" => ""
+                ]
+            ],
+            "Agent" => [
+                "UniqueID" => $this->appKey,
+                "Email" => "dylan.smith@fmkagency.com",
+                "Address" => [
+                    "Name" => "Insurance Agency",
+                    "Address1" => "PO Box 486",
+                    "Address2" => "",
+                    "City" => "Kansas City",
+                    "State" => "KY",
+                    "Zip" => "64105",
+                    "Phone" => ""
+                ]
+            ],
+            "Policies" => [
+                [
+                    "PolicyId" => 2,
+                    "Premium" => 1000,
+                    "Fee" => 0,
+                    "Tax" => 0,
+                    "Coverage" => "FIRE",
+                    "EffectiveDate" => "2024-12-01T00:00:00",
+                    "ExpirationDate" => "2025-12-01T00:00:00",
+                    "Term" => 12,
+                    "MinimumEarned" => 0,
+                    "MinimumLiability" => 0,
+                    "MaximumLiability" => 0,
+                    "InvoiceNumber" => "",
+                    "PolicyFees" => [],
+                    "Company" => [
+                        "BestNumber" => "",
+                        "UniqueId" => "LIC",
+                        "Name" => "LEXINGTON INSURANCE COMPANY",
+                        "Address1" => "",
+                        "Address2" => "",
+                        "City" => "Kansas City",
+                        "State" => "MO",
+                        "Zip" => "",
+                        "Phone" => ""
+                    ]
+                ]
+            ]
+        ];
+
+        $request = new QuoteRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuotesGeneratePost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Generate Quote\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for secureEpfQuotesBookingPut
+     *
+     * This API is will book a quote.
+     *
+     */
+    public function testSecureEpfQuotesBookingPut()
+    {
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "quotekey" => 28283514,
+            "merchantToken" => $this->appKey
+        ];
+
+        $request = new PFQuoteBookingRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuotesBookingPut(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Book Quote\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+
+    /**
+     * Test case for secureEpfQuotesCaptureesignPut
+     *
+     * This API is eSign a PFA.
+     *
+     */
+    public function testSecureEpfQuotesCaptureesignPut()
+    {
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "merchantToken" => $this->appKey,
+            "quoteKey" => "28283514",
+            "insuredName" => "John",
+            "ipAddress" => "101.205.12.14",
+            "macAddress" => "12-34-56-78-9A-BC",
+            "captchaToken" => "rewgwgwehrtehwytrbwbtyjcxcvnt",
+            "actionName" => ""
+        ];
+
+        $request = new PFQuoteEsignRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuotesCaptureesignPut(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Capture eSign\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
      * Test case for secureEpfQuotesIntentPost
      *
-     * This API will return quotes created againsts a payment intent..
+     * This API will retrieve quotes by payment intent.
      *
      */
     public function testSecureEpfQuotesIntentPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "paymentIntentId" => "Gx1XY4nv"
+        ];
+
+        $request = new GetQuoteRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuotesIntentPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Get Quote by Payment Intent\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
      * Test case for secureEpfQuotesPost
      *
-     * This API will return quote by QuoteKey..
+     * This API will retrieve quotes by quote key.
      *
      */
     public function testSecureEpfQuotesPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "quotekey" => 28283514
+        ];
+
+        $request = new GetQuoteKeyRequest($payload);
+
+        try {
+            $apiInstance->secureEpfQuotesPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Get Quote by Quote Key\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
      * Test case for secureEpfRetrievepfaPost
      *
-     * This API will return PFA for given quoteKey..
+     * This API will retrieve the PFA.
      *
      */
     public function testSecureEpfRetrievepfaPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureEmbeddedPremiumFinanceApi();
+        $payload = [
+            "quotekey" => 28283514
+        ];
+
+        $request = new PFRetrievePFARequestDTO($payload);
+
+        try {
+            $apiInstance->secureEpfRetrievepfaPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: EPF - Get Quote by Quote Key\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

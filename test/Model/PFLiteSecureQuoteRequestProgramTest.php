@@ -96,13 +96,4 @@ class PFLiteSecureQuoteRequestProgramTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "brokerFee"
-     */
-    public function testPropertyBrokerFee()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

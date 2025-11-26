@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **notifyViaSMS** | **bool** |  | [optional]
 **notifyViaEmail** | **bool** |  | [optional]
 **createdOn** | **string** |  | [optional]
+**companyName** | **string** |  | [optional]
 **accounts** | [**\OpenAPI\Client\Model\PaymentLinkResponseCustomersInnerAccountsInner[]**](PaymentLinkResponseCustomersInnerAccountsInner.md) |  | [optional]
 **address** | [**\OpenAPI\Client\Model\TransactionPaymentResponseBillingContactAddress**](TransactionPaymentResponseBillingContactAddress.md) |  | [optional]
 

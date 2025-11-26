@@ -96,4 +96,58 @@ class PFLitePaymentLinkRequestCallbackParametersTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "accessKey"
+     */
+    public function testPropertyAccessKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "secretKey"
+     */
+    public function testPropertySecretKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceNo"
+     */
+    public function testPropertyReferenceNo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceType"
+     */
+    public function testPropertyReferenceType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "transactionId"
+     */
+    public function testPropertyTransactionId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "redirectionTime"
+     */
+    public function testPropertyRedirectionTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

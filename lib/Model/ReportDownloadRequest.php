@@ -295,6 +295,9 @@ class ReportDownloadRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['reportId'] === null) {
+            $invalidProperties[] = "'reportId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -313,7 +316,7 @@ class ReportDownloadRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets reportId
      *
-     * @return string|null
+     * @return string
      */
     public function getReportId()
     {
@@ -323,7 +326,7 @@ class ReportDownloadRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets reportId
      *
-     * @param string|null $reportId reportId
+     * @param string $reportId reportId
      *
      * @return self
      */

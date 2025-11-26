@@ -62,7 +62,7 @@ class PaymentDetailResponseDTO implements ModelInterface, ArrayAccess, \JsonSeri
         'vendorName' => 'string',
         'merchantDBAName' => 'string',
         'paymentId' => 'string',
-        'checkNumber' => 'float',
+        'checkNumber' => 'int',
         'paymentMethod' => 'string',
         'amount' => 'float',
         'bankName' => 'string',
@@ -611,7 +611,7 @@ class PaymentDetailResponseDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets checkNumber
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCheckNumber()
     {
@@ -621,7 +621,7 @@ class PaymentDetailResponseDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets checkNumber
      *
-     * @param float|null $checkNumber checkNumber
+     * @param int|null $checkNumber checkNumber
      *
      * @return self
      */

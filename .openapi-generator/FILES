@@ -3,9 +3,9 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/SecureAutopayEnrollmentApi.md
 docs/Api/SecureEmbeddedPremiumFinanceApi.md
 docs/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.md
-docs/Api/SecureOrumApi.md
 docs/Api/SecureOutboundPaymentsApi.md
 docs/Api/SecurePaymentBatchingApi.md
 docs/Api/SecurePaymentIntentApi.md
@@ -18,6 +18,8 @@ docs/Api/SecureTokenLinksApi.md
 docs/Api/SecureTokenManagementApi.md
 docs/Api/SecureVendorManagementApi.md
 docs/Api/SecureVoidsApi.md
+docs/Model/AutoPayEnrollmentRequest.md
+docs/Model/AutoPayEnrollmentResponse.md
 docs/Model/BankDetailDto.md
 docs/Model/CancelPaymentRequestDTO.md
 docs/Model/DataDto.md
@@ -26,6 +28,7 @@ docs/Model/GetQuoteRequest.md
 docs/Model/HeadingDto.md
 docs/Model/MerchantTransactionEntityResponse.md
 docs/Model/MerchantTransactionEntityResponseDataInner.md
+docs/Model/OutboundPaymentImageResponseDTO.md
 docs/Model/OutboundPaymentTimelineResponseDTOInner.md
 docs/Model/PFCheckEndorsementsRequest.md
 docs/Model/PFCheckEndorsementsResponse.md
@@ -33,8 +36,6 @@ docs/Model/PFCheckEndorsementsResponseItem.md
 docs/Model/PFCheckEndorsementsResponseItemPoliciesInner.md
 docs/Model/PFEndorsementRequest.md
 docs/Model/PFEndorsementRequestQuote.md
-docs/Model/PFEndorsementRequestQuoteAgent.md
-docs/Model/PFEndorsementRequestQuoteAgentAddress.md
 docs/Model/PFEndorsementRequestQuoteCommunication.md
 docs/Model/PFEndorsementRequestQuoteDetails.md
 docs/Model/PFEndorsementRequestQuoteDetailsRecurringACH.md
@@ -68,6 +69,8 @@ docs/Model/PFLiteQuoteByPaymentLinkResponse.md
 docs/Model/PFLiteQuoteByPaymentLinkResponsePoliciesInner.md
 docs/Model/PFLiteQuoteByPaymentLinkResponsePoliciesInnerCarrier.md
 docs/Model/PFLiteSecureQuoteRequest.md
+docs/Model/PFLiteSecureQuoteRequestAgent.md
+docs/Model/PFLiteSecureQuoteRequestAgentAddress.md
 docs/Model/PFLiteSecureQuoteRequestInsured.md
 docs/Model/PFLiteSecureQuoteRequestInsuredAddress.md
 docs/Model/PFLiteSecureQuoteRequestMerchant.md
@@ -102,8 +105,10 @@ docs/Model/PaymentIntentRequestReferenceDataListInner.md
 docs/Model/PaymentIntentRequestSplitsInner.md
 docs/Model/PaymentIntentResponse.md
 docs/Model/PaymentIntentResponseCustomersInner.md
+docs/Model/PaymentIntentResponseIntent.md
 docs/Model/PaymentLinkExpiresResponse.md
 docs/Model/PaymentLinkRequest.md
+docs/Model/PaymentLinkRequestReferenceDataListInner.md
 docs/Model/PaymentLinkRequestSettings.md
 docs/Model/PaymentLinkRequestSettingsIntent.md
 docs/Model/PaymentLinkResponse.md
@@ -126,7 +131,6 @@ docs/Model/PaymentResponseDto.md
 docs/Model/PaymentTimeLineRequestDto.md
 docs/Model/QuoteRequest.md
 docs/Model/QuoteRequestAgent.md
-docs/Model/QuoteRequestAgentAddress.md
 docs/Model/QuoteRequestDetails.md
 docs/Model/QuoteRequestInsured.md
 docs/Model/QuoteRequestInsuredAddress.md
@@ -142,6 +146,7 @@ docs/Model/RowDto.md
 docs/Model/SecureBatchExecuteRequest.md
 docs/Model/SecureCancelledTransactionResponse.md
 docs/Model/SecureMerchantTokenShortResponse.md
+docs/Model/SecurePFQuoteBookingRequest.md
 docs/Model/SecurePaymentBatchDetailsRequest.md
 docs/Model/SecurePaymentDetailsRequest.md
 docs/Model/SecurePaymentLinkRequest.md
@@ -172,7 +177,6 @@ docs/Model/TokenLinkResponse.md
 docs/Model/TokenLinkResponseDataInner.md
 docs/Model/TokenLinkSecureRequest.md
 docs/Model/TokenLinkSecureRequestCustomersInner.md
-docs/Model/TokenLinkSecureRequestIntent.md
 docs/Model/TokenRequest.md
 docs/Model/TransactionDetailResponse.md
 docs/Model/TransactionDetailResponseSplitsInner.md
@@ -197,15 +201,10 @@ docs/Model/VendorResponseDTORemittanceAddress.md
 docs/Model/VendorResponseDTOTemplate.md
 docs/Model/VendorResponseDTOVerificationResultsInner.md
 docs/Model/VendorTimelineResponseListInner.md
-docs/Model/VerificationEntityRequest.md
-docs/Model/VerifyBankAccountRequest.md
-docs/Model/VerifyBankAccountRequestBankAccountEntity.md
-docs/Model/VerifyBankAccountResponse.md
-docs/Model/VerifyBankAccountResponseHttpResponse.md
 git_push.sh
+lib/Api/SecureAutopayEnrollmentApi.php
 lib/Api/SecureEmbeddedPremiumFinanceApi.php
 lib/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.php
-lib/Api/SecureOrumApi.php
 lib/Api/SecureOutboundPaymentsApi.php
 lib/Api/SecurePaymentBatchingApi.php
 lib/Api/SecurePaymentIntentApi.php
@@ -221,6 +220,8 @@ lib/Api/SecureVoidsApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/AutoPayEnrollmentRequest.php
+lib/Model/AutoPayEnrollmentResponse.php
 lib/Model/BankDetailDto.php
 lib/Model/CancelPaymentRequestDTO.php
 lib/Model/DataDto.php
@@ -230,6 +231,7 @@ lib/Model/HeadingDto.php
 lib/Model/MerchantTransactionEntityResponse.php
 lib/Model/MerchantTransactionEntityResponseDataInner.php
 lib/Model/ModelInterface.php
+lib/Model/OutboundPaymentImageResponseDTO.php
 lib/Model/OutboundPaymentTimelineResponseDTOInner.php
 lib/Model/PFCheckEndorsementsRequest.php
 lib/Model/PFCheckEndorsementsResponse.php
@@ -237,8 +239,6 @@ lib/Model/PFCheckEndorsementsResponseItem.php
 lib/Model/PFCheckEndorsementsResponseItemPoliciesInner.php
 lib/Model/PFEndorsementRequest.php
 lib/Model/PFEndorsementRequestQuote.php
-lib/Model/PFEndorsementRequestQuoteAgent.php
-lib/Model/PFEndorsementRequestQuoteAgentAddress.php
 lib/Model/PFEndorsementRequestQuoteCommunication.php
 lib/Model/PFEndorsementRequestQuoteDetails.php
 lib/Model/PFEndorsementRequestQuoteDetailsRecurringACH.php
@@ -272,6 +272,8 @@ lib/Model/PFLiteQuoteByPaymentLinkResponse.php
 lib/Model/PFLiteQuoteByPaymentLinkResponsePoliciesInner.php
 lib/Model/PFLiteQuoteByPaymentLinkResponsePoliciesInnerCarrier.php
 lib/Model/PFLiteSecureQuoteRequest.php
+lib/Model/PFLiteSecureQuoteRequestAgent.php
+lib/Model/PFLiteSecureQuoteRequestAgentAddress.php
 lib/Model/PFLiteSecureQuoteRequestInsured.php
 lib/Model/PFLiteSecureQuoteRequestInsuredAddress.php
 lib/Model/PFLiteSecureQuoteRequestMerchant.php
@@ -306,8 +308,10 @@ lib/Model/PaymentIntentRequestReferenceDataListInner.php
 lib/Model/PaymentIntentRequestSplitsInner.php
 lib/Model/PaymentIntentResponse.php
 lib/Model/PaymentIntentResponseCustomersInner.php
+lib/Model/PaymentIntentResponseIntent.php
 lib/Model/PaymentLinkExpiresResponse.php
 lib/Model/PaymentLinkRequest.php
+lib/Model/PaymentLinkRequestReferenceDataListInner.php
 lib/Model/PaymentLinkRequestSettings.php
 lib/Model/PaymentLinkRequestSettingsIntent.php
 lib/Model/PaymentLinkResponse.php
@@ -330,7 +334,6 @@ lib/Model/PaymentResponseDto.php
 lib/Model/PaymentTimeLineRequestDto.php
 lib/Model/QuoteRequest.php
 lib/Model/QuoteRequestAgent.php
-lib/Model/QuoteRequestAgentAddress.php
 lib/Model/QuoteRequestDetails.php
 lib/Model/QuoteRequestInsured.php
 lib/Model/QuoteRequestInsuredAddress.php
@@ -346,6 +349,7 @@ lib/Model/RowDto.php
 lib/Model/SecureBatchExecuteRequest.php
 lib/Model/SecureCancelledTransactionResponse.php
 lib/Model/SecureMerchantTokenShortResponse.php
+lib/Model/SecurePFQuoteBookingRequest.php
 lib/Model/SecurePaymentBatchDetailsRequest.php
 lib/Model/SecurePaymentDetailsRequest.php
 lib/Model/SecurePaymentLinkRequest.php
@@ -376,7 +380,6 @@ lib/Model/TokenLinkResponse.php
 lib/Model/TokenLinkResponseDataInner.php
 lib/Model/TokenLinkSecureRequest.php
 lib/Model/TokenLinkSecureRequestCustomersInner.php
-lib/Model/TokenLinkSecureRequestIntent.php
 lib/Model/TokenRequest.php
 lib/Model/TransactionDetailResponse.php
 lib/Model/TransactionDetailResponseSplitsInner.php
@@ -401,10 +404,12 @@ lib/Model/VendorResponseDTORemittanceAddress.php
 lib/Model/VendorResponseDTOTemplate.php
 lib/Model/VendorResponseDTOVerificationResultsInner.php
 lib/Model/VendorTimelineResponseListInner.php
-lib/Model/VerificationEntityRequest.php
-lib/Model/VerifyBankAccountRequest.php
-lib/Model/VerifyBankAccountRequestBankAccountEntity.php
-lib/Model/VerifyBankAccountResponse.php
-lib/Model/VerifyBankAccountResponseHttpResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/SecureAutopayEnrollmentApiTest.php
+test/Model/AutoPayEnrollmentRequestTest.php
+test/Model/AutoPayEnrollmentResponseTest.php
+test/Model/OutboundPaymentImageResponseDTOTest.php
+test/Model/PFLiteSecureQuoteRequestAgentAddressTest.php
+test/Model/PFLiteSecureQuoteRequestAgentTest.php
+test/Model/SecurePFQuoteBookingRequestTest.php

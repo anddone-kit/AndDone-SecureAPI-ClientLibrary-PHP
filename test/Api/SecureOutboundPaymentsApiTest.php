@@ -31,6 +31,16 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecureOutboundPaymentsApi;
+use \OpenAPI\Client\Model\PaymentTimeLineRequestDto;
+use \OpenAPI\Client\Model\OutboundPaymentTimelineResponseDTOInner;
+use \OpenAPI\Client\Model\CancelPaymentRequestDTO;
+use \OpenAPI\Client\Model\PaymentRequestDetailDTO;
+use \OpenAPI\Client\Model\PaymentDetailResponseDTO;
+use \OpenAPI\Client\Model\PaymentRequestDto;
+use \OpenAPI\Client\Model\PaymentResponseDto;
+use \OpenAPI\Client\Model\PagePaymentListResponseDTO;
+use Exception;
 
 /**
  * SecureOutboundPaymentsApiTest Class Doc Comment
@@ -42,6 +52,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureOutboundPaymentsApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,8 +96,29 @@ class SecureOutboundPaymentsApiTest extends TestCase
      */
     public function testVendorapiSecureOutboundPaymentsTimelinesPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOutboundPaymentsApi();
+        $payload = [
+            "paymentId" => "5a5b9d55-7d93-4b5d-81eb-682adff13562"
+        ];
+
+        $request = new PaymentTimeLineRequestDto($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureOutboundPaymentsTimelinesPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(OutboundPaymentTimelineResponseDTOInner::class, $result);
+            print "Success: OP - Outbound Payment Timeline\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -91,8 +129,28 @@ class SecureOutboundPaymentsApiTest extends TestCase
      */
     public function testVendorapiSecureOutboundpaymentsCancelPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOutboundPaymentsApi();
+        $payload = [
+            "paymentId" => "5a5b9d55-7d93-4b5d-81eb-682adff13562"
+        ];
+
+        $request = new CancelPaymentRequestDTO($payload);
+
+        try {
+            $apiInstance->vendorapiSecureOutboundpaymentsCancelPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            print "Success: OP - Outbound Payment Cancellation\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -103,8 +161,29 @@ class SecureOutboundPaymentsApiTest extends TestCase
      */
     public function testVendorapiSecureOutboundpaymentsDetailPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOutboundPaymentsApi();
+        $payload = [
+            "paymentId" => "5a5b9d55-7d93-4b5d-81eb-682adff13562"
+        ];
+
+        $request = new PaymentRequestDetailDTO($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureOutboundpaymentsDetailPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentDetailResponseDTO::class, $result);
+            print "Success: OP - Outbound Payment Details\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -115,8 +194,92 @@ class SecureOutboundPaymentsApiTest extends TestCase
      */
     public function testVendorapiSecureOutboundpaymentsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOutboundPaymentsApi();
+        $payload = [
+            "vendorId" => "Dv4VRa8R",
+            "paymentMethod" => "Check",
+            "amount" => 70.23,
+            "bankDetail" => [
+                "accountNumber" => "123456780",
+                "routingNumber" => "121000358"
+            ],
+            "Data" => [
+                "checkNumber" => 1003,
+                "memo" => "Self transfer",
+                "checkDate" => "06-19-2025",
+                "remittanceData" => [
+                "headings" => [
+                    [
+                    "name" => "Item1",
+                    "type" => "Date"
+                    ],
+                    [
+                    "name" => "Amount1",
+                    "type" => "decimal"
+                    ],
+                    [
+                    "name" => "desc",
+                    "type" => "text"
+                    ]
+                ],
+                "rows" => [
+                    [
+                    [
+                        "name" => "Item1",
+                        "value" => "04-24-2024",
+                        "type" => "Date"
+                    ],
+                    [
+                        "name" => "Amount1",
+                        "value" => "100.12",
+                        "type" => "decimal"
+                    ],
+                    [
+                        "name" => "desc",
+                        "value" => "100.12",
+                        "type" => "text"
+                    ]
+                    ],
+                    [
+                    [
+                        "name" => "Item1",
+                        "value" => "04-27-2024",
+                        "type" => "Date"
+                    ],
+                    [
+                        "name" => "Amount1",
+                        "value" => "500",
+                        "type" => "decimal"
+                    ],
+                    [
+                        "name" => "desc",
+                        "value" => "100.12",
+                        "type" => "text"
+                    ]
+                    ]
+                ]
+                ]
+            ]
+        ];
+
+        $request = new PaymentRequestDto ($payload);
+
+        try {
+            $result = $apiInstance->vendorapiSecureOutboundpaymentsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PaymentResponseDto::class, $result);
+            print "Success: OP - Outbound Payment Create\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -127,7 +290,38 @@ class SecureOutboundPaymentsApiTest extends TestCase
      */
     public function testVendorapiSecureOutboundpaymentsSearchPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOutboundPaymentsApi();
+        $startDate = "04-01-2023";
+        $endDate = "08-25-2023";
+
+        try {
+            $result = $apiInstance->vendorapiSecureOutboundpaymentsSearchPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                $startDate,
+                $endDate,
+                null,
+                null,
+                null
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PagePaymentListResponseDTO::class, $result);
+            print "Success: OP - Outbound Payment Search\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

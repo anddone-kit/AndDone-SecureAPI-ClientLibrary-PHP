@@ -366,7 +366,7 @@ class SecureVendorResponseDTO implements ModelInterface, ArrayAccess, \JsonSeria
     public const VENDOR_STATUS_REVIEWING = 'Reviewing';
     public const VENDOR_STATUS_APPROVED = 'Approved';
     public const VENDOR_STATUS_DENIED = 'Denied';
-    public const VENDOR_STATUS_SUSPEND = 'Suspend';
+    public const VENDOR_STATUS_SUSPENDED = 'Suspended';
     public const VENDOR_STATUS_DELETED = 'Deleted';
 
     /**
@@ -411,7 +411,7 @@ class SecureVendorResponseDTO implements ModelInterface, ArrayAccess, \JsonSeria
             self::VENDOR_STATUS_REVIEWING,
             self::VENDOR_STATUS_APPROVED,
             self::VENDOR_STATUS_DENIED,
-            self::VENDOR_STATUS_SUSPEND,
+            self::VENDOR_STATUS_SUSPENDED,
             self::VENDOR_STATUS_DELETED,
         ];
     }

@@ -421,9 +421,6 @@ class VendorRequestDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['vendorName'] === null) {
             $invalidProperties[] = "'vendorName' can't be null";
         }
-        if ($this->container['vendorDbName'] === null) {
-            $invalidProperties[] = "'vendorDbName' can't be null";
-        }
         if ($this->container['legalEntityType'] === null) {
             $invalidProperties[] = "'legalEntityType' can't be null";
         }
@@ -541,7 +538,7 @@ class VendorRequestDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vendorDbName
      *
-     * @return string
+     * @return string|null
      */
     public function getVendorDbName()
     {
@@ -551,7 +548,7 @@ class VendorRequestDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vendorDbName
      *
-     * @param string $vendorDbName Database name of the vendor
+     * @param string|null $vendorDbName Database name of the vendor
      *
      * @return self
      */

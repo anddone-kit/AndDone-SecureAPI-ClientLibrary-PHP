@@ -57,7 +57,7 @@ class PFUpdatePFARequestDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'quoteKey' => 'int'
+        'quoteKey' => 'float'
     ];
 
     /**
@@ -295,7 +295,7 @@ class PFUpdatePFARequestDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets quoteKey
      *
-     * @return int
+     * @return float
      */
     public function getQuoteKey()
     {
@@ -305,7 +305,7 @@ class PFUpdatePFARequestDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets quoteKey
      *
-     * @param int $quoteKey This denotes the quoteKey.
+     * @param float $quoteKey This denotes the quoteKey.
      *
      * @return self
      */

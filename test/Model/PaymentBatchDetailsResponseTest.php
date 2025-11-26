@@ -89,9 +89,54 @@ class PaymentBatchDetailsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "merchantId"
+     */
+    public function testPropertyMerchantId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "batchStatus"
      */
     public function testPropertyBatchStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "processMethods"
+     */
+    public function testPropertyProcessMethods()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "processorName"
+     */
+    public function testPropertyProcessorName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isDefault"
+     */
+    public function testPropertyIsDefault()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "executedOnDemand"
+     */
+    public function testPropertyExecutedOnDemand()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -110,6 +155,123 @@ class PaymentBatchDetailsResponseTest extends TestCase
      * Test attribute "completionTime"
      */
     public function testPropertyCompletionTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdOn"
+     */
+    public function testPropertyCreatedOn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "createdBy"
+     */
+    public function testPropertyCreatedBy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modifiedOn"
+     */
+    public function testPropertyModifiedOn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "modifiedBy"
+     */
+    public function testPropertyModifiedBy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "captureCount"
+     */
+    public function testPropertyCaptureCount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "captureAmount"
+     */
+    public function testPropertyCaptureAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "voidedCount"
+     */
+    public function testPropertyVoidedCount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "voidedAmount"
+     */
+    public function testPropertyVoidedAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "totalLiveAmount"
+     */
+    public function testPropertyTotalLiveAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "refundedCount"
+     */
+    public function testPropertyRefundedCount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "refundedAmount"
+     */
+    public function testPropertyRefundedAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "chargebackCount"
+     */
+    public function testPropertyChargebackCount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "chargebackAmount"
+     */
+    public function testPropertyChargebackAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

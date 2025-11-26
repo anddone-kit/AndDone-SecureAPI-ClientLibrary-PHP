@@ -80,6 +80,15 @@ class PaymentIntentRequestCustomersInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "customerId"
+     */
+    public function testPropertyCustomerId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "firstName"
      */
     public function testPropertyFirstName()
@@ -110,15 +119,6 @@ class PaymentIntentRequestCustomersInnerTest extends TestCase
      * Test attribute "phone"
      */
     public function testPropertyPhone()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customerId"
-     */
-    public function testPropertyCustomerId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

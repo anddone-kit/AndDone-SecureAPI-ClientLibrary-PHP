@@ -98,15 +98,6 @@ class TransactionDetailResponseTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "rawMICRLine"
-     */
-    public function testPropertyRawMICRLine()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "accountType"
      */
     public function testPropertyAccountType()
@@ -188,6 +179,15 @@ class TransactionDetailResponseTenderInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "binNumber"
+     */
+    public function testPropertyBinNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "cardExpiry"
      */
     public function testPropertyCardExpiry()
@@ -215,45 +215,9 @@ class TransactionDetailResponseTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "tipAmount"
-     */
-    public function testPropertyTipAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "convenienceAmount"
      */
     public function testPropertyConvenienceAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAmount"
-     */
-    public function testPropertyTaxAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAfterDiscount"
-     */
-    public function testPropertyTaxAfterDiscount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxPercent"
-     */
-    public function testPropertyTaxPercent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -353,33 +317,6 @@ class TransactionDetailResponseTenderInfoTest extends TestCase
      * Test attribute "createAccountToken"
      */
     public function testPropertyCreateAccountToken()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountType"
-     */
-    public function testPropertyDiscountType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountPercent"
-     */
-    public function testPropertyDiscountPercent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountAmount"
-     */
-    public function testPropertyDiscountAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

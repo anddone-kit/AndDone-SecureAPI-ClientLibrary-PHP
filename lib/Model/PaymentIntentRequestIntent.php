@@ -291,6 +291,9 @@ class PaymentIntentRequestIntent implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['paymentTypes'] === null) {
+            $invalidProperties[] = "'paymentTypes' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -309,7 +312,7 @@ class PaymentIntentRequestIntent implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets paymentTypes
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getPaymentTypes()
     {
@@ -319,7 +322,7 @@ class PaymentIntentRequestIntent implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets paymentTypes
      *
-     * @param string[]|null $paymentTypes paymentTypes
+     * @param string[] $paymentTypes paymentTypes
      *
      * @return self
      */

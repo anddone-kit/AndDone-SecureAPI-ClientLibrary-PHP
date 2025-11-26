@@ -57,7 +57,7 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'quoteKey' => 'float',
+        'quoteKey' => 'int',
         'premium' => 'float',
         'downAmount' => 'float',
         'amountFinanced' => 'float',
@@ -69,14 +69,15 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         'apr' => 'float',
         'installments' => 'int',
         'batchId' => 'string',
-        'paymentsRetained' => 'float',
+        'paymentsRetained' => 'int',
         'paymentRetainedAmount' => 'float',
         'unsignedPFAUrl' => 'string',
         'retailAgentRegisterLoginURL' => 'string',
         'eSignResult' => '\OpenAPI\Client\Model\PFLiteGenerateQuoteResponseItemESignResult',
         'errors' => 'string',
         'pfa' => 'string',
-        'electronicSignatureURL' => 'string'
+        'electronicSignatureURL' => 'string',
+        'offerAutoPay' => 'bool'
     ];
 
     /**
@@ -106,7 +107,8 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         'eSignResult' => null,
         'errors' => null,
         'pfa' => null,
-        'electronicSignatureURL' => null
+        'electronicSignatureURL' => null,
+        'offerAutoPay' => null
     ];
 
     /**
@@ -134,7 +136,8 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         'eSignResult' => false,
         'errors' => false,
         'pfa' => false,
-        'electronicSignatureURL' => false
+        'electronicSignatureURL' => false,
+        'offerAutoPay' => false
     ];
 
     /**
@@ -242,7 +245,8 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         'eSignResult' => 'eSignResult',
         'errors' => 'errors',
         'pfa' => 'pfa',
-        'electronicSignatureURL' => 'electronicSignatureURL'
+        'electronicSignatureURL' => 'electronicSignatureURL',
+        'offerAutoPay' => 'offerAutoPay'
     ];
 
     /**
@@ -270,7 +274,8 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         'eSignResult' => 'setESignResult',
         'errors' => 'setErrors',
         'pfa' => 'setPfa',
-        'electronicSignatureURL' => 'setElectronicSignatureURL'
+        'electronicSignatureURL' => 'setElectronicSignatureURL',
+        'offerAutoPay' => 'setOfferAutoPay'
     ];
 
     /**
@@ -298,7 +303,8 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         'eSignResult' => 'getESignResult',
         'errors' => 'getErrors',
         'pfa' => 'getPfa',
-        'electronicSignatureURL' => 'getElectronicSignatureURL'
+        'electronicSignatureURL' => 'getElectronicSignatureURL',
+        'offerAutoPay' => 'getOfferAutoPay'
     ];
 
     /**
@@ -378,6 +384,7 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('errors', $data ?? [], null);
         $this->setIfExists('pfa', $data ?? [], null);
         $this->setIfExists('electronicSignatureURL', $data ?? [], null);
+        $this->setIfExists('offerAutoPay', $data ?? [], null);
     }
 
     /**
@@ -425,7 +432,7 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Gets quoteKey
      *
-     * @return float|null
+     * @return int|null
      */
     public function getQuoteKey()
     {
@@ -435,7 +442,7 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Sets quoteKey
      *
-     * @param float|null $quoteKey quoteKey
+     * @param int|null $quoteKey quoteKey
      *
      * @return self
      */
@@ -749,7 +756,7 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Gets paymentsRetained
      *
-     * @return float|null
+     * @return int|null
      */
     public function getPaymentsRetained()
     {
@@ -759,7 +766,7 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Sets paymentsRetained
      *
-     * @param float|null $paymentsRetained paymentsRetained
+     * @param int|null $paymentsRetained paymentsRetained
      *
      * @return self
      */
@@ -958,6 +965,33 @@ class PFLiteGenerateQuoteResponseItem implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable electronicSignatureURL cannot be null');
         }
         $this->container['electronicSignatureURL'] = $electronicSignatureURL;
+
+        return $this;
+    }
+
+    /**
+     * Gets offerAutoPay
+     *
+     * @return bool|null
+     */
+    public function getOfferAutoPay()
+    {
+        return $this->container['offerAutoPay'];
+    }
+
+    /**
+     * Sets offerAutoPay
+     *
+     * @param bool|null $offerAutoPay offerAutoPay
+     *
+     * @return self
+     */
+    public function setOfferAutoPay($offerAutoPay)
+    {
+        if (is_null($offerAutoPay)) {
+            throw new \InvalidArgumentException('non-nullable offerAutoPay cannot be null');
+        }
+        $this->container['offerAutoPay'] = $offerAutoPay;
 
         return $this;
     }

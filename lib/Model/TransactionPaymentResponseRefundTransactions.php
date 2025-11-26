@@ -57,7 +57,7 @@ class TransactionPaymentResponseRefundTransactions implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalRowCount' => 'float',
+        'totalRowCount' => 'int',
         'data' => '\OpenAPI\Client\Model\TransactionPaymentResponseRefundTransactionsDataInner[]'
     ];
 
@@ -299,7 +299,7 @@ class TransactionPaymentResponseRefundTransactions implements ModelInterface, Ar
     /**
      * Gets totalRowCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTotalRowCount()
     {
@@ -309,7 +309,7 @@ class TransactionPaymentResponseRefundTransactions implements ModelInterface, Ar
     /**
      * Sets totalRowCount
      *
-     * @param float|null $totalRowCount totalRowCount
+     * @param int|null $totalRowCount totalRowCount
      *
      * @return self
      */

@@ -80,9 +80,9 @@ class PaymentBatchResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "totalRowCounts"
+     * Test attribute "totalRowCount"
      */
-    public function testPropertyTotalRowCounts()
+    public function testPropertyTotalRowCount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

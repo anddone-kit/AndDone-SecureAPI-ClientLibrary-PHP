@@ -152,9 +152,9 @@ class TransactionPaymentResponseBillingContactTest extends TestCase
     }
 
     /**
-     * Test attribute "uRL"
+     * Test attribute "url"
      */
-    public function testPropertyURL()
+    public function testPropertyUrl()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

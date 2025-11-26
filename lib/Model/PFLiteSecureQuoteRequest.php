@@ -62,7 +62,9 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'merchant' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestMerchant',
         'insured' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestInsured',
         'program' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestProgram',
-        'policies' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestPoliciesInner[]'
+        'policies' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestPoliciesInner[]',
+        'offerAutoPay' => 'bool',
+        'agent' => '\OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent'
     ];
 
     /**
@@ -78,7 +80,9 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'merchant' => null,
         'insured' => null,
         'program' => null,
-        'policies' => null
+        'policies' => null,
+        'offerAutoPay' => null,
+        'agent' => null
     ];
 
     /**
@@ -92,7 +96,9 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'merchant' => false,
         'insured' => false,
         'program' => false,
-        'policies' => false
+        'policies' => false,
+        'offerAutoPay' => false,
+        'agent' => false
     ];
 
     /**
@@ -186,7 +192,9 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'merchant' => 'merchant',
         'insured' => 'insured',
         'program' => 'program',
-        'policies' => 'policies'
+        'policies' => 'policies',
+        'offerAutoPay' => 'offerAutoPay',
+        'agent' => 'agent'
     ];
 
     /**
@@ -200,7 +208,9 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'merchant' => 'setMerchant',
         'insured' => 'setInsured',
         'program' => 'setProgram',
-        'policies' => 'setPolicies'
+        'policies' => 'setPolicies',
+        'offerAutoPay' => 'setOfferAutoPay',
+        'agent' => 'setAgent'
     ];
 
     /**
@@ -214,7 +224,9 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'merchant' => 'getMerchant',
         'insured' => 'getInsured',
         'program' => 'getProgram',
-        'policies' => 'getPolicies'
+        'policies' => 'getPolicies',
+        'offerAutoPay' => 'getOfferAutoPay',
+        'agent' => 'getAgent'
     ];
 
     /**
@@ -280,6 +292,8 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('insured', $data ?? [], null);
         $this->setIfExists('program', $data ?? [], null);
         $this->setIfExists('policies', $data ?? [], null);
+        $this->setIfExists('offerAutoPay', $data ?? [], null);
+        $this->setIfExists('agent', $data ?? [], null);
     }
 
     /**
@@ -497,6 +511,60 @@ class PFLiteSecureQuoteRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable policies cannot be null');
         }
         $this->container['policies'] = $policies;
+
+        return $this;
+    }
+
+    /**
+     * Gets offerAutoPay
+     *
+     * @return bool|null
+     */
+    public function getOfferAutoPay()
+    {
+        return $this->container['offerAutoPay'];
+    }
+
+    /**
+     * Sets offerAutoPay
+     *
+     * @param bool|null $offerAutoPay offerAutoPay
+     *
+     * @return self
+     */
+    public function setOfferAutoPay($offerAutoPay)
+    {
+        if (is_null($offerAutoPay)) {
+            throw new \InvalidArgumentException('non-nullable offerAutoPay cannot be null');
+        }
+        $this->container['offerAutoPay'] = $offerAutoPay;
+
+        return $this;
+    }
+
+    /**
+     * Gets agent
+     *
+     * @return \OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent|null
+     */
+    public function getAgent()
+    {
+        return $this->container['agent'];
+    }
+
+    /**
+     * Sets agent
+     *
+     * @param \OpenAPI\Client\Model\PFLiteSecureQuoteRequestAgent|null $agent agent
+     *
+     * @return self
+     */
+    public function setAgent($agent)
+    {
+        if (is_null($agent)) {
+            throw new \InvalidArgumentException('non-nullable agent cannot be null');
+        }
+        $this->container['agent'] = $agent;
 
         return $this;
     }

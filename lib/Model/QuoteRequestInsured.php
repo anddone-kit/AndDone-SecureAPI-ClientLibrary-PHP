@@ -382,9 +382,6 @@ class QuoteRequestInsured implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
         }
-        if ($this->container['address'] === null) {
-            $invalidProperties[] = "'address' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -511,7 +508,7 @@ class QuoteRequestInsured implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\QuoteRequestInsuredAddress
+     * @return \OpenAPI\Client\Model\QuoteRequestInsuredAddress|null
      */
     public function getAddress()
     {
@@ -521,7 +518,7 @@ class QuoteRequestInsured implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\QuoteRequestInsuredAddress $address address
+     * @param \OpenAPI\Client\Model\QuoteRequestInsuredAddress|null $address address
      *
      * @return self
      */

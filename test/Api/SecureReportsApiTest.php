@@ -27,10 +27,13 @@
 
 namespace OpenAPI\Client\Test\Api;
 
+use OpenAPI\Client\Api\SecureReportsApi;
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
+use OpenAPI\Client\Model\ReportDownloadRequest;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use Exception;
 
 /**
  * SecureReportsApiTest Class Doc Comment
@@ -42,7 +45,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureReportsApiTest extends TestCase
 {
-
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
     /**
      * Setup before running any test cases
      */
@@ -79,7 +88,31 @@ class SecureReportsApiTest extends TestCase
      */
     public function testSecureReportsDownloadsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureReportsApi();
+        $payload = [
+            "reportId" => "autho",
+            "date" => "04-04-2024",
+            "reportGenerationLogId" => "",
+            "fileCompress" => true
+        ];
+
+        $request = new ReportDownloadRequest($payload);
+
+        try {
+            $apiInstance->secureReportsDownloadsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            // $this->assertInstanceOf(AdminTransactionEntityResponse::class, $result);
+            print "Success: Rep - Download Report\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

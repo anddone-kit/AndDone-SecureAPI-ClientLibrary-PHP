@@ -152,6 +152,15 @@ class PFLiteSecureQuoteRequestPoliciesInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "cancelDays"
+     */
+    public function testPropertyCancelDays()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "carrier"
      */
     public function testPropertyCarrier()
@@ -164,15 +173,6 @@ class PFLiteSecureQuoteRequestPoliciesInnerTest extends TestCase
      * Test attribute "expirationDate"
      */
     public function testPropertyExpirationDate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "cancelDays"
-     */
-    public function testPropertyCancelDays()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

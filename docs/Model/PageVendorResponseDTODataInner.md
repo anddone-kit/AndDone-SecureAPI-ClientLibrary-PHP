@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **useSameAsPhysicalAddress** | **bool** |  | [optional]
 **physicalAddress** | [**\OpenAPI\Client\Model\VendorResponseDTORemittanceAddress**](VendorResponseDTORemittanceAddress.md) |  | [optional]
 **remittanceAddress** | [**\OpenAPI\Client\Model\VendorResponseDTORemittanceAddress**](VendorResponseDTORemittanceAddress.md) |  | [optional]
-**verificationResults** | [**\OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner[]**](VendorResponseDTOVerificationResultsInner.md) |  | [optional]
+**verificationResults** | [**\OpenAPI\Client\Model\VendorResponseDTOVerificationResultsInner**](VendorResponseDTOVerificationResultsInner.md) |  | [optional]
 **createdBy** | **string** |  | [optional]
 **modifiedBy** | **string** |  | [optional]
 **createdOn** | **string** |  | [optional]

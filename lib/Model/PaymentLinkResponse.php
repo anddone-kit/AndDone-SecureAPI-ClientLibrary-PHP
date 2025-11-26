@@ -68,7 +68,7 @@ class PaymentLinkResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'expireInUnit' => 'string',
         'expireOn' => 'string',
         'payments' => '\OpenAPI\Client\Model\PaymentLinkResponsePaymentsInner[]',
-        'noOfPaymentMade' => 'float',
+        'noOfPaymentMade' => 'int',
         'totalPaidAmount' => 'float',
         'linkStatus' => 'string',
         'invoiceNumber' => 'string',
@@ -1029,7 +1029,7 @@ class PaymentLinkResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets noOfPaymentMade
      *
-     * @return float|null
+     * @return int|null
      */
     public function getNoOfPaymentMade()
     {
@@ -1039,7 +1039,7 @@ class PaymentLinkResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets noOfPaymentMade
      *
-     * @param float|null $noOfPaymentMade noOfPaymentMade
+     * @param int|null $noOfPaymentMade noOfPaymentMade
      *
      * @return self
      */

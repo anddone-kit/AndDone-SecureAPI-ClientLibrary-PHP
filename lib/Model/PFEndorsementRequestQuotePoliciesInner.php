@@ -57,7 +57,7 @@ class PFEndorsementRequestQuotePoliciesInner implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'policyId' => 'string',
+        'policyId' => 'int',
         'premium' => 'float',
         'down' => 'float',
         'downPercent' => 'float',
@@ -250,7 +250,7 @@ class PFEndorsementRequestQuotePoliciesInner implements ModelInterface, ArrayAcc
         'expirationDate' => 'expirationDate',
         'term' => 'term',
         'minimumEarned' => 'minimumEarned',
-        'minimumEarnedPercent' => 'MinimumEarnedPercent',
+        'minimumEarnedPercent' => 'minimumEarnedPercent',
         'auditable' => 'auditable',
         'cancelDays' => 'cancelDays',
         'lossPayeeRequested' => 'lossPayeeRequested',
@@ -462,7 +462,7 @@ class PFEndorsementRequestQuotePoliciesInner implements ModelInterface, ArrayAcc
     /**
      * Gets policyId
      *
-     * @return string|null
+     * @return int|null
      */
     public function getPolicyId()
     {
@@ -472,7 +472,7 @@ class PFEndorsementRequestQuotePoliciesInner implements ModelInterface, ArrayAcc
     /**
      * Sets policyId
      *
-     * @param string|null $policyId This denotes the policy identifier.
+     * @param int|null $policyId This denotes the policy identifier.
      *
      * @return self
      */

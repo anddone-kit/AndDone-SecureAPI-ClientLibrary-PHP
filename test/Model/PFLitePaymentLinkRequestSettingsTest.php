@@ -98,6 +98,69 @@ class PFLitePaymentLinkRequestSettingsTest extends TestCase
     }
 
     /**
+     * Test attribute "displaySummary"
+     */
+    public function testPropertyDisplaySummary()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "acceptCustomerInfo"
+     */
+    public function testPropertyAcceptCustomerInfo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "removeHeader"
+     */
+    public function testPropertyRemoveHeader()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "acceptCard"
+     */
+    public function testPropertyAcceptCard()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "acceptBankAccount"
+     */
+    public function testPropertyAcceptBankAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "saveCustomer"
+     */
+    public function testPropertySaveCustomer()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "saveCustomerAccount"
+     */
+    public function testPropertySaveCustomerAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "intent"
      */
     public function testPropertyIntent()

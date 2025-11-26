@@ -70,14 +70,14 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
         'createdBy' => 'string',
         'modifiedOn' => 'string',
         'modifiedBy' => 'string',
-        'captureCount' => 'float',
+        'captureCount' => 'int',
         'captureAmount' => 'float',
-        'voidedCount' => 'float',
+        'voidedCount' => 'int',
         'voidedAmount' => 'float',
         'totalLiveAmount' => 'float',
-        'refundedCount' => 'float',
+        'refundedCount' => 'int',
         'refundedAmount' => 'float',
-        'chargebackCount' => 'float',
+        'chargebackCount' => 'int',
         'chargebackAmount' => 'float',
         'transactionDetails' => '\OpenAPI\Client\Model\PaymentBatchDetailsResponseTransactionDetailsInner[]'
     ];
@@ -797,7 +797,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets captureCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCaptureCount()
     {
@@ -807,7 +807,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets captureCount
      *
-     * @param float|null $captureCount captureCount
+     * @param int|null $captureCount captureCount
      *
      * @return self
      */
@@ -851,7 +851,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets voidedCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getVoidedCount()
     {
@@ -861,7 +861,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets voidedCount
      *
-     * @param float|null $voidedCount voidedCount
+     * @param int|null $voidedCount voidedCount
      *
      * @return self
      */
@@ -932,7 +932,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets refundedCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getRefundedCount()
     {
@@ -942,7 +942,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets refundedCount
      *
-     * @param float|null $refundedCount refundedCount
+     * @param int|null $refundedCount refundedCount
      *
      * @return self
      */
@@ -986,7 +986,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets chargebackCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getChargebackCount()
     {
@@ -996,7 +996,7 @@ class PaymentBatchDetailsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets chargebackCount
      *
-     * @param float|null $chargebackCount chargebackCount
+     * @param int|null $chargebackCount chargebackCount
      *
      * @return self
      */

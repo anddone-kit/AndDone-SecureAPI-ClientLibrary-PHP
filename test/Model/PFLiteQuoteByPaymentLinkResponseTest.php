@@ -161,6 +161,15 @@ class PFLiteQuoteByPaymentLinkResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "policies"
+     */
+    public function testPropertyPolicies()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "isActive"
      */
     public function testPropertyIsActive()

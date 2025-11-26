@@ -193,16 +193,16 @@ class PFEndorsementRequestQuoteCommunication implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'insuredESignCompletionURL' => 'InsuredESignCompletionURL',
-        'paymentPortalCancelRedirectURL' => 'PaymentPortalCancelRedirectURL',
-        'paymentPortalDeclineOfferRedirectURL' => 'PaymentPortalDeclineOfferRedirectURL',
-        'returnInsuredESignURL' => 'ReturnInsuredESignURL',
-        'eSignAutoStart' => 'ESignAutoStart',
-        'eSignStartPickOptions' => 'ESignStartPickOptions',
-        'suppressInsuredESignEmail' => 'SuppressInsuredESignEmail',
-        'hasDocumentsToUpload' => 'HasDocumentsToUpload',
-        'sendEmailToRetailAgent' => 'SendEmailToRetailAgent',
-        'sendWelcomeLetterEmailToInsured' => 'SendWelcomeLetterEmailToInsured'
+        'insuredESignCompletionURL' => 'insuredESignCompletionURL',
+        'paymentPortalCancelRedirectURL' => 'paymentPortalCancelRedirectURL',
+        'paymentPortalDeclineOfferRedirectURL' => 'paymentPortalDeclineOfferRedirectURL',
+        'returnInsuredESignURL' => 'returnInsuredESignURL',
+        'eSignAutoStart' => 'eSignAutoStart',
+        'eSignStartPickOptions' => 'eSignStartPickOptions',
+        'suppressInsuredESignEmail' => 'suppressInsuredESignEmail',
+        'hasDocumentsToUpload' => 'hasDocumentsToUpload',
+        'sendEmailToRetailAgent' => 'sendEmailToRetailAgent',
+        'sendWelcomeLetterEmailToInsured' => 'sendWelcomeLetterEmailToInsured'
     ];
 
     /**

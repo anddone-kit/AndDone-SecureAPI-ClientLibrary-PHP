@@ -107,15 +107,6 @@ class PaymentRequestTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "rawMICRLine"
-     */
-    public function testPropertyRawMICRLine()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "accountType"
      */
     public function testPropertyAccountType()
@@ -197,18 +188,18 @@ class PaymentRequestTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "cVData"
+     * Test attribute "cvv"
      */
-    public function testPropertyCVData()
+    public function testPropertyCvv()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "cVDataStatus"
+     * Test attribute "cvDataStatus"
      */
-    public function testPropertyCVDataStatus()
+    public function testPropertyCvDataStatus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -218,51 +209,6 @@ class PaymentRequestTenderInfoTest extends TestCase
      * Test attribute "trackData"
      */
     public function testPropertyTrackData()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "healthCareAccountType"
-     */
-    public function testPropertyHealthCareAccountType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "rxAmount"
-     */
-    public function testPropertyRxAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "visionAmount"
-     */
-    public function testPropertyVisionAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "dentalAmount"
-     */
-    public function testPropertyDentalAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "clinicAmount"
-     */
-    public function testPropertyClinicAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -296,45 +242,9 @@ class PaymentRequestTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "tipAmount"
-     */
-    public function testPropertyTipAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "convenienceAmount"
      */
     public function testPropertyConvenienceAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAmount"
-     */
-    public function testPropertyTaxAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxPercent"
-     */
-    public function testPropertyTaxPercent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAfterDiscount"
-     */
-    public function testPropertyTaxAfterDiscount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -362,33 +272,6 @@ class PaymentRequestTenderInfoTest extends TestCase
      * Test attribute "accountToken"
      */
     public function testPropertyAccountToken()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountType"
-     */
-    public function testPropertyDiscountType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountPercent"
-     */
-    public function testPropertyDiscountPercent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountAmount"
-     */
-    public function testPropertyDiscountAmount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -50,7 +50,7 @@ class PFEndorsementRequestQuoteInsuredAddress implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PFEndorsementRequest_quote_Insured_Address';
+    protected static $openAPIModelName = 'PFEndorsementRequest_quote_insured_address';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -185,13 +185,13 @@ class PFEndorsementRequestQuoteInsuredAddress implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'Name',
-        'address1' => 'Address1',
-        'address2' => 'Address2',
-        'city' => 'City',
-        'state' => 'State',
-        'zip' => 'Zip',
-        'phone' => 'Phone'
+        'name' => 'name',
+        'address1' => 'address1',
+        'address2' => 'address2',
+        'city' => 'city',
+        'state' => 'state',
+        'zip' => 'zip',
+        'phone' => 'phone'
     ];
 
     /**

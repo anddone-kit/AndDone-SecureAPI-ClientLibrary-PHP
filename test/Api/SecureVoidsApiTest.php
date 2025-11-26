@@ -31,6 +31,10 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecureVoidsApi;
+use \OpenAPI\Client\Model\SecureTransactionCancelRequest;
+use \OpenAPI\Client\Model\SecureCancelledTransactionResponse;
+use Exception;
 
 /**
  * SecureVoidsApiTest Class Doc Comment
@@ -42,6 +46,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureVoidsApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,7 +90,31 @@ class SecureVoidsApiTest extends TestCase
      */
     public function testSecureCancellationsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureVoidsApi();
+        // $id = &$this->getId();
+        $id = "c5ffedc0-d42e-439e-9efa-526528937e98";
+        $payload = [
+            "transactionId" => $id,
+            "voidReason" => "Duplicate Payment",
+        ];
+
+        $request = new SecureTransactionCancelRequest($payload);
+
+        try {
+            $result = $apiInstance->secureCancellationsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(SecureCancelledTransactionResponse::class, $result);
+            print "Success: Can - Void Transaction\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

@@ -447,6 +447,9 @@ class PaymentRequestTenderInfo implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -934,7 +937,7 @@ class PaymentRequestTenderInfo implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets amount
      *
-     * @return float|null
+     * @return float
      */
     public function getAmount()
     {
@@ -944,7 +947,7 @@ class PaymentRequestTenderInfo implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets amount
      *
-     * @param float|null $amount amount
+     * @param float $amount amount
      *
      * @return self
      */

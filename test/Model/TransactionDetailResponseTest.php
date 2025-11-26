@@ -89,6 +89,15 @@ class TransactionDetailResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "batchId"
+     */
+    public function testPropertyBatchId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "transactionCode"
      */
     public function testPropertyTransactionCode()
@@ -233,15 +242,6 @@ class TransactionDetailResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "customerAccountId"
-     */
-    public function testPropertyCustomerAccountId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "invoiceNo"
      */
     public function testPropertyInvoiceNo()
@@ -305,24 +305,6 @@ class TransactionDetailResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "partnerId"
-     */
-    public function testPropertyPartnerId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "orderId"
-     */
-    public function testPropertyOrderId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "invoiceId"
      */
     public function testPropertyInvoiceId()
@@ -332,9 +314,9 @@ class TransactionDetailResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "maskedInvoiceId"
+     * Test attribute "tokenLinkId"
      */
-    public function testPropertyMaskedInvoiceId()
+    public function testPropertyTokenLinkId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -344,24 +326,6 @@ class TransactionDetailResponseTest extends TestCase
      * Test attribute "paymentLinkId"
      */
     public function testPropertyPaymentLinkId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maskedTokenLinkId"
-     */
-    public function testPropertyMaskedTokenLinkId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "maskedPaymentLinkId"
-     */
-    public function testPropertyMaskedPaymentLinkId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -497,6 +461,51 @@ class TransactionDetailResponseTest extends TestCase
      * Test attribute "companyName"
      */
     public function testPropertyCompanyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "apiVersion"
+     */
+    public function testPropertyApiVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "chargeBackAmount"
+     */
+    public function testPropertyChargeBackAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "suppressTechnologyFee"
+     */
+    public function testPropertySuppressTechnologyFee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isPremiumFinancier"
+     */
+    public function testPropertyIsPremiumFinancier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pfr"
+     */
+    public function testPropertyPfr()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -190,14 +190,14 @@ class PFEndorsementRequestQuotePoliciesInnerGa implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'uniqueID' => 'UniqueID',
-        'name' => 'Name',
-        'careOf' => 'CareOf',
-        'address1' => 'Address1',
-        'address2' => 'Address2',
-        'city' => 'City',
-        'state' => 'State',
-        'zip' => 'Zip',
+        'uniqueID' => 'uniqueID',
+        'name' => 'name',
+        'careOf' => 'careOf',
+        'address1' => 'address1',
+        'address2' => 'address2',
+        'city' => 'city',
+        'state' => 'state',
+        'zip' => 'zip',
         'phone' => 'phone'
     ];
 

@@ -63,7 +63,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'paymentDescription' => 'string',
         'customers' => '\OpenAPI\Client\Model\PaymentLinkResponseCustomersInner[]',
         'invoiceNumber' => 'string',
-        'expireBy' => 'float',
+        'expireBy' => 'int',
         'expireIn' => 'int',
         'expireInUnit' => 'string',
         'expireOn' => 'string',
@@ -80,7 +80,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'referenceType' => 'string',
         'referenceNumber' => 'string',
         'referenceKey' => 'string',
-        'referenceDataList' => '\OpenAPI\Client\Model\PaymentLinkResponseReferenceDataListInner[]',
+        'referenceDataList' => '\OpenAPI\Client\Model\PaymentLinkRequestReferenceDataListInner[]',
         'enablePremiumFinance' => 'bool',
         'suppressTechnologyFee' => 'bool',
         'overrideTechnologyFee' => 'float',
@@ -612,6 +612,9 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
+        if ($this->container['paymentDescription'] === null) {
+            $invalidProperties[] = "'paymentDescription' can't be null";
+        }
         if ($this->container['expireIn'] === null) {
             $invalidProperties[] = "'expireIn' can't be null";
         }
@@ -777,7 +780,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets paymentDescription
      *
-     * @return string|null
+     * @return string
      */
     public function getPaymentDescription()
     {
@@ -787,7 +790,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets paymentDescription
      *
-     * @param string|null $paymentDescription paymentDescription
+     * @param string $paymentDescription paymentDescription
      *
      * @return self
      */
@@ -858,7 +861,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets expireBy
      *
-     * @return float|null
+     * @return int|null
      */
     public function getExpireBy()
     {
@@ -868,7 +871,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets expireBy
      *
-     * @param float|null $expireBy expireBy
+     * @param int|null $expireBy expireBy
      *
      * @return self
      */
@@ -1357,7 +1360,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets referenceDataList
      *
-     * @return \OpenAPI\Client\Model\PaymentLinkResponseReferenceDataListInner[]
+     * @return \OpenAPI\Client\Model\PaymentLinkRequestReferenceDataListInner[]
      */
     public function getReferenceDataList()
     {
@@ -1367,7 +1370,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets referenceDataList
      *
-     * @param \OpenAPI\Client\Model\PaymentLinkResponseReferenceDataListInner[] $referenceDataList referenceDataList
+     * @param \OpenAPI\Client\Model\PaymentLinkRequestReferenceDataListInner[] $referenceDataList referenceDataList
      *
      * @return self
      */

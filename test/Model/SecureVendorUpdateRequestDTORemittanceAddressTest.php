@@ -143,15 +143,6 @@ class SecureVendorUpdateRequestDTORemittanceAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "addressType"
-     */
-    public function testPropertyAddressType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "addressSource"
      */
     public function testPropertyAddressSource()

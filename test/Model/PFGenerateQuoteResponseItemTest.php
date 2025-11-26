@@ -242,9 +242,9 @@ class PFGenerateQuoteResponseItemTest extends TestCase
     }
 
     /**
-     * Test attribute "pFA"
+     * Test attribute "pfa"
      */
-    public function testPropertyPFA()
+    public function testPropertyPfa()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

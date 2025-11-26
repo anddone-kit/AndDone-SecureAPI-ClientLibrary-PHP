@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **vendorName** | **string** |  | [optional]
 **merchantDBAName** | **string** |  | [optional]
 **paymentId** | **string** |  | [optional]
-**checkNumber** | **float** |  | [optional]
+**checkNumber** | **int** |  | [optional]
 **paymentMethod** | **string** |  | [optional]
 **amount** | **float** |  | [optional]
 **bankName** | **string** |  | [optional]

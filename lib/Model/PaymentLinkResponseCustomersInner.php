@@ -64,6 +64,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         'notifyViaSMS' => 'bool',
         'notifyViaEmail' => 'bool',
         'createdOn' => 'string',
+        'companyName' => 'string',
         'accounts' => '\OpenAPI\Client\Model\PaymentLinkResponseCustomersInnerAccountsInner[]',
         'address' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContactAddress'
     ];
@@ -83,6 +84,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         'notifyViaSMS' => null,
         'notifyViaEmail' => null,
         'createdOn' => null,
+        'companyName' => null,
         'accounts' => null,
         'address' => null
     ];
@@ -100,6 +102,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         'notifyViaSMS' => false,
         'notifyViaEmail' => false,
         'createdOn' => false,
+        'companyName' => false,
         'accounts' => false,
         'address' => false
     ];
@@ -197,6 +200,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         'notifyViaSMS' => 'notifyViaSMS',
         'notifyViaEmail' => 'notifyViaEmail',
         'createdOn' => 'createdOn',
+        'companyName' => 'companyName',
         'accounts' => 'accounts',
         'address' => 'address'
     ];
@@ -214,6 +218,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         'notifyViaSMS' => 'setNotifyViaSMS',
         'notifyViaEmail' => 'setNotifyViaEmail',
         'createdOn' => 'setCreatedOn',
+        'companyName' => 'setCompanyName',
         'accounts' => 'setAccounts',
         'address' => 'setAddress'
     ];
@@ -231,6 +236,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         'notifyViaSMS' => 'getNotifyViaSMS',
         'notifyViaEmail' => 'getNotifyViaEmail',
         'createdOn' => 'getCreatedOn',
+        'companyName' => 'getCompanyName',
         'accounts' => 'getAccounts',
         'address' => 'getAddress'
     ];
@@ -299,6 +305,7 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
         $this->setIfExists('notifyViaSMS', $data ?? [], null);
         $this->setIfExists('notifyViaEmail', $data ?? [], null);
         $this->setIfExists('createdOn', $data ?? [], null);
+        $this->setIfExists('companyName', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
     }
@@ -530,6 +537,33 @@ class PaymentLinkResponseCustomersInner implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable createdOn cannot be null');
         }
         $this->container['createdOn'] = $createdOn;
+
+        return $this;
+    }
+
+    /**
+     * Gets companyName
+     *
+     * @return string|null
+     */
+    public function getCompanyName()
+    {
+        return $this->container['companyName'];
+    }
+
+    /**
+     * Sets companyName
+     *
+     * @param string|null $companyName companyName
+     *
+     * @return self
+     */
+    public function setCompanyName($companyName)
+    {
+        if (is_null($companyName)) {
+            throw new \InvalidArgumentException('non-nullable companyName cannot be null');
+        }
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }

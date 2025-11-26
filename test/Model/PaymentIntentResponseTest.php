@@ -197,6 +197,42 @@ class PaymentIntentResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "suppressTechnologyFee"
+     */
+    public function testPropertySuppressTechnologyFee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "overrideTechnologyFee"
+     */
+    public function testPropertyOverrideTechnologyFee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isPremiumFinancier"
+     */
+    public function testPropertyIsPremiumFinancier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pfr"
+     */
+    public function testPropertyPfr()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "customers"
      */
     public function testPropertyCustomers()
@@ -227,6 +263,15 @@ class PaymentIntentResponseTest extends TestCase
      * Test attribute "referenceDataList"
      */
     public function testPropertyReferenceDataList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "displayMode"
+     */
+    public function testPropertyDisplayMode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

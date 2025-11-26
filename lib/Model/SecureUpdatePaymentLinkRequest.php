@@ -62,7 +62,7 @@ class SecureUpdatePaymentLinkRequest implements ModelInterface, ArrayAccess, \Js
         'paymentDescription' => 'string',
         'customers' => '\OpenAPI\Client\Model\PaymentLinkResponseCustomersInner[]',
         'invoiceNumber' => 'string',
-        'expireBy' => 'float',
+        'expireBy' => 'int',
         'expireOn' => 'string',
         'lineItems' => '\OpenAPI\Client\Model\PaymentLinkResponseLineItemsInner[]',
         'shortDescription' => 'string',
@@ -812,7 +812,7 @@ class SecureUpdatePaymentLinkRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets expireBy
      *
-     * @return float|null
+     * @return int|null
      */
     public function getExpireBy()
     {
@@ -822,7 +822,7 @@ class SecureUpdatePaymentLinkRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets expireBy
      *
-     * @param float|null $expireBy expireBy
+     * @param int|null $expireBy expireBy
      *
      * @return self
      */

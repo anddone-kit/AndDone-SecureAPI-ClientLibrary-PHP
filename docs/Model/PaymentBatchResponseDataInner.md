@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 **createdBy** | **string** |  | [optional]
 **modifiedOn** | **string** |  | [optional]
 **modifiedBy** | **string** |  | [optional]
-**captureCount** | **float** |  | [optional]
+**captureCount** | **int** |  | [optional]
 **captureAmount** | **float** |  | [optional]
-**voidedCount** | **float** |  | [optional]
+**voidedCount** | **int** |  | [optional]
 **voidedAmount** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

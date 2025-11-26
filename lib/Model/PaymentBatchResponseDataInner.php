@@ -70,9 +70,9 @@ class PaymentBatchResponseDataInner implements ModelInterface, ArrayAccess, \Jso
         'createdBy' => 'string',
         'modifiedOn' => 'string',
         'modifiedBy' => 'string',
-        'captureCount' => 'float',
+        'captureCount' => 'int',
         'captureAmount' => 'float',
-        'voidedCount' => 'float',
+        'voidedCount' => 'int',
         'voidedAmount' => 'float'
     ];
 
@@ -755,7 +755,7 @@ class PaymentBatchResponseDataInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets captureCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCaptureCount()
     {
@@ -765,7 +765,7 @@ class PaymentBatchResponseDataInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets captureCount
      *
-     * @param float|null $captureCount captureCount
+     * @param int|null $captureCount captureCount
      *
      * @return self
      */
@@ -809,7 +809,7 @@ class PaymentBatchResponseDataInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets voidedCount
      *
-     * @return float|null
+     * @return int|null
      */
     public function getVoidedCount()
     {
@@ -819,7 +819,7 @@ class PaymentBatchResponseDataInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets voidedCount
      *
-     * @param float|null $voidedCount voidedCount
+     * @param int|null $voidedCount voidedCount
      *
      * @return self
      */

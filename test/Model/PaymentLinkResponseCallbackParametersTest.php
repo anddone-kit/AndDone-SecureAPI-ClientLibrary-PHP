@@ -159,4 +159,13 @@ class PaymentLinkResponseCallbackParametersTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "redirectionTime"
+     */
+    public function testPropertyRedirectionTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

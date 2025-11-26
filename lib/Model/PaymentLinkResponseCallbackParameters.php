@@ -66,7 +66,7 @@ class PaymentLinkResponseCallbackParameters implements ModelInterface, ArrayAcce
         'transactionId' => 'string',
         'callbackApiUrl' => 'string',
         'callbackMessage' => 'string',
-        'redirectionTime' => 'float'
+        'redirectionTime' => 'int'
     ];
 
     /**
@@ -598,7 +598,7 @@ class PaymentLinkResponseCallbackParameters implements ModelInterface, ArrayAcce
     /**
      * Gets redirectionTime
      *
-     * @return float|null
+     * @return int|null
      */
     public function getRedirectionTime()
     {
@@ -608,7 +608,7 @@ class PaymentLinkResponseCallbackParameters implements ModelInterface, ArrayAcce
     /**
      * Sets redirectionTime
      *
-     * @param float|null $redirectionTime redirectionTime
+     * @param int|null $redirectionTime redirectionTime
      *
      * @return self
      */

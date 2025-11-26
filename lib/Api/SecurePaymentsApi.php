@@ -162,7 +162,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -180,7 +180,7 @@ class SecurePaymentsApi
      * @param  string $batchId BatchId (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsExportPost'] to see the possible values for this operation
      *
@@ -224,7 +224,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -242,7 +242,7 @@ class SecurePaymentsApi
      * @param  string $batchId BatchId (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsExportPost'] to see the possible values for this operation
      *
@@ -317,7 +317,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -335,7 +335,7 @@ class SecurePaymentsApi
      * @param  string $batchId BatchId (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsExportPost'] to see the possible values for this operation
      *
@@ -383,7 +383,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -401,7 +401,7 @@ class SecurePaymentsApi
      * @param  string $batchId BatchId (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsExportPost'] to see the possible values for this operation
      *
@@ -465,7 +465,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -483,7 +483,7 @@ class SecurePaymentsApi
      * @param  string $batchId BatchId (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsExportPost'] to see the possible values for this operation
      *
@@ -773,7 +773,7 @@ class SecurePaymentsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sourceId,
             'sourceId', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -935,7 +935,7 @@ class SecurePaymentsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $pageSize,
             'pageSize', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1000,16 +1000,6 @@ class SecurePaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1381,16 +1371,6 @@ class SecurePaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1444,7 +1424,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -1460,9 +1440,10 @@ class SecurePaymentsApi
      * @param  string $paymentCategories Set PaymentCategories (optional)
      * @param  bool $suppressTechnologyFee SuppressTechnologyFee (optional)
      * @param  string $batchId BatchId (optional)
+     * @param  bool $transactionsCount Set whether to return only the transactions count (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsSearchPost'] to see the possible values for this operation
      *
@@ -1470,9 +1451,9 @@ class SecurePaymentsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MerchantTransactionEntityResponse
      */
-    public function securePaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
+    public function securePaymentsSearchPost($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $transactionsCount = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
     {
-        list($response) = $this->securePaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $sortField, $startRow, $pageSize, $asc, $contentType);
+        list($response) = $this->securePaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $transactionsCount, $sortField, $startRow, $pageSize, $asc, $contentType);
         return $response;
     }
 
@@ -1507,7 +1488,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -1523,9 +1504,10 @@ class SecurePaymentsApi
      * @param  string $paymentCategories Set PaymentCategories (optional)
      * @param  bool $suppressTechnologyFee SuppressTechnologyFee (optional)
      * @param  string $batchId BatchId (optional)
+     * @param  bool $transactionsCount Set whether to return only the transactions count (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsSearchPost'] to see the possible values for this operation
      *
@@ -1533,9 +1515,9 @@ class SecurePaymentsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MerchantTransactionEntityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function securePaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
+    public function securePaymentsSearchPostWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $transactionsCount = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
     {
-        $request = $this->securePaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $sortField, $startRow, $pageSize, $asc, $contentType);
+        $request = $this->securePaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $transactionsCount, $sortField, $startRow, $pageSize, $asc, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1677,7 +1659,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -1693,18 +1675,19 @@ class SecurePaymentsApi
      * @param  string $paymentCategories Set PaymentCategories (optional)
      * @param  bool $suppressTechnologyFee SuppressTechnologyFee (optional)
      * @param  string $batchId BatchId (optional)
+     * @param  bool $transactionsCount Set whether to return only the transactions count (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function securePaymentsSearchPostAsync($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
+    public function securePaymentsSearchPostAsync($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $transactionsCount = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
     {
-        return $this->securePaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $sortField, $startRow, $pageSize, $asc, $contentType)
+        return $this->securePaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $transactionsCount, $sortField, $startRow, $pageSize, $asc, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1743,7 +1726,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -1759,19 +1742,20 @@ class SecurePaymentsApi
      * @param  string $paymentCategories Set PaymentCategories (optional)
      * @param  bool $suppressTechnologyFee SuppressTechnologyFee (optional)
      * @param  string $batchId BatchId (optional)
+     * @param  bool $transactionsCount Set whether to return only the transactions count (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function securePaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
+    public function securePaymentsSearchPostAsyncWithHttpInfo($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $transactionsCount = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MerchantTransactionEntityResponse';
-        $request = $this->securePaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $sortField, $startRow, $pageSize, $asc, $contentType);
+        $request = $this->securePaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $startDate, $endDate, $transactionIds, $referenceTransactionId, $transactionStatuses, $customerIds, $transactionType, $authCode, $cardHolderName, $shopperName, $amount, $fromAmount, $toAmount, $channelTypes, $maskAccount, $customerName, $recurringId, $referenceNo, $exportToCsv, $exportToPDF, $transactionOrigins, $transactionSourceType, $sourceId, $traceNumbers, $binNumber, $processMethod, $searchText, $merchantReference, $additionalFields, $additionalFieldValue, $paymentMethod, $accountAlias, $isPaid, $paymentTypes, $merchantId, $paymentCategories, $suppressTechnologyFee, $batchId, $transactionsCount, $sortField, $startRow, $pageSize, $asc, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1838,7 +1822,7 @@ class SecurePaymentsApi
      * @param  bool $exportToPDF Export To PDF (optional)
      * @param  string $transactionOrigins Type of origin used in the transaction (optional)
      * @param  string $transactionSourceType Transaction source type of the transaction (optional)
-     * @param  float $sourceId Set SourceId (optional)
+     * @param  int $sourceId Set SourceId (optional)
      * @param  string $traceNumbers TraceNumbers associated with the transaction (optional)
      * @param  string $binNumber BinNumber (optional)
      * @param  string $processMethod Process Method used for the transaction (optional)
@@ -1854,16 +1838,17 @@ class SecurePaymentsApi
      * @param  string $paymentCategories Set PaymentCategories (optional)
      * @param  bool $suppressTechnologyFee SuppressTechnologyFee (optional)
      * @param  string $batchId BatchId (optional)
+     * @param  bool $transactionsCount Set whether to return only the transactions count (optional)
      * @param  string $sortField SortField (optional)
      * @param  int $startRow Set StartRow (optional)
-     * @param  float $pageSize Set PageSize (optional)
+     * @param  int $pageSize Set PageSize (optional)
      * @param  bool $asc Set Asc (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['securePaymentsSearchPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function securePaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
+    public function securePaymentsSearchPostRequest($xApiKey, $xAppKey, $xVersion, $origin, $startDate = null, $endDate = null, $transactionIds = null, $referenceTransactionId = null, $transactionStatuses = null, $customerIds = null, $transactionType = null, $authCode = null, $cardHolderName = null, $shopperName = null, $amount = null, $fromAmount = null, $toAmount = null, $channelTypes = null, $maskAccount = null, $customerName = null, $recurringId = null, $referenceNo = null, $exportToCsv = null, $exportToPDF = null, $transactionOrigins = null, $transactionSourceType = null, $sourceId = null, $traceNumbers = null, $binNumber = null, $processMethod = null, $searchText = null, $merchantReference = null, $additionalFields = null, $additionalFieldValue = null, $paymentMethod = null, $accountAlias = null, $isPaid = null, $paymentTypes = null, $merchantId = null, $paymentCategories = null, $suppressTechnologyFee = null, $batchId = null, $transactionsCount = null, $sortField = null, $startRow = null, $pageSize = null, $asc = null, string $contentType = self::contentTypes['securePaymentsSearchPost'][0])
     {
 
         // verify the required parameter 'xApiKey' is set
@@ -1893,6 +1878,7 @@ class SecurePaymentsApi
                 'Missing the required parameter $origin when calling securePaymentsSearchPost'
             );
         }
+
 
 
 
@@ -2146,7 +2132,7 @@ class SecurePaymentsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sourceId,
             'sourceId', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2288,6 +2274,15 @@ class SecurePaymentsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $transactionsCount,
+            'transactionsCount', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sortField,
             'sortField', // param base name
             'string', // openApiType
@@ -2308,7 +2303,7 @@ class SecurePaymentsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $pageSize,
             'pageSize', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2373,16 +2368,6 @@ class SecurePaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2754,16 +2739,6 @@ class SecurePaymentsApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-app-key');
-        if ($apiKey !== null) {
-            $headers['x-app-key'] = $apiKey;
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

@@ -80,36 +80,234 @@ class SecureUpdatePaymentLinkRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "merchantId"
+     */
+    public function testPropertyMerchantId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "paymentDescription"
+     */
+    public function testPropertyPaymentDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "customers"
+     */
+    public function testPropertyCustomers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "invoiceNumber"
+     */
+    public function testPropertyInvoiceNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "expireBy"
+     */
+    public function testPropertyExpireBy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "expireOn"
+     */
+    public function testPropertyExpireOn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "lineItems"
+     */
+    public function testPropertyLineItems()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "shortDescription"
+     */
+    public function testPropertyShortDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "responseType"
+     */
+    public function testPropertyResponseType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "callbackParameters"
+     */
+    public function testPropertyCallbackParameters()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "paymentLinkType"
+     */
+    public function testPropertyPaymentLinkType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "saveForFuture"
+     */
+    public function testPropertySaveForFuture()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "splits"
+     */
+    public function testPropertySplits()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "quoteKey"
+     */
+    public function testPropertyQuoteKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "accountNumber"
+     */
+    public function testPropertyAccountNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceType"
+     */
+    public function testPropertyReferenceType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceNumber"
+     */
+    public function testPropertyReferenceNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceKey"
+     */
+    public function testPropertyReferenceKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "referenceDataList"
+     */
+    public function testPropertyReferenceDataList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "platformSettlementStatus"
+     */
+    public function testPropertyPlatformSettlementStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isPayInFull"
+     */
+    public function testPropertyIsPayInFull()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "isPremiumFinancier"
+     */
+    public function testPropertyIsPremiumFinancier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pfr"
+     */
+    public function testPropertyPfr()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pfType"
+     */
+    public function testPropertyPfType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "amount"
      */
     public function testPropertyAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "enablePartialPayment"
-     */
-    public function testPropertyEnablePartialPayment()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "enableMultiplePayment"
-     */
-    public function testPropertyEnableMultiplePayment()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "enableProtection"
-     */
-    public function testPropertyEnableProtection()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

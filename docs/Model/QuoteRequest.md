@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **merchantId** | **string** |  | [optional]
+**offerAutoPay** | **bool** |  | [optional]
 **paymentIntentId** | **string** |  |
 **details** | [**\OpenAPI\Client\Model\QuoteRequestDetails**](QuoteRequestDetails.md) |  |
 **insured** | [**\OpenAPI\Client\Model\QuoteRequestInsured**](QuoteRequestInsured.md) |  |

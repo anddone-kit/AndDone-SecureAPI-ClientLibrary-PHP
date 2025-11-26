@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **expireInUnit** | **string** |  | [optional]
 **expireOn** | **string** |  | [optional]
 **payments** | [**\OpenAPI\Client\Model\PaymentLinkResponsePaymentsInner[]**](PaymentLinkResponsePaymentsInner.md) |  | [optional]
-**noOfPaymentMade** | **float** |  | [optional]
+**noOfPaymentMade** | **int** |  | [optional]
 **totalPaidAmount** | **float** |  | [optional]
 **linkStatus** | **string** |  | [optional]
 **invoiceNumber** | **string** |  | [optional]

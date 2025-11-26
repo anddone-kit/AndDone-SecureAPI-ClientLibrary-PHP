@@ -123,4 +123,13 @@ class SecureTokenLinkUpdateRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "callBackParameters"
+     */
+    public function testPropertyCallBackParameters()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

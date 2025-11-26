@@ -31,6 +31,11 @@ use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use \OpenAPI\Client\Api\SecureOrumApi;
+use \OpenAPI\Client\Model\verificationEntityRequest;
+use \OpenAPI\Client\Model\verifyBankAccountRequest;
+use \OpenAPI\Client\Model\VerifyBankAccountResponse;
+use Exception;
 
 /**
  * SecureOrumApiTest Class Doc Comment
@@ -42,6 +47,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SecureOrumApiTest extends TestCase
 {
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
 
     /**
      * Setup before running any test cases
@@ -79,8 +91,31 @@ class SecureOrumApiTest extends TestCase
      */
     public function testSecureBankaccountsDetailsPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOrumApi();
+        $payload = [
+            "id" => "220a5d64-b9c7-46c8-adb2-c13fe66abcb2"
+        ];
+
+        $request = new verificationEntityRequest($payload);
+
+        try {
+            $result = $apiInstance->secureBankaccountsDetailsPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                null,
+                null,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(VerifyBankAccountResponse::class, $result);
+            print "Success: Orum - Bank Account Verify\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
@@ -91,7 +126,28 @@ class SecureOrumApiTest extends TestCase
      */
     public function testSecureBankaccountsVerifyPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecureOrumApi();
+        $payload = [
+            "id" => "220a5d64-b9c7-46c8-adb2-c13fe66abcb2"
+        ];
+
+        $request = new verifyBankAccountRequest ($payload);
+
+        try {
+            $result = $apiInstance->secureBankaccountsVerifyPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(VerifyBankAccountResponse::class, $result);
+            print "Success: Orum - Bank Account Details\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 }

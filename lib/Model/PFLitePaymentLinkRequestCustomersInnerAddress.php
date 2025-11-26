@@ -190,7 +190,7 @@ class PFLitePaymentLinkRequestCustomersInnerAddress implements ModelInterface, A
         'state' => 'state',
         'country' => 'country',
         'postalCode' => 'postalCode',
-        'timeZone' => 'TimeZone'
+        'timeZone' => 'timeZone'
     ];
 
     /**

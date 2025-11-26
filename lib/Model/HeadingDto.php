@@ -58,7 +58,8 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'isAggregateAmount' => 'bool'
     ];
 
     /**
@@ -70,7 +71,8 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'type' => null
+        'type' => null,
+        'isAggregateAmount' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'name' => false,
-        'type' => false
+        'type' => false,
+        'isAggregateAmount' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'type' => 'type'
+        'type' => 'type',
+        'isAggregateAmount' => 'isAggregateAmount'
     ];
 
     /**
@@ -180,7 +184,8 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
-        'type' => 'setType'
+        'type' => 'setType',
+        'isAggregateAmount' => 'setIsAggregateAmount'
     ];
 
     /**
@@ -190,7 +195,8 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
-        'type' => 'getType'
+        'type' => 'getType',
+        'isAggregateAmount' => 'getIsAggregateAmount'
     ];
 
     /**
@@ -252,6 +258,7 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('isAggregateAmount', $data ?? [], null);
     }
 
     /**
@@ -346,6 +353,33 @@ class HeadingDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets isAggregateAmount
+     *
+     * @return bool|null
+     */
+    public function getIsAggregateAmount()
+    {
+        return $this->container['isAggregateAmount'];
+    }
+
+    /**
+     * Sets isAggregateAmount
+     *
+     * @param bool|null $isAggregateAmount isAggregateAmount
+     *
+     * @return self
+     */
+    public function setIsAggregateAmount($isAggregateAmount)
+    {
+        if (is_null($isAggregateAmount)) {
+            throw new \InvalidArgumentException('non-nullable isAggregateAmount cannot be null');
+        }
+        $this->container['isAggregateAmount'] = $isAggregateAmount;
 
         return $this;
     }

@@ -89,6 +89,15 @@ class TransactionPaymentResponseCcTenderInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "cardType"
+     */
+    public function testPropertyCardType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "maskCardNumber"
      */
     public function testPropertyMaskCardNumber()
@@ -125,36 +134,18 @@ class TransactionPaymentResponseCcTenderInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "convenienceAmount"
+     */
+    public function testPropertyConvenienceAmount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "binNumber"
      */
     public function testPropertyBinNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAmount"
-     */
-    public function testPropertyTaxAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxAfterDiscount"
-     */
-    public function testPropertyTaxAfterDiscount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "taxPercent"
-     */
-    public function testPropertyTaxPercent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -260,42 +251,6 @@ class TransactionPaymentResponseCcTenderInfoTest extends TestCase
     }
 
     /**
-     * Test attribute "discountType"
-     */
-    public function testPropertyDiscountType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountPercent"
-     */
-    public function testPropertyDiscountPercent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discountAmount"
-     */
-    public function testPropertyDiscountAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "convenienceAmount"
-     */
-    public function testPropertyConvenienceAmount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "commissionType"
      */
     public function testPropertyCommissionType()
@@ -308,6 +263,15 @@ class TransactionPaymentResponseCcTenderInfoTest extends TestCase
      * Test attribute "commissionValue"
      */
     public function testPropertyCommissionValue()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "commissionFixedValue"
+     */
+    public function testPropertyCommissionFixedValue()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

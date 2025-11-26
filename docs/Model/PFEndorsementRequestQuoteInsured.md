@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **isCancellationWarningEnabled** | **bool** | Indicates if cancellation warnings are enabled. | [optional]
 **faxNumber** | **string** | This denotes the fax number. | [optional]
 **emailAddress** | **string** | This denotes an alternate email address. | [optional]
-**pFType** | **string** | This denotes the PFType (enum or string depending on your definition). | [optional]
+**pfType** | **string** | This denotes the PFType (enum or string depending on your definition). | [optional]
 **address** | [**\OpenAPI\Client\Model\PFEndorsementRequestQuoteInsuredAddress**](PFEndorsementRequestQuoteInsuredAddress.md) |  | [optional]
 **hasDataChangeAgentCustomerNumber** | **bool** |  | [optional]
 **hasDataChangeName** | **bool** |  | [optional]

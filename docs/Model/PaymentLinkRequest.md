@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **merchantId** | **string** |  |
 **title** | **string** |  |
 **amount** | **float** |  |
-**paymentDescription** | **string** |  | [optional]
+**paymentDescription** | **string** |  |
 **customers** | [**\OpenAPI\Client\Model\PaymentLinkResponseCustomersInner[]**](PaymentLinkResponseCustomersInner.md) |  | [optional]
 **invoiceNumber** | **string** |  | [optional]
-**expireBy** | **float** |  | [optional]
+**expireBy** | **int** |  | [optional]
 **expireIn** | **int** |  |
 **expireInUnit** | **string** |  |
 **expireOn** | **string** |  | [optional]
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **referenceType** | **string** |  | [optional]
 **referenceNumber** | **string** |  | [optional]
 **referenceKey** | **string** |  | [optional]
-**referenceDataList** | [**\OpenAPI\Client\Model\PaymentLinkResponseReferenceDataListInner[]**](PaymentLinkResponseReferenceDataListInner.md) |  |
+**referenceDataList** | [**\OpenAPI\Client\Model\PaymentLinkRequestReferenceDataListInner[]**](PaymentLinkRequestReferenceDataListInner.md) |  |
 **enablePremiumFinance** | **bool** |  | [optional]
 **suppressTechnologyFee** | **bool** |  | [optional]
 **overrideTechnologyFee** | **float** |  | [optional]

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **merchantId** | **string** |  | [optional]
 **previousEventStatus** | **string** |  | [optional]
 **eventStatus** | **string** |  | [optional]
-**voidedCount** | **float** |  | [optional]
+**voidedCount** | **int** |  | [optional]
 **voidedAmount** | **float** |  | [optional]
 **closedOn** | **string** |  | [optional]
 **eventDate** | **string** |  | [optional]

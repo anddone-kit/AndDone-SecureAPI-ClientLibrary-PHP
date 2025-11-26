@@ -29,11 +29,18 @@ namespace OpenAPI\Client\Test\Api;
 
 use \OpenAPI\Client\Configuration;
 use \OpenAPI\Client\ApiException;
+use OpenAPI\Client\Model\PFLiteSecureQuoteRequest;
+use OpenAPI\Client\Model\PFGenerateQuoteResponse ;
+use OpenAPI\Client\Model\PFLiteGetQuoteRequest;
 use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+use OpenAPI\Client\Api\SecurePremiumFinanceLiteApi;
+use OpenAPI\Client\Model\PFLiteQuoteByPaymentLinkResponse;
+use OpenAPI\Client\Model\PFLitePaymentLinkRequest;
+use Exception;
 
 /**
- * SecurePremiumFinanceLiteApiTest Class Doc Comment
+ * SecureTokenLinksApiTest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -42,10 +49,17 @@ use PHPUnit\Framework\TestCase;
  */
 class SecurePremiumFinanceLiteApiTest extends TestCase
 {
-
+    protected $filePath = './config.json';
+    protected $jsonString = file_get_contents($filePath);
+    protected $jsonData = json_decode($jsonString, true);
+    protected $apiKey = $jsonData['xApiKey'];
+    protected $appKey = $jsonData['xAppKey'];
+    protected $version = $jsonData['xVersion'];
+    protected $origin = $jsonData['origin'];
     /**
      * Setup before running any test cases
      */
+
     public static function setUpBeforeClass(): void
     {
     }
@@ -71,39 +85,160 @@ class SecurePremiumFinanceLiteApiTest extends TestCase
     {
     }
 
-    /**
-     * Test case for secureEpfliteQuotesGeneratePost
-     *
-     * This API is used to generate the quote from the provider..
-     *
-     */
-    public function testSecureEpfliteQuotesGeneratePost()
+    protected function &getId()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        static $id = null;
+
+        return $id;
     }
 
     /**
-     * Test case for secureEpfliteQuotesLinkPost
+     * Test case for securePremiumFinanceLiteGeneratePost
      *
-     * This API will return quotes created againsts a payment link..
+     * This API is use to create Secure Token Links.
      *
      */
-    public function testSecureEpfliteQuotesLinkPost()
+    public function testSecurePremiumFinanceLiteGeneratePost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePremiumFinanceLiteApi();
+        $payload = [
+            "merchant_id" => $this->appKey,
+            "merchant" => [
+                "contact_name" => "John Doe",
+                "contact_phone" => "0123456789"
+            ],
+            "insured" => [
+                "first_name" => "Jane",
+                "last_name" => "Smith",
+                "mobile_phone_number" => null,
+                "fax_number" => null,
+                "email_address" => "test@email.com",
+                "is_cancellation_warning_via_text_enabled" => false,
+                "address" => [
+                    "address1" => "1055",
+                    "address2" => "Broadway Blvd",
+                    "city" => "Anchorage",
+                    "state" => "AK",
+                    "zip" => "64105",
+                    "phone_number" => null,
+                ]
+            ],
+            "program" => [
+                "program_id" => 82262,
+                "loan_type" => "Personal"
+            ],
+            "policies" => [
+                "premium" => 20000,
+                "effective_date" => "09-30-2024 00:00:00",
+                "expiration_date" => "10-30-2024 00:00:00",
+                "coverage_type" => "FIRE",
+                "cancel_days" => "Item20",
+                "additional_fees" => 0,
+                "minimum_earned_percent" => null,
+                "policy_number" => "21128675311",
+                "carrier" => [
+                    "name" => "OCCIDENTAL FIRE & CASUALTY CO OF NO",
+                    "best_number" => "5555551234",
+                    "unique_id" => "23248"
+                ]
+        
+            ]
+            // "title" => "PHP TL - " . date("Y m d H-i-s"),
+        ];
+
+        $request = new PFLiteSecureQuoteRequest($payload);
+
+        try {
+            $result = $apiInstance->secureEpfliteQuotesGeneratePost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PFGenerateQuoteResponse ::class, $result);
+            print "Success: PFL - Generate Premium Finance Lite Quote\n";
+            $id = &$this->getId();
+            $id = $result["quote_key"];
+            return $id;
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
 
     /**
-     * Test case for secureEpfliteQuotesPaymentlinksPost
+     * Test case for securePremiumFinanceLitePaymentlinksPost
      *
-     * This API is used to create Payment Links.
+     * This API is used for getting Token Links by TokenLink ID.
      *
      */
-    public function testSecureEpfliteQuotesPaymentlinksPost()
+    #[Depends('testSecurePremiumFinanceLiteGeneratePost')]
+    public function testSecurePremiumFinanceLiteLinkPost()
     {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
+        $apiInstance = new SecurePremiumFinanceLiteApi();
+        $id = &$this->getId();
+        $payload = [
+            "merchant_token" => $this->appKey,
+            "payment_link_id" => $id
+        ];
+
+        $request = new PFLitePaymentLinkRequest($payload);
+        try {
+            $result = $apiInstance->secureEpfliteQuotesPaymentlinksPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PFLiteQuoteByPaymentLinkResponse::class, $result);
+            print "Success: PFL - Get PFL Quotes by Payment Link\n";
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
     }
+
+    /**
+     * Test case for securePremiumFinanceLiteLinkPost
+     *
+     * This API is used for getting Token Links by TokenLink ID.
+     *
+     */
+    #[Depends('testSecurePremiumFinanceLitePaymentlinksPost')]
+    public function testSecurePremiumFinanceLitePaymentlinksPost()
+    {
+        $apiInstance = new SecurePremiumFinanceLiteApi();
+        $id = &$this->getId();
+        $payload = [
+            "quote_key" => $id,
+        ];
+
+        $request = new PFLiteGetQuoteRequest($payload);
+        try {
+            $result = $apiInstance->secureEpfliteQuotesLinkPost(
+                $this->apiKey,
+                $this->appKey,
+                $this->origin,
+                $this->version,
+                $request
+            );
+
+            // print $result;
+            // print "\n";
+            $this->assertInstanceOf(PFLiteQuoteByPaymentLinkResponse::class, $result);
+            print "Success: PFL - Generate Premium Finance Lite Payment Link\n";
+            $id = &$this->getId();
+            $id = $result["payment_link_id"];
+            return $id;
+        } catch (Exception $e) {
+            print "Error: " . $e->getMessage() . "\n";
+        }
+    }
+    
 }

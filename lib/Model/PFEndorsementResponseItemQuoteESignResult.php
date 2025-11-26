@@ -62,7 +62,7 @@ class PFEndorsementResponseItemQuoteESignResult implements ModelInterface, Array
         'batchID' => 'string',
         'agentURL' => 'string',
         'insuredURL' => 'string',
-        'eSignOption' => 'float'
+        'eSignOption' => 'int'
     ];
 
     /**
@@ -462,7 +462,7 @@ class PFEndorsementResponseItemQuoteESignResult implements ModelInterface, Array
     /**
      * Gets eSignOption
      *
-     * @return float|null
+     * @return int|null
      */
     public function getESignOption()
     {
@@ -472,7 +472,7 @@ class PFEndorsementResponseItemQuoteESignResult implements ModelInterface, Array
     /**
      * Sets eSignOption
      *
-     * @param float|null $eSignOption eSignOption
+     * @param int|null $eSignOption eSignOption
      *
      * @return self
      */

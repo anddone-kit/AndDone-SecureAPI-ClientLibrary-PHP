@@ -322,15 +322,6 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['address1'] === null) {
             $invalidProperties[] = "'address1' can't be null";
         }
-        if ($this->container['city'] === null) {
-            $invalidProperties[] = "'city' can't be null";
-        }
-        if ($this->container['state'] === null) {
-            $invalidProperties[] = "'state' can't be null";
-        }
-        if ($this->container['zip'] === null) {
-            $invalidProperties[] = "'zip' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -430,7 +421,7 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets city
      *
-     * @return string
+     * @return string|null
      */
     public function getCity()
     {
@@ -440,7 +431,7 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets city
      *
-     * @param string $city city
+     * @param string|null $city city
      *
      * @return self
      */
@@ -457,7 +448,7 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets state
      *
-     * @return string
+     * @return string|null
      */
     public function getState()
     {
@@ -467,7 +458,7 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets state
      *
-     * @param string $state state
+     * @param string|null $state state
      *
      * @return self
      */
@@ -484,7 +475,7 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets zip
      *
-     * @return string
+     * @return string|null
      */
     public function getZip()
     {
@@ -494,7 +485,7 @@ class QuoteRequestInsuredAddress implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets zip
      *
-     * @param string $zip zip
+     * @param string|null $zip zip
      *
      * @return self
      */

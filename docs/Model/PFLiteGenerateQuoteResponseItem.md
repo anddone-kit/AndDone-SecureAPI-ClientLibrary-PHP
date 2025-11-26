@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quoteKey** | **float** |  | [optional]
+**quoteKey** | **int** |  | [optional]
 **premium** | **float** |  | [optional]
 **downAmount** | **float** |  | [optional]
 **amountFinanced** | **float** |  | [optional]
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **apr** | **float** |  | [optional]
 **installments** | **int** |  | [optional]
 **batchId** | **string** |  | [optional]
-**paymentsRetained** | **float** |  | [optional]
+**paymentsRetained** | **int** |  | [optional]
 **paymentRetainedAmount** | **float** |  | [optional]
 **unsignedPFAUrl** | **string** |  | [optional]
 **retailAgentRegisterLoginURL** | **string** |  | [optional]
@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **errors** | **string** |  | [optional]
 **pfa** | **string** |  | [optional]
 **electronicSignatureURL** | **string** |  | [optional]
+**offerAutoPay** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
