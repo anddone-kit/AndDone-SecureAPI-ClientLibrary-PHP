@@ -187,7 +187,7 @@ class SecureEmbeddedPremiumFinanceEndorsementsApiTest extends TestCase
                 ],
                 "insured" => [
                     "AgentCustomerNumber" => "Suyash",
-                    "Email" => "dylan.smith@fmkagency.com",
+                    "Email" => "test@test.com",
                     "CareOf" => "",
                     "Address" => [
                         "Name" => "Sam",

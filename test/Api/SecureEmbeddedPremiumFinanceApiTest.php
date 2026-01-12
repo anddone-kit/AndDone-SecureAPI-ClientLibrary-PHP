@@ -148,7 +148,7 @@ class SecureEmbeddedPremiumFinanceApiTest extends TestCase
             "Insured" => [
                 "UniqueId" => $this->appKey,
                 "AgentCustomerNumber" => "Suyash",
-                "Email" => "dylan.smith@fmkagency.com",
+                "Email" => "test@test.com",
                 "CareOf" => "",
                 "Address" => [
                     "Name" => "Sam",
@@ -162,7 +162,7 @@ class SecureEmbeddedPremiumFinanceApiTest extends TestCase
             ],
             "Agent" => [
                 "UniqueID" => $this->appKey,
-                "Email" => "dylan.smith@fmkagency.com",
+                "Email" => "test@test.com",
                 "Address" => [
                     "Name" => "Insurance Agency",
                     "Address1" => "PO Box 486",

@@ -116,8 +116,8 @@ class APIExplorerTests extends TestCase
     public function testAPIExplorer()
     {
 
-        $xApiKey = 'T3Hj93GzbuhMLiNQg/yJ/yNArhFJeEHoSLyFZ9IBQkY=';
-        $xAppKey = 'bdYqRMdn';
+        $xApiKey = 'YOUR_API_KEY';
+        $xAppKey = 'YOUR_APP_KEY';
         $xVersion = 2.3;
         $origin = '73.164.237.28';
 
