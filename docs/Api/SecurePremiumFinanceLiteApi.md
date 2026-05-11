@@ -1,6 +1,6 @@
 # OpenAPI\Client\SecurePremiumFinanceLiteApi
 
-All URIs are relative to https://api.uat.anddone.com, except if the operation defines another base path.
+All URIs are relative to https://api.anddone.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |

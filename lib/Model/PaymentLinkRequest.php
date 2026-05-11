@@ -651,6 +651,9 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
+        if ($this->container['referenceType'] === null) {
+            $invalidProperties[] = "'referenceType' can't be null";
+        }
         $allowedValues = $this->getReferenceTypeAllowableValues();
         if (!is_null($this->container['referenceType']) && !in_array($this->container['referenceType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -660,6 +663,9 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
+        if ($this->container['referenceNumber'] === null) {
+            $invalidProperties[] = "'referenceNumber' can't be null";
+        }
         if ($this->container['referenceDataList'] === null) {
             $invalidProperties[] = "'referenceDataList' can't be null";
         }
@@ -1269,7 +1275,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets referenceType
      *
-     * @return string|null
+     * @return string
      */
     public function getReferenceType()
     {
@@ -1279,7 +1285,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets referenceType
      *
-     * @param string|null $referenceType referenceType
+     * @param string $referenceType referenceType
      *
      * @return self
      */
@@ -1306,7 +1312,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets referenceNumber
      *
-     * @return string|null
+     * @return string
      */
     public function getReferenceNumber()
     {
@@ -1316,7 +1322,7 @@ class PaymentLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets referenceNumber
      *
-     * @param string|null $referenceNumber referenceNumber
+     * @param string $referenceNumber referenceNumber
      *
      * @return self
      */

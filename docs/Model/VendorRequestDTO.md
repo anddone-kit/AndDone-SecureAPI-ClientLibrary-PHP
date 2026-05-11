@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **paymentMethodType** | **string** |  |
 **notificationType** | **string** |  |
 **vendorNotes** | **string** |  | [optional]
-**phoneNumber** | **string** |  |
+**phoneNumber** | **string** |  | [optional]
 **isMobileNumber** | **bool** |  | [optional]
 **useSameAsPhysicalAddress** | **bool** |  | [optional]
 **email** | **string** |  |

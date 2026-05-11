@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **splits** | [**\OpenAPI\Client\Model\PaymentIntentRequestSplitsInner[]**](PaymentIntentRequestSplitsInner.md) |  | [optional]
 **quoteKey** | **string** |  | [optional]
 **accountNumber** | **string** |  | [optional]
-**referenceType** | **string** |  | [optional]
-**referenceNumber** | **string** |  | [optional]
+**referenceType** | **string** |  |
+**referenceNumber** | **string** |  |
 **referenceKey** | **string** |  | [optional]
 **referenceDataList** | [**\OpenAPI\Client\Model\PaymentLinkRequestReferenceDataListInner[]**](PaymentLinkRequestReferenceDataListInner.md) |  |
 **enablePremiumFinance** | **bool** |  | [optional]
