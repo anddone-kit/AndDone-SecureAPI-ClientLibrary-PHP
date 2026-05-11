@@ -61,7 +61,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
         'batchId' => 'string',
         'transactionCode' => 'string',
         'transactionOrigin' => 'string',
-        'refundOrigin' => 'int',
+        'refundOrigin' => 'string',
         'billingContact' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact',
         'referenceTransactionId' => 'string',
         'transactionDate' => 'string',
@@ -198,7 +198,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
         'transactionResult' => false,
         'invoiceId' => false,
         'tokenLinkId' => false,
-        'paymentLinkId' => true,
+        'paymentLinkId' => false,
         'additionalFields' => false,
         'settlementDate' => false,
         'issuer' => false,
@@ -517,6 +517,8 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     public const TRANSACTION_ORIGIN_SCHEDULE = 'Schedule';
     public const TRANSACTION_ORIGIN_BATCH = 'Batch';
     public const TRANSACTION_ORIGIN_PAYMENT_INTENT = 'PaymentIntent';
+    public const REFUND_ORIGIN_API = 'API';
+    public const REFUND_ORIGIN_CALLBACK = 'Callback';
     public const OPERATION_TYPE_SALE = 'Sale';
     public const OPERATION_TYPE_VERIFY_ONLY = 'VerifyOnly';
     public const OPERATION_TYPE_FORCE_SALE = 'ForceSale';
@@ -621,6 +623,19 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
             self::TRANSACTION_ORIGIN_SCHEDULE,
             self::TRANSACTION_ORIGIN_BATCH,
             self::TRANSACTION_ORIGIN_PAYMENT_INTENT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRefundOriginAllowableValues()
+    {
+        return [
+            self::REFUND_ORIGIN_API,
+            self::REFUND_ORIGIN_CALLBACK,
         ];
     }
 
@@ -890,6 +905,15 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
 
+        $allowedValues = $this->getRefundOriginAllowableValues();
+        if (!is_null($this->container['refundOrigin']) && !in_array($this->container['refundOrigin'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'refundOrigin', must be one of '%s'",
+                $this->container['refundOrigin'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getOperationTypeAllowableValues();
         if (!is_null($this->container['operationType']) && !in_array($this->container['operationType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -1089,7 +1113,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets refundOrigin
      *
-     * @return int|null
+     * @return string|null
      */
     public function getRefundOrigin()
     {
@@ -1099,7 +1123,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets refundOrigin
      *
-     * @param int|null $refundOrigin refundOrigin
+     * @param string|null $refundOrigin refundOrigin
      *
      * @return self
      */
@@ -1107,6 +1131,16 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     {
         if (is_null($refundOrigin)) {
             throw new \InvalidArgumentException('non-nullable refundOrigin cannot be null');
+        }
+        $allowedValues = $this->getRefundOriginAllowableValues();
+        if (!in_array($refundOrigin, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'refundOrigin', must be one of '%s'",
+                    $refundOrigin,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['refundOrigin'] = $refundOrigin;
 
@@ -1797,14 +1831,7 @@ class TransactionDetailResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function setPaymentLinkId($paymentLinkId)
     {
         if (is_null($paymentLinkId)) {
-            array_push($this->openAPINullablesSetToNull, 'paymentLinkId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('paymentLinkId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable paymentLinkId cannot be null');
         }
         $this->container['paymentLinkId'] = $paymentLinkId;
 

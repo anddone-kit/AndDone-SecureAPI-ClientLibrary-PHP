@@ -1,8 +1,8 @@
 .gitignore
 .php-cs-fixer.dist.php
 .travis.yml
-README.md
 composer.json
+docs/Api/SecureACHValidationApi.md
 docs/Api/SecureAutopayEnrollmentApi.md
 docs/Api/SecureEmbeddedPremiumFinanceApi.md
 docs/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.md
@@ -173,6 +173,7 @@ docs/Model/SecureVendorStatusRequestDTO.md
 docs/Model/SecureVendorTimelineRequestDTO.md
 docs/Model/SecureVendorUpdateRequestDTO.md
 docs/Model/SecureVendorUpdateRequestDTORemittanceAddress.md
+docs/Model/SecureVerifyBankAccountRequestDTO.md
 docs/Model/TokenLinkResponse.md
 docs/Model/TokenLinkResponseDataInner.md
 docs/Model/TokenLinkSecureRequest.md
@@ -201,7 +202,9 @@ docs/Model/VendorResponseDTORemittanceAddress.md
 docs/Model/VendorResponseDTOTemplate.md
 docs/Model/VendorResponseDTOVerificationResultsInner.md
 docs/Model/VendorTimelineResponseListInner.md
+docs/Model/VerifyBankAccountResponse.md
 git_push.sh
+lib/Api/SecureACHValidationApi.php
 lib/Api/SecureAutopayEnrollmentApi.php
 lib/Api/SecureEmbeddedPremiumFinanceApi.php
 lib/Api/SecureEmbeddedPremiumFinanceEndorsementsApi.php
@@ -376,6 +379,7 @@ lib/Model/SecureVendorStatusRequestDTO.php
 lib/Model/SecureVendorTimelineRequestDTO.php
 lib/Model/SecureVendorUpdateRequestDTO.php
 lib/Model/SecureVendorUpdateRequestDTORemittanceAddress.php
+lib/Model/SecureVerifyBankAccountRequestDTO.php
 lib/Model/TokenLinkResponse.php
 lib/Model/TokenLinkResponseDataInner.php
 lib/Model/TokenLinkSecureRequest.php
@@ -404,12 +408,8 @@ lib/Model/VendorResponseDTORemittanceAddress.php
 lib/Model/VendorResponseDTOTemplate.php
 lib/Model/VendorResponseDTOVerificationResultsInner.php
 lib/Model/VendorTimelineResponseListInner.php
+lib/Model/VerifyBankAccountResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/SecureAutopayEnrollmentApiTest.php
-test/Model/AutoPayEnrollmentRequestTest.php
-test/Model/AutoPayEnrollmentResponseTest.php
-test/Model/OutboundPaymentImageResponseDTOTest.php
-test/Model/PFLiteSecureQuoteRequestAgentAddressTest.php
-test/Model/PFLiteSecureQuoteRequestAgentTest.php
-test/Model/SecurePFQuoteBookingRequestTest.php
+test/Api/SecureACHValidationApiTest.php
+test/Model/SecureVerifyBankAccountRequestDTOTest.php

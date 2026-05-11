@@ -457,9 +457,6 @@ class VendorRequestDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['phoneNumber'] === null) {
-            $invalidProperties[] = "'phoneNumber' can't be null";
-        }
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
         }
@@ -703,7 +700,7 @@ class VendorRequestDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phoneNumber
      *
-     * @return string
+     * @return string|null
      */
     public function getPhoneNumber()
     {
@@ -713,7 +710,7 @@ class VendorRequestDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phoneNumber
      *
-     * @param string $phoneNumber phoneNumber
+     * @param string|null $phoneNumber phoneNumber
      *
      * @return self
      */

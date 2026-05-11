@@ -61,7 +61,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
         'traceNumber' => 'string',
         'transactionCode' => 'string',
         'transactionOrigin' => 'string',
-        'refundOrigin' => 'int',
+        'refundOrigin' => 'string',
         'billingContact' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact',
         'shippingContact' => '\OpenAPI\Client\Model\TransactionPaymentResponseBillingContact',
         'referenceTransactionId' => 'string',
@@ -499,6 +499,8 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     public const TRANSACTION_ORIGIN_SCHEDULE = 'Schedule';
     public const TRANSACTION_ORIGIN_BATCH = 'Batch';
     public const TRANSACTION_ORIGIN_PAYMENT_INTENT = 'PaymentIntent';
+    public const REFUND_ORIGIN_API = 'API';
+    public const REFUND_ORIGIN_CALLBACK = 'Callback';
     public const OPERATION_TYPE_SALE = 'Sale';
     public const OPERATION_TYPE_VERIFY_ONLY = 'VerifyOnly';
     public const OPERATION_TYPE_FORCE_SALE = 'ForceSale';
@@ -593,6 +595,19 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
             self::TRANSACTION_ORIGIN_SCHEDULE,
             self::TRANSACTION_ORIGIN_BATCH,
             self::TRANSACTION_ORIGIN_PAYMENT_INTENT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRefundOriginAllowableValues()
+    {
+        return [
+            self::REFUND_ORIGIN_API,
+            self::REFUND_ORIGIN_CALLBACK,
         ];
     }
 
@@ -838,6 +853,15 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
 
+        $allowedValues = $this->getRefundOriginAllowableValues();
+        if (!is_null($this->container['refundOrigin']) && !in_array($this->container['refundOrigin'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'refundOrigin', must be one of '%s'",
+                $this->container['refundOrigin'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getOperationTypeAllowableValues();
         if (!is_null($this->container['operationType']) && !in_array($this->container['operationType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -1028,7 +1052,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets refundOrigin
      *
-     * @return int|null
+     * @return string|null
      */
     public function getRefundOrigin()
     {
@@ -1038,7 +1062,7 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets refundOrigin
      *
-     * @param int|null $refundOrigin refundOrigin
+     * @param string|null $refundOrigin refundOrigin
      *
      * @return self
      */
@@ -1046,6 +1070,16 @@ class SecureTransactionDetailDTO implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($refundOrigin)) {
             throw new \InvalidArgumentException('non-nullable refundOrigin cannot be null');
+        }
+        $allowedValues = $this->getRefundOriginAllowableValues();
+        if (!in_array($refundOrigin, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'refundOrigin', must be one of '%s'",
+                    $refundOrigin,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['refundOrigin'] = $refundOrigin;
 

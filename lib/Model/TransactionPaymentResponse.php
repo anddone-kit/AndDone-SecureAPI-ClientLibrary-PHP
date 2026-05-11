@@ -67,7 +67,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
         'processMethod' => 'string',
         'processorName' => 'string',
         'transactionOrigin' => 'string',
-        'refundOrigin' => 'int',
+        'refundOrigin' => 'string',
         'achTenderInfo' => '\OpenAPI\Client\Model\TransactionPaymentResponseAchTenderInfo',
         'ccTenderInfo' => '\OpenAPI\Client\Model\TransactionPaymentResponseCcTenderInfo',
         'debitCardTenderInfo' => '\OpenAPI\Client\Model\TransactionPaymentResponseCcTenderInfo',
@@ -181,7 +181,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
         'chargebackTargetAccount' => false,
         'userId' => false,
         'userName' => false,
-        'chargeBackAmount' => true,
+        'chargeBackAmount' => false,
         'suppressTechnologyFee' => false
     ];
 
@@ -446,6 +446,8 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     public const PROCESS_METHOD_CARD_NOT_PRESENT = 'CardNotPresent';
     public const TRANSACTION_ORIGIN_WEB_FORM = 'WebForm';
     public const TRANSACTION_ORIGIN_PAYMENT_INTENT = 'PaymentIntent';
+    public const REFUND_ORIGIN_API = 'API';
+    public const REFUND_ORIGIN_CALLBACK = 'Callback';
     public const TRANSACTION_STATUS_CREATED = 'Created';
     public const TRANSACTION_STATUS_PENDING_FOR_AUTHORIZED = 'PendingForAuthorized';
     public const TRANSACTION_STATUS_AUTHORIZED = 'Authorized';
@@ -520,6 +522,19 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
         return [
             self::TRANSACTION_ORIGIN_WEB_FORM,
             self::TRANSACTION_ORIGIN_PAYMENT_INTENT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRefundOriginAllowableValues()
+    {
+        return [
+            self::REFUND_ORIGIN_API,
+            self::REFUND_ORIGIN_CALLBACK,
         ];
     }
 
@@ -694,6 +709,15 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'transactionOrigin', must be one of '%s'",
                 $this->container['transactionOrigin'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRefundOriginAllowableValues();
+        if (!is_null($this->container['refundOrigin']) && !in_array($this->container['refundOrigin'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'refundOrigin', must be one of '%s'",
+                $this->container['refundOrigin'],
                 implode("', '", $allowedValues)
             );
         }
@@ -1043,7 +1067,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets refundOrigin
      *
-     * @return int|null
+     * @return string|null
      */
     public function getRefundOrigin()
     {
@@ -1053,7 +1077,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets refundOrigin
      *
-     * @param int|null $refundOrigin refundOrigin
+     * @param string|null $refundOrigin refundOrigin
      *
      * @return self
      */
@@ -1061,6 +1085,16 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($refundOrigin)) {
             throw new \InvalidArgumentException('non-nullable refundOrigin cannot be null');
+        }
+        $allowedValues = $this->getRefundOriginAllowableValues();
+        if (!in_array($refundOrigin, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'refundOrigin', must be one of '%s'",
+                    $refundOrigin,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['refundOrigin'] = $refundOrigin;
 
@@ -1738,14 +1772,7 @@ class TransactionPaymentResponse implements ModelInterface, ArrayAccess, \JsonSe
     public function setChargeBackAmount($chargeBackAmount)
     {
         if (is_null($chargeBackAmount)) {
-            array_push($this->openAPINullablesSetToNull, 'chargeBackAmount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('chargeBackAmount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable chargeBackAmount cannot be null');
         }
         $this->container['chargeBackAmount'] = $chargeBackAmount;
 

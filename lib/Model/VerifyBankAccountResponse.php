@@ -61,17 +61,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'verificationEntityId' => 'string',
         'verifyingEntity' => 'string',
         'verificationStatus' => 'string',
-        'statusReason' => 'string',
-        'estimatedVerificationDate' => 'string',
-        'eventId' => 'string',
-        'eventType' => 'string',
-        'bankAccountEntityId' => 'float',
-        'bankAccountEntityType' => 'string',
+        'message' => 'string',
         'createdOn' => 'string',
         'createdBy' => 'string',
         'modifiedOn' => 'string',
-        'modifiedBy' => 'string',
-        'httpResponse' => '\OpenAPI\Client\Model\VerifyBankAccountResponseHttpResponse'
+        'modifiedBy' => 'string'
     ];
 
     /**
@@ -86,17 +80,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'verificationEntityId' => null,
         'verifyingEntity' => null,
         'verificationStatus' => null,
-        'statusReason' => null,
-        'estimatedVerificationDate' => null,
-        'eventId' => null,
-        'eventType' => null,
-        'bankAccountEntityId' => null,
-        'bankAccountEntityType' => null,
+        'message' => null,
         'createdOn' => null,
         'createdBy' => null,
         'modifiedOn' => null,
-        'modifiedBy' => null,
-        'httpResponse' => null
+        'modifiedBy' => null
     ];
 
     /**
@@ -109,17 +97,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'verificationEntityId' => false,
         'verifyingEntity' => false,
         'verificationStatus' => false,
-        'statusReason' => false,
-        'estimatedVerificationDate' => false,
-        'eventId' => false,
-        'eventType' => false,
-        'bankAccountEntityId' => false,
-        'bankAccountEntityType' => false,
+        'message' => false,
         'createdOn' => false,
         'createdBy' => false,
         'modifiedOn' => false,
-        'modifiedBy' => false,
-        'httpResponse' => false
+        'modifiedBy' => false
     ];
 
     /**
@@ -212,17 +194,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'verificationEntityId' => 'verificationEntityId',
         'verifyingEntity' => 'verifyingEntity',
         'verificationStatus' => 'verificationStatus',
-        'statusReason' => 'statusReason',
-        'estimatedVerificationDate' => 'estimatedVerificationDate',
-        'eventId' => 'eventId',
-        'eventType' => 'eventType',
-        'bankAccountEntityId' => 'bankAccountEntityId',
-        'bankAccountEntityType' => 'bankAccountEntityType',
+        'message' => 'message',
         'createdOn' => 'createdOn',
         'createdBy' => 'createdBy',
         'modifiedOn' => 'modifiedOn',
-        'modifiedBy' => 'modifiedBy',
-        'httpResponse' => 'httpResponse'
+        'modifiedBy' => 'modifiedBy'
     ];
 
     /**
@@ -235,17 +211,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'verificationEntityId' => 'setVerificationEntityId',
         'verifyingEntity' => 'setVerifyingEntity',
         'verificationStatus' => 'setVerificationStatus',
-        'statusReason' => 'setStatusReason',
-        'estimatedVerificationDate' => 'setEstimatedVerificationDate',
-        'eventId' => 'setEventId',
-        'eventType' => 'setEventType',
-        'bankAccountEntityId' => 'setBankAccountEntityId',
-        'bankAccountEntityType' => 'setBankAccountEntityType',
+        'message' => 'setMessage',
         'createdOn' => 'setCreatedOn',
         'createdBy' => 'setCreatedBy',
         'modifiedOn' => 'setModifiedOn',
-        'modifiedBy' => 'setModifiedBy',
-        'httpResponse' => 'setHttpResponse'
+        'modifiedBy' => 'setModifiedBy'
     ];
 
     /**
@@ -258,17 +228,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'verificationEntityId' => 'getVerificationEntityId',
         'verifyingEntity' => 'getVerifyingEntity',
         'verificationStatus' => 'getVerificationStatus',
-        'statusReason' => 'getStatusReason',
-        'estimatedVerificationDate' => 'getEstimatedVerificationDate',
-        'eventId' => 'getEventId',
-        'eventType' => 'getEventType',
-        'bankAccountEntityId' => 'getBankAccountEntityId',
-        'bankAccountEntityType' => 'getBankAccountEntityType',
+        'message' => 'getMessage',
         'createdOn' => 'getCreatedOn',
         'createdBy' => 'getCreatedBy',
         'modifiedOn' => 'getModifiedOn',
-        'modifiedBy' => 'getModifiedBy',
-        'httpResponse' => 'getHttpResponse'
+        'modifiedBy' => 'getModifiedBy'
     ];
 
     /**
@@ -313,15 +277,12 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     public const VERIFYING_ENTITY_OTHER = 'Other';
-    public const VERIFYING_ENTITY_ORUM = 'Orum';
+    public const VERIFYING_ENTITY_ADYEN = 'Adyen';
     public const VERIFICATION_STATUS_PENDING = 'Pending';
     public const VERIFICATION_STATUS_VALID = 'Valid';
     public const VERIFICATION_STATUS_CLOSED = 'Closed';
     public const VERIFICATION_STATUS_INVALID = 'Invalid';
     public const VERIFICATION_STATUS_FAILED = 'Failed';
-    public const BANK_ACCOUNT_ENTITY_TYPE_NONE = 'None';
-    public const BANK_ACCOUNT_ENTITY_TYPE_VENDOR = 'Vendor';
-    public const BANK_ACCOUNT_ENTITY_TYPE_MERCHANT = 'Merchant';
 
     /**
      * Gets allowable values of the enum
@@ -332,7 +293,7 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     {
         return [
             self::VERIFYING_ENTITY_OTHER,
-            self::VERIFYING_ENTITY_ORUM,
+            self::VERIFYING_ENTITY_ADYEN,
         ];
     }
 
@@ -349,20 +310,6 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
             self::VERIFICATION_STATUS_CLOSED,
             self::VERIFICATION_STATUS_INVALID,
             self::VERIFICATION_STATUS_FAILED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBankAccountEntityTypeAllowableValues()
-    {
-        return [
-            self::BANK_ACCOUNT_ENTITY_TYPE_NONE,
-            self::BANK_ACCOUNT_ENTITY_TYPE_VENDOR,
-            self::BANK_ACCOUNT_ENTITY_TYPE_MERCHANT,
         ];
     }
 
@@ -385,17 +332,11 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('verificationEntityId', $data ?? [], null);
         $this->setIfExists('verifyingEntity', $data ?? [], null);
         $this->setIfExists('verificationStatus', $data ?? [], null);
-        $this->setIfExists('statusReason', $data ?? [], null);
-        $this->setIfExists('estimatedVerificationDate', $data ?? [], null);
-        $this->setIfExists('eventId', $data ?? [], null);
-        $this->setIfExists('eventType', $data ?? [], null);
-        $this->setIfExists('bankAccountEntityId', $data ?? [], null);
-        $this->setIfExists('bankAccountEntityType', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('createdOn', $data ?? [], null);
         $this->setIfExists('createdBy', $data ?? [], null);
         $this->setIfExists('modifiedOn', $data ?? [], null);
         $this->setIfExists('modifiedBy', $data ?? [], null);
-        $this->setIfExists('httpResponse', $data ?? [], null);
     }
 
     /**
@@ -439,15 +380,6 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'verificationStatus', must be one of '%s'",
                 $this->container['verificationStatus'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getBankAccountEntityTypeAllowableValues();
-        if (!is_null($this->container['bankAccountEntityType']) && !in_array($this->container['bankAccountEntityType'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'bankAccountEntityType', must be one of '%s'",
-                $this->container['bankAccountEntityType'],
                 implode("', '", $allowedValues)
             );
         }
@@ -596,173 +528,28 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets statusReason
+     * Gets message
      *
      * @return string|null
      */
-    public function getStatusReason()
+    public function getMessage()
     {
-        return $this->container['statusReason'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets statusReason
+     * Sets message
      *
-     * @param string|null $statusReason statusReason
+     * @param string|null $message message
      *
      * @return self
      */
-    public function setStatusReason($statusReason)
+    public function setMessage($message)
     {
-        if (is_null($statusReason)) {
-            throw new \InvalidArgumentException('non-nullable statusReason cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['statusReason'] = $statusReason;
-
-        return $this;
-    }
-
-    /**
-     * Gets estimatedVerificationDate
-     *
-     * @return string|null
-     */
-    public function getEstimatedVerificationDate()
-    {
-        return $this->container['estimatedVerificationDate'];
-    }
-
-    /**
-     * Sets estimatedVerificationDate
-     *
-     * @param string|null $estimatedVerificationDate estimatedVerificationDate
-     *
-     * @return self
-     */
-    public function setEstimatedVerificationDate($estimatedVerificationDate)
-    {
-        if (is_null($estimatedVerificationDate)) {
-            throw new \InvalidArgumentException('non-nullable estimatedVerificationDate cannot be null');
-        }
-        $this->container['estimatedVerificationDate'] = $estimatedVerificationDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets eventId
-     *
-     * @return string|null
-     */
-    public function getEventId()
-    {
-        return $this->container['eventId'];
-    }
-
-    /**
-     * Sets eventId
-     *
-     * @param string|null $eventId eventId
-     *
-     * @return self
-     */
-    public function setEventId($eventId)
-    {
-        if (is_null($eventId)) {
-            throw new \InvalidArgumentException('non-nullable eventId cannot be null');
-        }
-        $this->container['eventId'] = $eventId;
-
-        return $this;
-    }
-
-    /**
-     * Gets eventType
-     *
-     * @return string|null
-     */
-    public function getEventType()
-    {
-        return $this->container['eventType'];
-    }
-
-    /**
-     * Sets eventType
-     *
-     * @param string|null $eventType eventType
-     *
-     * @return self
-     */
-    public function setEventType($eventType)
-    {
-        if (is_null($eventType)) {
-            throw new \InvalidArgumentException('non-nullable eventType cannot be null');
-        }
-        $this->container['eventType'] = $eventType;
-
-        return $this;
-    }
-
-    /**
-     * Gets bankAccountEntityId
-     *
-     * @return float|null
-     */
-    public function getBankAccountEntityId()
-    {
-        return $this->container['bankAccountEntityId'];
-    }
-
-    /**
-     * Sets bankAccountEntityId
-     *
-     * @param float|null $bankAccountEntityId bankAccountEntityId
-     *
-     * @return self
-     */
-    public function setBankAccountEntityId($bankAccountEntityId)
-    {
-        if (is_null($bankAccountEntityId)) {
-            throw new \InvalidArgumentException('non-nullable bankAccountEntityId cannot be null');
-        }
-        $this->container['bankAccountEntityId'] = $bankAccountEntityId;
-
-        return $this;
-    }
-
-    /**
-     * Gets bankAccountEntityType
-     *
-     * @return string|null
-     */
-    public function getBankAccountEntityType()
-    {
-        return $this->container['bankAccountEntityType'];
-    }
-
-    /**
-     * Sets bankAccountEntityType
-     *
-     * @param string|null $bankAccountEntityType bankAccountEntityType
-     *
-     * @return self
-     */
-    public function setBankAccountEntityType($bankAccountEntityType)
-    {
-        if (is_null($bankAccountEntityType)) {
-            throw new \InvalidArgumentException('non-nullable bankAccountEntityType cannot be null');
-        }
-        $allowedValues = $this->getBankAccountEntityTypeAllowableValues();
-        if (!in_array($bankAccountEntityType, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'bankAccountEntityType', must be one of '%s'",
-                    $bankAccountEntityType,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['bankAccountEntityType'] = $bankAccountEntityType;
+        $this->container['message'] = $message;
 
         return $this;
     }
@@ -871,33 +658,6 @@ class VerifyBankAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable modifiedBy cannot be null');
         }
         $this->container['modifiedBy'] = $modifiedBy;
-
-        return $this;
-    }
-
-    /**
-     * Gets httpResponse
-     *
-     * @return \OpenAPI\Client\Model\VerifyBankAccountResponseHttpResponse|null
-     */
-    public function getHttpResponse()
-    {
-        return $this->container['httpResponse'];
-    }
-
-    /**
-     * Sets httpResponse
-     *
-     * @param \OpenAPI\Client\Model\VerifyBankAccountResponseHttpResponse|null $httpResponse httpResponse
-     *
-     * @return self
-     */
-    public function setHttpResponse($httpResponse)
-    {
-        if (is_null($httpResponse)) {
-            throw new \InvalidArgumentException('non-nullable httpResponse cannot be null');
-        }
-        $this->container['httpResponse'] = $httpResponse;
 
         return $this;
     }
