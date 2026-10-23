@@ -7,8 +7,8 @@ Secure API
 
 ### Requirements
 
-PHP 7.4 and later.
-Should also work with PHP 8.0.
+PHP 8.2.35, 8.3.36, 8.4.27, or 8.5.12.
+Please patch your interpreter to one of these versions for security purposes.
 
 ### Composer
 
